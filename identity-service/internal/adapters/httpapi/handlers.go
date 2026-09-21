@@ -7,11 +7,14 @@ import (
 
 	"identity-service/internal/application"
 	"identity-service/internal/domain"
+	"identity-service/internal/ports"
 )
 
 type Handlers struct {
-	Register *application.RegisterUser
-	Login    *application.AuthenticateUser
+	Register   *application.RegisterUser
+	Login      *application.AuthenticateUser
+	GetSession *application.GetActiveSession
+	Tokens     ports.TokenIssuer
 }
 
 type registerRequest struct {
@@ -77,6 +80,34 @@ func (h *Handlers) HandleLogin(w http.ResponseWriter, r *http.Request) {
 			"full_name": result.User.FullName,
 			"role":      result.User.Role,
 		},
+	})
+}
+
+func (h *Handlers) HandleGetMe(w http.ResponseWriter, r *http.Request) {
+	authHeader := r.Header.Get("Authorization")
+	if len(authHeader) < 8 || authHeader[:7] != "Bearer " {
+		writeError(w, http.StatusUnauthorized, "UNAUTHORIZED", "token no proporcionado o inválido")
+		return
+	}
+	tokenStr := authHeader[7:]
+
+	userID, _, err := h.Tokens.Verify(tokenStr)
+	if err != nil {
+		writeError(w, http.StatusUnauthorized, "UNAUTHORIZED", "token inválido o expirado")
+		return
+	}
+
+	user, err := h.GetSession.Execute(userID)
+	if err != nil {
+		writeError(w, http.StatusUnauthorized, "UNAUTHORIZED", "usuario no encontrado")
+		return
+	}
+
+	writeJSON(w, http.StatusOK, map[string]any{
+		"id":        user.ID,
+		"email":     user.Email,
+		"full_name": user.FullName,
+		"role":      user.Role,
 	})
 }
 
