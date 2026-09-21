@@ -27,8 +27,10 @@ func main() {
 	tokens := token.NewHMACTokenIssuer(secret, 24*time.Hour)
 
 	handlers := &httpapi.Handlers{
-		Register: &application.RegisterUser{Users: users, Hasher: hasher},
-		Login:    &application.AuthenticateUser{Users: users, Hasher: hasher, Tokens: tokens},
+		Register:   &application.RegisterUser{Users: users, Hasher: hasher},
+		Login:      &application.AuthenticateUser{Users: users, Hasher: hasher, Tokens: tokens},
+		GetSession: &application.GetActiveSession{Users: users},
+		Tokens:     tokens,
 	}
 
 	router := httpapi.NewRouter(handlers)
