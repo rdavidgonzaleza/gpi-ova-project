@@ -645,9 +645,10 @@ devuelve datos tipados.
 
 ## 9. Convenciones de entrega (para decomposición en tareas)
 
-- Rama por tarea: `feat/<servicio>-<descripcion-corta>` (ej.
-  `feat/activity-service-crud-actividades`).
-- Definition of Done por endpoint: implementado + valida entrada + maneja
+- **Issues y Ramas:** A cada Issue en GitHub se le debe crear una rama dedicada (ej. `feat/<servicio>-<descripcion-corta>`). Esta rama generará luego un Pull Request hacia la rama `main` que deberá ser aprobado para cerrar el Issue.
+- **Flujo de trabajo por Criterios de Aceptación (CA):** Las tareas se ejecutan Criterio de Aceptación por Criterio de Aceptación. Al solicitar "procedamos al Issue X", se debe implementar el primer CA y esperar aprobación manual antes de pasar al siguiente. Cada tarea o CA puede requerir uno o varios commits.
+- **Pull Requests:** Una vez que todos los Criterios de Aceptación de un Issue estén terminados y aprobados, se debe generar automáticamente el Pull Request (usando `gh`) con un mensaje de commit claro que resuma los cambios.
+- **Definition of Done por endpoint:** implementado + valida entrada + maneja
   errores según sección 3.3 + tiene al menos una prueba de integración +
   expone `/healthz` + variables de entorno documentadas en su propio
   `README.md` de servicio.
