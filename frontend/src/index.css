@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
+
+  /* Semantic aliases */
+  --color-background: var(--color-white);
+  --color-surface: var(--color-gray-50);
+  --color-content: var(--color-gray-900);
+  --color-content-secondary: var(--color-gray-500);
+  --color-accent: var(--color-primary-600);
+  --color-border: var(--color-gray-200);
+
+  /* Apple-inspired font scale */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-content);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utilities */
+.liquid-glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: var(--color-gray-950);
+    --color-surface: var(--color-gray-900);
+    --color-content: var(--color-gray-50);
+    --color-content-secondary: var(--color-gray-400);
+    --color-accent: var(--color-primary-400);
+    --color-border: var(--color-gray-800);
+  }
+  
+  .liquid-glass {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

@@ -554,7 +554,7 @@ CREATE TABLE progress (
 Decisión de stack: **React 18 + TypeScript + Vite**. Estilos con **Tailwind
 CSS**. Estado de servidor con **TanStack Query** (React Query); estado de
 cliente mínimo con **Context API** (no se justifica Redux/Zustand para el
-alcance de este proyecto). Enrutamiento con **React Router**.
+alcance de este proyecto). Enrutamiento con **React Router**. Gestor de paquetes: **pnpm**.
 
 ### 8.1 Estructura de carpetas
 ```
@@ -607,6 +607,7 @@ frontend/
       domain.ts                     # tipos TypeScript que reflejan las entidades de la sección 7
 
   package.json
+  pnpm-lock.yaml
   tsconfig.json
 ```
 
