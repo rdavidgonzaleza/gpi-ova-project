@@ -1,5 +1,5 @@
 import { fetchClient } from './client'
-import { OVA } from '../types/domain'
+import type { OVA } from '../types/domain'
 
 export const contentApi = {
   getOvas: () => 

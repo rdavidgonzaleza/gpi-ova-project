@@ -1,5 +1,5 @@
 import { fetchClient } from './client'
-import { AuthResponse, User } from '../types/domain'
+import type { AuthResponse, User } from '../types/domain'
 
 export const authApi = {
   login: (credentials: Record<string, string>) => 

@@ -8,6 +8,7 @@ const (
 	RoleStudent Role = "estudiante"
 	RoleTeacher Role = "docente"
 	RoleAdmin   Role = "administrador"
+	RoleValidator Role = "validador"
 )
 
 type User struct {
