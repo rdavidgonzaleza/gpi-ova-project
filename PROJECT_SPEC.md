@@ -356,9 +356,9 @@ propuesto:** `8085`.
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
 | GET | `/api/evaluations?ova_id={id}` | — | `[EVALUATION...]` — 200 | Pendiente |
-| POST | `/api/evaluations/{id}/attempts` | `{student_id, answers}` (requiere token) | `{score, feedback}` — 201 | Pendiente |
-| GET | `/api/evaluations/attempts?student_id={id}` | — (requiere token) | `[EVALUATION_ATTEMPT...]` — 200 | Pendiente |
-| GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
+| POST | `/api/evaluations/{id}/attempts` | `{student_id, answers}` (requiere token de estudiante; `student_id` debe coincidir con `sub`) | `{score, feedback}` — 201 | Implementado |
+| GET | `/api/evaluations/attempts?student_id={id}` | — (requiere token; estudiantes solo consultan su propio historial, docentes/administradores pueden consultar cualquier estudiante) | `[EVALUATION_ATTEMPT...]` — 200 | Implementado |
+| GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 **Dependencias salientes:** valida `ova_id` contra `content-service`.
 
@@ -519,7 +519,8 @@ CREATE TABLE ai_interactions (
 CREATE TABLE evaluations (
   id       UUID PRIMARY KEY,
   ova_id   UUID NOT NULL,                  -- referencia lógica a content-service.ovas.id
-  type     VARCHAR(20) NOT NULL CHECK (type IN ('autoevaluacion','transferencia'))
+  type     VARCHAR(20) NOT NULL CHECK (type IN ('autoevaluacion','transferencia')),
+  config   JSONB NOT NULL                  -- preguntas y respuestas correctas para calificación automática
 );
 
 CREATE TABLE evaluation_attempts (
@@ -531,6 +532,16 @@ CREATE TABLE evaluation_attempts (
   submitted_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 ```
+
+`evaluations.config` contiene `{ "questions": [{ "id": string,
+"correct_answer": string|number|boolean|null, "feedback_correct?": string,
+"feedback_incorrect?": string }] }`. Los IDs de pregunta son únicos. Cada
+respuesta enviada en `answers` usa el ID de la pregunta como clave y una
+respuesta primitiva como valor. El servicio calcula `score` como porcentaje de
+respuestas correctas (0–100, con dos decimales); las respuestas omitidas
+cuentan como incorrectas. El campo `feedback` resume el resultado y el
+feedback configurado por pregunta. La configuración se carga en la base de
+datos; la v1 no define un endpoint para crear evaluaciones.
 
 ### 7.6 `tracking-service` — pendiente
 ```sql
