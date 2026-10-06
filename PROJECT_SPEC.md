@@ -355,7 +355,7 @@ propuesto:** `8085`.
 
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
-| GET | `/api/evaluations?ova_id={id}` | — | `[EVALUATION...]` — 200 | Pendiente |
+| GET | `/api/evaluations?ova_id={id}` | — | `[EVALUATION...]` — 200 | Implementado |
 | POST | `/api/evaluations/{id}/attempts` | `{student_id, answers}` (requiere token de estudiante; `student_id` debe coincidir con `sub`) | `{score, feedback}` — 201 | Implementado |
 | GET | `/api/evaluations/attempts?student_id={id}` | — (requiere token; estudiantes solo consultan su propio historial, docentes/administradores pueden consultar cualquier estudiante) | `[EVALUATION_ATTEMPT...]` — 200 | Implementado |
 | GET | `/healthz` | — | `"ok"` — 200 | Implementado |
@@ -527,6 +527,7 @@ CREATE TABLE evaluation_attempts (
   id             UUID PRIMARY KEY,
   evaluation_id  UUID NOT NULL REFERENCES evaluations(id),
   student_id     UUID NOT NULL,             -- referencia lógica a identity-service.users.id
+  answers        JSONB NOT NULL,
   score          NUMERIC(5,2) NOT NULL,
   feedback       TEXT,
   submitted_at   TIMESTAMPTZ NOT NULL DEFAULT now()

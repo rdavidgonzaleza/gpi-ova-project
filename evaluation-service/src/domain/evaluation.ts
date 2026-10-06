@@ -11,5 +11,7 @@ export type EvaluationConfig = {
 
 export type Evaluation = {
   id: string;
+  ova_id: string;
+  type: "autoevaluacion" | "transferencia";
   config: EvaluationConfig;
 };

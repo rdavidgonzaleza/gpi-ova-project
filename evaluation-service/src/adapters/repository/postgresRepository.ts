@@ -9,12 +9,24 @@ export class PostgresEvaluationRepository implements EvaluationRepository {
 
   async findEvaluation(id: string): Promise<Evaluation | null> {
     const result = await this.pool.query(
-      "SELECT id, config FROM evaluations WHERE id = $1",
+      "SELECT id, ova_id, type, config FROM evaluations WHERE id = $1",
       [id],
     );
     if (result.rowCount === 0) return null;
-    const config = evaluationConfigSchema.parse(result.rows[0].config);
-    return { id: result.rows[0].id, config } satisfies Evaluation & { config: EvaluationConfig };
+    const row = result.rows[0];
+    const config = evaluationConfigSchema.parse(row.config);
+    return { id: row.id, ova_id: row.ova_id, type: row.type, config } satisfies Evaluation & { config: EvaluationConfig };
+  }
+
+  async listEvaluationsByOva(ovaId: string): Promise<Evaluation[]> {
+    const result = await this.pool.query(
+      "SELECT id, ova_id, type, config FROM evaluations WHERE ova_id = $1",
+      [ovaId],
+    );
+    return result.rows.map(row => {
+      const config = evaluationConfigSchema.parse(row.config);
+      return { id: row.id, ova_id: row.ova_id, type: row.type, config };
+    });
   }
 
   async saveAttempt(attempt: EvaluationAttempt): Promise<void> {

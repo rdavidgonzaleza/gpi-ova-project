@@ -2,6 +2,7 @@ import { serve } from "@hono/node-server";
 import { Pool } from "pg";
 import { RegisterAttempt } from "./application/registerAttempt.js";
 import { ListAttempts } from "./application/listAttempts.js";
+import { ListEvaluations } from "./application/listEvaluations.js";
 import { createRouter } from "./adapters/http/router.js";
 import { PostgresEvaluationRepository } from "./adapters/repository/postgresRepository.js";
 
@@ -16,6 +17,7 @@ const repository = new PostgresEvaluationRepository(pool);
 const app = createRouter({
   registerAttempt: new RegisterAttempt(repository),
   listAttempts: new ListAttempts(repository),
+  listEvaluations: new ListEvaluations(repository),
   jwtSecret,
 });
 

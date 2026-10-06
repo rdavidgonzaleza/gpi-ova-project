@@ -5,12 +5,14 @@ import { cors } from "hono/cors";
 import { z } from "zod";
 import { EvaluationNotFoundError, RegisterAttempt } from "../../application/registerAttempt.js";
 import { ListAttempts } from "../../application/listAttempts.js";
+import { ListEvaluations } from "../../application/listEvaluations.js";
 import { verifyToken } from "../auth/hmacToken.js";
 import { evaluationConfigSchema, registerAttemptSchema } from "./schemas.js";
 
 type Dependencies = {
   registerAttempt: RegisterAttempt;
   listAttempts: ListAttempts;
+  listEvaluations: ListEvaluations;
   jwtSecret: string;
 };
 
@@ -25,6 +27,19 @@ export function createRouter(dependencies: Dependencies) {
   }));
 
   app.get("/healthz", (context) => context.text("ok"));
+
+  app.get("/api/evaluations", async (context) => {
+    const ovaId = uuidSchema.safeParse(context.req.query("ova_id"));
+    if (!ovaId.success) return error(context, 400, "INVALID_QUERY", "ova_id inválido o faltante");
+
+    try {
+      const evaluations = await dependencies.listEvaluations.execute(ovaId.data);
+      return context.json(evaluations, 200);
+    } catch (err) {
+      console.error("no fue posible consultar las evaluaciones", err);
+      return error(context, 500, "INTERNAL_ERROR", "no fue posible consultar las evaluaciones");
+    }
+  });
 
   app.post("/api/evaluations/:id/attempts", async (context) => {
     const claims = getClaims(context.req.header("Authorization"), dependencies.jwtSecret);

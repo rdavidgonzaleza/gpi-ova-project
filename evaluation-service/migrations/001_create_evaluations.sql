@@ -9,6 +9,7 @@ CREATE TABLE evaluation_attempts (
   id             UUID PRIMARY KEY,
   evaluation_id  UUID NOT NULL REFERENCES evaluations(id),
   student_id     UUID NOT NULL,
+  answers        JSONB NOT NULL,
   score          NUMERIC(5,2) NOT NULL,
   feedback       TEXT,
   submitted_at   TIMESTAMPTZ NOT NULL DEFAULT now()
