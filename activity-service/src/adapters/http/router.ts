@@ -4,13 +4,15 @@ import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { cors } from "hono/cors";
 import { CreateActivity, OvaNotFoundError } from "../../application/createActivity.js";
 import { ListActivities } from "../../application/listActivities.js";
+import { ActivityNotFoundError, RegisterActivityAttempt } from "../../application/registerActivityAttempt.js";
 import { ContentServiceUnavailableError } from "../ovaCatalog/httpOvaCatalog.js";
 import { verifyToken } from "../auth/hmacToken.js";
-import { createActivitySchema } from "./schemas.js";
+import { createActivityAttemptSchema, createActivitySchema } from "./schemas.js";
 
 type Dependencies = {
   createActivity: CreateActivity;
   listActivities: ListActivities;
+  registerActivityAttempt: RegisterActivityAttempt;
   jwtSecret: string;
 };
 
@@ -65,6 +67,45 @@ export function createRouter(dependencies: Dependencies) {
     } catch (err) {
       console.error("no fue posible consultar las actividades", err);
       return error(context, 500, "INTERNAL_ERROR", "no fue posible consultar las actividades");
+    }
+  });
+
+  app.post("/api/activities/:id/attempts", async (context) => {
+    const claims = getClaims(context.req.header("Authorization"), dependencies.jwtSecret);
+    if (!claims) return error(context, 401, "UNAUTHORIZED", "token inválido o expirado");
+    if (claims.role !== "estudiante") {
+      return error(context, 403, "FORBIDDEN", "solo estudiantes pueden registrar intentos");
+    }
+
+    const activityId = context.req.param("id");
+    if (!uuidPattern.test(activityId)) {
+      return error(context, 400, "INVALID_PATH", "id de actividad inválido");
+    }
+
+    let body: unknown;
+    try {
+      body = await context.req.json();
+    } catch {
+      return error(context, 400, "INVALID_BODY", "cuerpo de la solicitud inválido");
+    }
+    const parsed = createActivityAttemptSchema.safeParse(body);
+    if (!parsed.success) return error(context, 400, "INVALID_BODY", "student_id o answers inválidos");
+    if (parsed.data.student_id !== claims.sub) {
+      return error(context, 403, "STUDENT_MISMATCH", "student_id debe coincidir con el token");
+    }
+
+    try {
+      const attempt = await dependencies.registerActivityAttempt.execute({
+        activity_id: activityId,
+        ...parsed.data,
+      });
+      return context.json(attempt, 201);
+    } catch (err) {
+      if (err instanceof ActivityNotFoundError) {
+        return error(context, 404, "ACTIVITY_NOT_FOUND", "actividad no encontrada");
+      }
+      console.error("no fue posible registrar el intento", err);
+      return error(context, 500, "INTERNAL_ERROR", "no fue posible registrar el intento");
     }
   });
 
