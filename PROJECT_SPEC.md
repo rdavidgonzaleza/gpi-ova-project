@@ -294,16 +294,26 @@ simulaciones) y registrar los intentos de los estudiantes.
 
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
-| GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Pendiente |
-| POST | `/api/activities` | `{ova_id, type, title, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Pendiente |
+| GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Implementado |
+| POST | `/api/activities` | `{ova_id, type, title, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Implementado |
 | GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Pendiente |
 | POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token) | `ACTIVITY_ATTEMPT` — 201 | Pendiente |
-| GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
+| GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 `type` ∈ `{"quiz", "caso_estudio", "simulacion", "colaborativa"}`.
-`config`: objeto JSON libre según `type` (ej. para `quiz`: lista de preguntas
-y opciones) — definir el schema exacto de `config` como tarea de diseño
-técnico antes de implementar, y agregarlo a este documento.
+`config` es un objeto JSON con schema según `type`:
+
+- `quiz`: `{ "questions": [{ "id": string, "prompt": string, "options": [{ "id": string, "text": string }], "correct_option_id": string }] }`. Requiere al menos una pregunta, dos opciones por pregunta, IDs únicos y una respuesta correcta que corresponda a una opción.
+- `caso_estudio`: `{ "scenario": string, "tasks": [{ "id": string, "prompt": string }] }`.
+- `simulacion`: `{ "scenario": string, "steps": [{ "id": string, "prompt": string }] }`.
+- `colaborativa`: `{ "instructions": string, "deliverables": [string] }`.
+
+Las listas de preguntas, tareas, pasos y entregables deben tener al menos un
+elemento; los textos e IDs requeridos no pueden estar vacíos. Tipos adicionales
+de config se agregan actualizando primero este contrato.
+
+**Variables de entorno propias:** `CONTENT_SERVICE_URL` — URL base de
+`content-service` (default local: `http://localhost:8082`).
 
 **Dependencias salientes:** valida `ova_id` contra `content-service`
 (`GET /api/ovas/{id}`) al crear una actividad, para evitar huérfanas.
