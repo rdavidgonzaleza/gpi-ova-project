@@ -297,7 +297,7 @@ simulaciones) y registrar los intentos de los estudiantes.
 | GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Implementado |
 | POST | `/api/activities` | `{ova_id, type, title, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Implementado |
 | GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Pendiente |
-| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token) | `ACTIVITY_ATTEMPT` — 201 | Pendiente |
+| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token de estudiante; `student_id` debe coincidir con `sub`) | `ACTIVITY_ATTEMPT` — 201 | Implementado |
 | GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 `type` ∈ `{"quiz", "caso_estudio", "simulacion", "colaborativa"}`.

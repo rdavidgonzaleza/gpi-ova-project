@@ -57,3 +57,8 @@ export const createActivitySchema = z.discriminatedUnion("type", [
   z.object({ ...common, type: z.literal("simulacion"), config: simulationConfigSchema }).strict(),
   z.object({ ...common, type: z.literal("colaborativa"), config: collaborativeConfigSchema }).strict(),
 ]);
+
+export const createActivityAttemptSchema = z.object({
+  student_id: z.string().uuid(),
+  answers: z.record(z.string(), z.unknown()),
+}).strict();
