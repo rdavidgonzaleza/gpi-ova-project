@@ -316,6 +316,27 @@ técnico antes de implementar, y agregarlo a este documento.
 **Dependencias salientes:** valida `ova_id` contra `content-service`
 (`GET /api/ovas/{id}`) al crear una actividad, para evitar huérfanas.
 
+#### 5.3.1 Esquema de `config` por tipo
+
+Todos los `config` incluyen `position` (entero, misma escala que
+`content_blocks.position`) para intercalar la actividad entre los bloques del
+OVA, e `instructions` opcional. Los campos `*_ai_activity_id` referencian
+lógicamente `ai_activities.id` del `ai-service`.
+
+| `type` | Campos propios |
+|---|---|
+| `quiz` | `questions[]` (`id`, `prompt`, `options[]` de `{id, text}`, `answer?`, `explanation?`), `hints_ai_activity_id?`. Si trae `evaluation_id`, es la presentación de una evaluación de `evaluation-service`: no incluye `answer` (la clave vive solo en `evaluations.config`) y puede traer `explain_ai_activity_id?` |
+| `caso_estudio` | `scenario` (Markdown), `questions[]` (`id`, `prompt`, `placeholder?`), `rubric[]` (`id`, `name`, `description`), `review_ai_activity_id`, `variant_ai_activity_id?` |
+| `simulacion` | `kind` ∈ `{"triple_restriccion","edt","cpm","evm","riesgos"}`, `params` (objeto propio de cada `kind`), `review_ai_activity_id?` |
+| `colaborativa` | `prompt`, `role` (rol que asume el estudiante), `contributions[]` (`author`, `role`, `text`), `synthesis_ai_activity_id?` |
+
+`answers` de `POST /api/activities/{id}/attempts` es un objeto libre con las
+respuestas del intento; si hubo retroalimentación de IA, incluye su
+`interaction_id`.
+
+Los bloques `imagen` y `video` de `content_blocks` guardan en `content` el
+formato `url|descripción`; los bloques `texto` usan Markdown.
+
 ---
 
 ### 5.4 IA generativa — `ai-service`

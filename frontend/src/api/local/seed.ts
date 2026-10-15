@@ -5,7 +5,7 @@
 // Bump SEED_VERSION whenever these rows change: seeded rows are refreshed and
 // rows created by people are kept.
 
-export const SEED_VERSION = 3
+export const SEED_VERSION = 4
 
 const PASSWORD_HASH = 'pbkdf2-sha256$100000$S_7ReoFH-BcJihT5mBE5sw$j0WRgmKUt-R2AZ0D-0bRqfvRAujD_6Yx9rpi3cwFz8c'
 
@@ -58,6 +58,7 @@ export function seedTables(): Record<string, Row[]> {
       unit.activities.map((activity) => ({ ...activity, ova_id: unit.ovaId, created_at: created })),
     ),
     evaluations: units.map((unit) => ({ ...unit.evaluation })),
+    progress: groupProgress(),
     users: [
       user(USER_IDS.docente, 'docente.gpi@unicartagena.edu.co', 'Carlos Herrera Díaz', 'docente'),
       user(USER_IDS.administrador, 'admin.ova@unicartagena.edu.co', 'Mónica Ríos Pacheco', 'administrador'),
@@ -115,4 +116,42 @@ export function seedTables(): Record<string, Row[]> {
 
 function user(id: string, email: string, full_name: string, role: string) {
   return { id, email, full_name, role, password_hash: PASSWORD_HASH, created_at: '2026-08-20T15:00:00Z' }
+}
+
+// Progress of the rest of the course group, so the teacher dashboard reflects
+// a class already working through the path (tracking-service, spec 7.6).
+const GROUP_PROGRESS: Array<[number, number, number, number]> = [
+  // alcance, cronograma, costos, riesgos (percent; -1 = not started)
+  [100, 100, 64, 18],
+  [100, 82, 27, -1],
+  [100, 100, 100, 45],
+  [73, 18, -1, -1],
+  [100, 91, 45, -1],
+  [36, -1, -1, -1],
+  [100, 100, 82, 9],
+  [100, 55, -1, -1],
+  [9, -1, -1, -1],
+  [100, 100, 100, 100],
+  [91, 27, -1, -1],
+  [100, 73, 9, -1],
+]
+
+function groupProgress(): Row[] {
+  const order = [OVA_IDS.alcance, OVA_IDS.cronograma, OVA_IDS.costos, OVA_IDS.riesgos]
+  return STUDENTS.slice(1).flatMap(([studentId], row) =>
+    GROUP_PROGRESS[row].flatMap((percent, column) =>
+      percent < 0
+        ? []
+        : [
+            {
+              id: `9e0d1c2b-0000-4000-8000-${(row * 10 + column).toString().padStart(12, '0')}`,
+              student_id: studentId,
+              ova_id: order[column],
+              status: percent >= 100 ? 'completado' : 'en_progreso',
+              percent_complete: percent,
+              last_accessed_at: new Date(Date.UTC(2026, 9, 14 - ((row + column) % 9), 14 + (row % 6), 10 * column)).toISOString().replace(/\.\d{3}Z$/, 'Z'),
+            },
+          ],
+    ),
+  )
 }

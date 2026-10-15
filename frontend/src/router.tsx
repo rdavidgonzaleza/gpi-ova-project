@@ -4,7 +4,11 @@ import { ButtonLink } from './components/Button'
 import { StateView } from './components/StateView'
 import { LoginForm } from './features/auth/LoginForm'
 import { RegisterForm } from './features/auth/RegisterForm'
+import { ValidationPanel } from './features/ai-validation/ValidationPanel'
 import { OVAList } from './features/ova-catalog/OVAList'
+import { OVAEditor } from './features/ova-editor/OVAEditor'
+import { ProgressTable } from './features/teacher-dashboard/ProgressTable'
+import { ProtectedRoute } from './components/ProtectedRoute'
 import { OVAPlayer } from './features/ova-viewer/OVAPlayer'
 import { OVAViewer } from './features/ova-viewer/OVAViewer'
 
@@ -26,6 +30,30 @@ export const router = createBrowserRouter([
       { path: 'ovas/:id/paso/:paso', element: <OVAPlayer /> },
       { path: 'login', element: <LoginForm /> },
       { path: 'registro', element: <RegisterForm /> },
+      {
+        path: 'docente/progreso',
+        element: (
+          <ProtectedRoute role={['docente', 'administrador']}>
+            <ProgressTable />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'docente/ovas/nuevo',
+        element: (
+          <ProtectedRoute role={['docente', 'administrador']}>
+            <OVAEditor />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'validacion',
+        element: (
+          <ProtectedRoute role={['validador', 'docente', 'administrador']}>
+            <ValidationPanel />
+          </ProtectedRoute>
+        ),
+      },
       {
         path: '*',
         element: (
