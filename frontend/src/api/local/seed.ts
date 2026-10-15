@@ -5,16 +5,13 @@
 // Bump SEED_VERSION whenever these rows change: seeded rows are refreshed and
 // rows created by people are kept.
 
-export const SEED_VERSION = 2
+export const SEED_VERSION = 3
 
 const PASSWORD_HASH = 'pbkdf2-sha256$100000$S_7ReoFH-BcJihT5mBE5sw$j0WRgmKUt-R2AZ0D-0bRqfvRAujD_6Yx9rpi3cwFz8c'
 
-export const OVA_IDS = {
-  alcance: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a01',
-  cronograma: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a02',
-  costos: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a03',
-  riesgos: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a04',
-} as const
+export { OVA_IDS } from '../../content/ids'
+import { OVA_IDS } from '../../content/ids'
+import { COURSE_UNITS } from '../../content'
 
 export const USER_IDS = {
   docente: '0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b10',
@@ -43,7 +40,24 @@ export const STUDENTS: Array<[id: string, email: string, fullName: string]> = [
 type Row = { id: string } & Record<string, unknown>
 
 export function seedTables(): Record<string, Row[]> {
+  const units = COURSE_UNITS
+  const created = '2026-09-01T13:00:00Z'
   return {
+    content_blocks: units.flatMap((unit) => unit.blocks.map((block) => ({ ...block, ova_id: unit.ovaId }))),
+    // content-service keeps a summary of each activity (spec 7.2).
+    ova_activities: units.flatMap((unit) =>
+      unit.activities.map(({ id, title, description, config }) => ({
+        id,
+        ova_id: unit.ovaId,
+        title,
+        description,
+        is_ai: Object.keys(config).some((key) => key.endsWith('ai_activity_id')),
+      })),
+    ),
+    activities: units.flatMap((unit) =>
+      unit.activities.map((activity) => ({ ...activity, ova_id: unit.ovaId, created_at: created })),
+    ),
+    evaluations: units.map((unit) => ({ ...unit.evaluation })),
     users: [
       user(USER_IDS.docente, 'docente.gpi@unicartagena.edu.co', 'Carlos Herrera Díaz', 'docente'),
       user(USER_IDS.administrador, 'admin.ova@unicartagena.edu.co', 'Mónica Ríos Pacheco', 'administrador'),

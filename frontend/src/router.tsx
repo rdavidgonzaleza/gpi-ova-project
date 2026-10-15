@@ -5,6 +5,7 @@ import { StateView } from './components/StateView'
 import { LoginForm } from './features/auth/LoginForm'
 import { RegisterForm } from './features/auth/RegisterForm'
 import { OVAList } from './features/ova-catalog/OVAList'
+import { OVAPlayer } from './features/ova-viewer/OVAPlayer'
 import { OVAViewer } from './features/ova-viewer/OVAViewer'
 
 // Route map — spec 8.3
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <OVAList /> },
       { path: 'ovas/:id', element: <OVAViewer /> },
+      { path: 'ovas/:id/paso/:paso', element: <OVAPlayer /> },
       { path: 'login', element: <LoginForm /> },
       { path: 'registro', element: <RegisterForm /> },
       {

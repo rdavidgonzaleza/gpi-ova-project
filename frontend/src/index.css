@@ -201,6 +201,85 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
+
+  /* Long-form reading: OVA blocks and AI-generated Markdown. */
+  .prose-ova {
+    @apply text-body text-label;
+    line-height: 1.7;
+  }
+  .prose-ova > * + * {
+    margin-top: 1rem;
+  }
+  .prose-ova h2 {
+    @apply font-display text-title-1 font-bold;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+  .prose-ova h3 {
+    @apply text-title-3 font-semibold;
+    margin-top: 2rem;
+  }
+  .prose-ova p,
+  .prose-ova li {
+    color: var(--label);
+  }
+  .prose-ova strong {
+    font-weight: 650;
+  }
+  .prose-ova em {
+    color: var(--label-2);
+  }
+  .prose-ova ul,
+  .prose-ova ol {
+    padding-left: 1.4rem;
+  }
+  .prose-ova ul {
+    list-style: disc;
+  }
+  .prose-ova ol {
+    list-style: decimal;
+  }
+  .prose-ova li + li {
+    margin-top: 0.5rem;
+  }
+  .prose-ova li::marker {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .prose-ova blockquote {
+    @apply rounded-control bg-accent-soft px-5 py-4;
+    border-left: 3px solid var(--accent);
+  }
+  .prose-ova blockquote p {
+    color: var(--label);
+  }
+  .prose-ova table {
+    @apply w-full overflow-hidden rounded-control text-subhead;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 0 1px var(--separator);
+  }
+  .prose-ova th {
+    @apply bg-surface-2 text-left font-semibold;
+  }
+  .prose-ova th,
+  .prose-ova td {
+    padding: 0.65rem 0.9rem;
+    vertical-align: top;
+  }
+  .prose-ova tr + tr td {
+    border-top: 1px solid var(--separator);
+  }
+  .prose-ova code {
+    @apply rounded bg-surface-2 px-1.5 py-0.5 font-mono text-footnote;
+  }
+  .prose-ova.compact {
+    @apply text-subhead;
+    line-height: 1.6;
+  }
+  .prose-ova.compact > * + * {
+    margin-top: 0.6rem;
+  }
 }
 
 @keyframes rise-in {

@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "c0a7e17d-0000-4000-8400-000000000001",
+    "activity_id": "c0a7e17d-0000-4000-8400-000000000001",
+    "provider": "gemini",
+    "prompt_template": "Tarea: dar una pista para una pregunta de selección múltiple sin revelar la respuesta.\nRecibirás un JSON con la pregunta, las opciones, la opción que el estudiante marcó (si marcó alguna) y el nivel de pista pedido.\n- Nivel 1: recuerda el concepto que la pregunta evalúa, sin mencionar opciones.\n- Nivel 2: da una pregunta guía o un ejemplo de RutaCaribe que acerque a la idea correcta.\n- Nivel 3: explica por qué una o dos opciones incorrectas no encajan. Nunca digas cuál es la correcta.\nSi el estudiante ya marcó una opción, no confirmes ni niegues si es correcta.\nResponde en 2 a 4 oraciones, sin títulos ni viñetas.\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8400-000000000002",
+    "activity_id": "c0a7e17d-0000-4000-8400-000000000002",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: explicar los errores de una autoevaluación ya calificada.\nRecibirás un JSON con el OVA, las preguntas con sus opciones, la respuesta que eligió el estudiante y la retroalimentación oficial del sistema de evaluación, que menciona los conceptos de las preguntas falladas.\nUsa la retroalimentación oficial para identificar qué preguntas falló. No contradigas esa retroalimentación.\nPara cada pregunta fallada explica por qué la opción elegida no es correcta y qué idea debe repasar, en 2 o 3 oraciones.\nSi no falló ninguna, devuelve \"explicaciones\" vacío y felicítalo en \"siguiente_paso\".\nDevuelve exactamente: {\"explicaciones\":[{\"pregunta\":\"texto corto de la pregunta\",\"explicacion\":\"...\",\"concepto\":\"concepto a repasar\"}],\"siguiente_paso\":\"una recomendación concreta\"}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8400-000000000003",
+    "activity_id": "c0a7e17d-0000-4000-8400-000000000003",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: escribir un repaso personalizado al terminar un OVA.\nRecibirás un JSON con el título del OVA, su resultado de aprendizaje y el desempeño del estudiante en cada actividad (aciertos de quizzes, nivel en la rúbrica del caso, resultado de la simulación y puntaje de la autoevaluación).\nDestaca fortalezas reales a partir de los datos. Prioriza a lo sumo tres temas a reforzar, con una acción concreta para cada uno (releer una sección, rehacer una actividad, practicar con un ejemplo de RutaCaribe).\nNo inventes resultados que no estén en los datos.\nDevuelve exactamente: {\"resumen\":\"2 o 3 oraciones\",\"fortalezas\":[\"...\"],\"a_reforzar\":[{\"tema\":\"...\",\"accion\":\"...\"}],\"siguiente_paso\":\"...\"}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8400-000000000004",
+    "activity_id": "c0a7e17d-0000-4000-8400-000000000004",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: actuar como relator neutral de una reunión de equipo de proyecto.\nRecibirás un JSON con la situación que se discute, las posturas de los integrantes y el aporte del estudiante con su rol.\nSintetiza la discusión: puntos de acuerdo, tensiones entre posturas y una decisión que el equipo podría tomar, coherente con buenas prácticas de gestión de proyectos.\nValora el aporte del estudiante: qué suma a la discusión y qué podría fortalecer. Sé específico y constructivo.\nDevuelve exactamente: {\"sintesis\":\"...\",\"acuerdos\":[\"...\"],\"tensiones\":[\"...\"],\"decision_sugerida\":\"...\",\"sobre_tu_aporte\":\"...\"}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8400-000000000005",
+    "activity_id": "c0a7e17d-0000-4000-8400-000000000005",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: ayudar a un docente a redactar borradores de preguntas de selección múltiple.\nRecibirás un JSON con el OVA, el tema, la cantidad de preguntas y la dificultad. Las preguntas deben evaluar comprensión y aplicación, no memoria, y pueden usar el caso RutaCaribe (plataforma de tiquetes de una cooperativa de buses en Cartagena).\nCada pregunta tiene 4 opciones plausibles y una sola correcta. Evita \"todas las anteriores\" y opciones absurdas.\nDevuelve exactamente: {\"preguntas\":[{\"enunciado\":\"...\",\"opciones\":[\"...\",\"...\",\"...\",\"...\"],\"correcta\":0,\"explicacion\":\"...\"}]}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8410-000000000003",
+    "activity_id": "c0a7e17d-0000-4000-8410-000000000003",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: revisar el resultado de un estudiante en la simulación \"Arma la EDT de RutaCaribe\".\nSe evalúa la EDT: regla del 100 %, orientación a entregables y exclusiones del alcance.\nRecibirás un JSON con lo que hizo el estudiante y los errores que detectó el sistema.\nExplica el principio detrás de cada error y reconoce lo que hizo bien. No repitas la lista de errores tal cual: interprétala.\nDevuelve exactamente: {\"valoracion\":\"2 oraciones\",\"observaciones\":[\"...\"],\"principio_clave\":\"una idea para recordar\"}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8410-000000000001",
+    "activity_id": "c0a7e17d-0000-4000-8410-000000000001",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: retroalimentar las respuestas de un estudiante al caso de estudio \"La petición del gerente\" usando esta rúbrica:\n- c1 · Identificación del cambio: Reconoce que es un cambio porque contradice una exclusión de la línea base.\n- c2 · Proceso de control de cambios: Propone solicitud formal, análisis de impacto, decisión del CCB y actualización de líneas base.\n- c3 · Análisis de impacto: Relaciona alcance, tiempo, costo y calidad con datos del caso (5 semanas, 2 desarrolladores).\n- c4 · Comunicación con el interesado: Responde al gerente con alternativas (fase 2, más recursos, mover la fecha) sin rechazar de plano.\n\nRecibirás un JSON con el escenario del caso y las respuestas del estudiante a cada pregunta.\nPara cada criterio asigna un nivel: \"logrado\", \"parcial\" o \"por_mejorar\", con un comentario de 1 o 2 oraciones que cite lo que el estudiante escribió.\nAgrega fortalezas, mejoras concretas y una pregunta de reflexión que lo haga pensar más allá de lo que respondió. No reescribas sus respuestas por él.\nDevuelve exactamente: {\"criterios\":[{\"id\":\"c1\",\"nivel\":\"logrado\",\"comentario\":\"...\"}],\"fortalezas\":[\"...\"],\"mejoras\":[\"...\"],\"pregunta_reflexion\":\"...\"}\n\n{{input}}"
+  },
+  {
+    "id": "c0a7e17d-0000-4000-8410-000000000002",
+    "activity_id": "c0a7e17d-0000-4000-8410-000000000002",
+    "provider": "gemini",
+    "prompt_template": "[[formato:json]]\nTarea: escribir una variante del caso de estudio \"La petición del gerente\" para que el estudiante practique con una situación nueva.\nCaso original:\nRutaCaribe va en la **semana 7 de 16**. La línea base del alcance está aprobada y el equipo avanza según lo planeado.\n\nEn el comité semanal, el gerente de la cooperativa dice:\n\n> *\"Vi que la competencia ya vende encomiendas por su app. Necesito que RutaCaribe también lo haga. No debe ser difícil: es casi lo mismo que un tiquete, ¿no? Lo quiero en la misma fecha de lanzamiento.\"*\n\nEl líder técnico estima que el módulo de encomiendas requiere unas **5 semanas** de trabajo de dos desarrolladores. El enunciado del alcance lista la venta de encomiendas como **exclusión** explícita.\n\nPreguntas que el estudiante responderá (no las cambies):\n- ¿Esta petición es un cambio de alcance? Justifica tu respuesta con lo que dice la línea base.\n- Describe, paso a paso, cómo gestionarías la petición como director del proyecto.\n- ¿Qué impacto tendría aceptarla sin ajustar nada más? Usa la triple restricción.\n\nMantén el proyecto RutaCaribe y el mismo concepto evaluado, pero cambia el interesado, la petición, las cifras y el momento del proyecto. Los datos deben ser coherentes entre sí y permitir responder todas las preguntas.\nEl escenario se escribe en Markdown, en 120 a 180 palabras, con una cita del interesado en cursiva.\nRecibirás un JSON con preferencias opcionales del estudiante; respétalas si son razonables.\nDevuelve exactamente: {\"titulo\":\"...\",\"escenario\":\"...\"}\n\n{{input}}"
+  }
+]

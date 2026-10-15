@@ -15,7 +15,7 @@ fi
 set -a; source "$LOCAL/.env"; set +a
 
 DB="postgres://gpi:gpi@localhost:55432"
-psql_in() { docker compose -f "$LOCAL/compose.yaml" exec -T db psql -v ON_ERROR_STOP=1 -q -U gpi -d "$@"; }
+psql_in() { docker compose -f "$LOCAL/compose.yaml" exec -T -e PGOPTIONS=--client-min-messages=warning db psql -v ON_ERROR_STOP=1 -q -U gpi -d "$@"; }
 
 echo "▸ Base de datos"
 docker compose -f "$LOCAL/compose.yaml" up -d --wait >/dev/null 2>&1
