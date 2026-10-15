@@ -41,6 +41,30 @@ func (r *PostgresUserRepository) FindByID(id string) (*domain.User, error) {
 	return scanUserPostgres(row)
 }
 
+func (r *PostgresUserRepository) List(role domain.Role) ([]*domain.User, error) {
+	rows, err := r.db.Query(
+		`SELECT id, email, full_name, password_hash, role, created_at FROM users
+		 WHERE $1 = '' OR role = $1 ORDER BY full_name`,
+		string(role),
+	)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	users := []*domain.User{}
+	for rows.Next() {
+		var u domain.User
+		var userRole string
+		if err := rows.Scan(&u.ID, &u.Email, &u.FullName, &u.PasswordHash, &userRole, &u.CreatedAt); err != nil {
+			return nil, err
+		}
+		u.Role = domain.Role(userRole)
+		users = append(users, &u)
+	}
+	return users, rows.Err()
+}
+
 func scanUserPostgres(row *sql.Row) (*domain.User, error) {
 	var u domain.User
 	var role string

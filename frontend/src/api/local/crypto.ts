@@ -1,7 +1,7 @@
 import type { Role, UUID } from '../../types/domain'
 
-// Token and password primitives for the local identity adapter. Tokens follow
-// the same format as identity-service (HMAC-SHA256 JWT with sub, role, exp).
+// Token and password primitives for the local identity adapter. Tokens use the
+// same format as identity-service: base64url(payload) + "." + base64url(HMAC-SHA256).
 
 const encoder = new TextEncoder()
 const KEY_STORAGE = 'gpi.signing_key'
@@ -35,20 +35,19 @@ async function hmacKey() {
 }
 
 export async function issueToken(sub: UUID, role: Role): Promise<string> {
-  const header = base64url(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
   const payload = base64url(JSON.stringify({ sub, role, exp: Math.floor(Date.now() / 1000) + TOKEN_TTL_SECONDS }))
-  const signature = await crypto.subtle.sign('HMAC', await hmacKey(), encoder.encode(`${header}.${payload}`))
-  return `${header}.${payload}.${base64url(new Uint8Array(signature))}`
+  const signature = await crypto.subtle.sign('HMAC', await hmacKey(), encoder.encode(payload))
+  return `${payload}.${base64url(new Uint8Array(signature))}`
 }
 
 export async function verifyToken(token: string): Promise<{ sub: UUID; role: Role } | null> {
-  const [header, payload, signature] = token.split('.')
-  if (!header || !payload || !signature) return null
+  const [payload, signature, extra] = token.split('.')
+  if (!payload || !signature || extra !== undefined) return null
   const valid = await crypto.subtle.verify(
     'HMAC',
     await hmacKey(),
     fromBase64(signature) as Uint8Array<ArrayBuffer>,
-    encoder.encode(`${header}.${payload}`),
+    encoder.encode(payload),
   )
   if (!valid) return null
   const claims = JSON.parse(new TextDecoder().decode(fromBase64(payload)))

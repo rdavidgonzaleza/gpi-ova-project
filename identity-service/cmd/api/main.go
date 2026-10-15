@@ -30,6 +30,7 @@ func main() {
 		Register:   &application.RegisterUser{Users: users, Hasher: hasher},
 		Login:      &application.AuthenticateUser{Users: users, Hasher: hasher, Tokens: tokens},
 		GetSession: &application.GetActiveSession{Users: users},
+		ListUsers:  &application.ListUsers{Users: users},
 		Tokens:     tokens,
 	}
 

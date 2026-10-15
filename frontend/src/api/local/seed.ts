@@ -5,7 +5,7 @@
 // Bump SEED_VERSION whenever these rows change: seeded rows are refreshed and
 // rows created by people are kept.
 
-export const SEED_VERSION = 1
+export const SEED_VERSION = 2
 
 const PASSWORD_HASH = 'pbkdf2-sha256$100000$S_7ReoFH-BcJihT5mBE5sw$j0WRgmKUt-R2AZ0D-0bRqfvRAujD_6Yx9rpi3cwFz8c'
 
@@ -23,6 +23,23 @@ export const USER_IDS = {
   estudiante: '0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b20',
 } as const
 
+// Course group 2026-2. Same rows as deploy/local/seed/identity_users.sql.
+export const STUDENTS: Array<[id: string, email: string, fullName: string]> = [
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b20', 'laura.martinez@unicartagena.edu.co', 'Laura Martínez Gómez'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b21', 'andres.castillo@unicartagena.edu.co', 'Andrés Castillo Pérez'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b22', 'valentina.orozco@unicartagena.edu.co', 'Valentina Orozco Ruiz'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b23', 'juan.barrios@unicartagena.edu.co', 'Juan David Barrios Mendoza'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b24', 'camila.herrera@unicartagena.edu.co', 'Camila Herrera Julio'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b25', 'santiago.pineda@unicartagena.edu.co', 'Santiago Pineda Arrieta'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b26', 'mariana.lopez@unicartagena.edu.co', 'Mariana López Villadiego'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b27', 'sebastian.marrugo@unicartagena.edu.co', 'Sebastián Marrugo Cassiani'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b28', 'daniela.acosta@unicartagena.edu.co', 'Daniela Acosta Blanco'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b29', 'nicolas.guerrero@unicartagena.edu.co', 'Nicolás Guerrero Torres'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b2a', 'isabella.cabarcas@unicartagena.edu.co', 'Isabella Cabarcas Díaz'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b2b', 'mateo.puello@unicartagena.edu.co', 'Mateo Puello Morales'],
+  ['0b6f8a52-7c1e-4d3a-8f2b-5e9c1d7a3b2c', 'sofia.ramos@unicartagena.edu.co', 'Sofía Ramos Carmona'],
+]
+
 type Row = { id: string } & Record<string, unknown>
 
 export function seedTables(): Record<string, Row[]> {
@@ -31,7 +48,7 @@ export function seedTables(): Record<string, Row[]> {
       user(USER_IDS.docente, 'docente.gpi@unicartagena.edu.co', 'Carlos Herrera Díaz', 'docente'),
       user(USER_IDS.administrador, 'admin.ova@unicartagena.edu.co', 'Mónica Ríos Pacheco', 'administrador'),
       user(USER_IDS.validador, 'validacion.ova@unicartagena.edu.co', 'Andrés Villalba Torres', 'validador'),
-      user(USER_IDS.estudiante, 'laura.martinez@unicartagena.edu.co', 'Laura Martínez Gómez', 'estudiante'),
+      ...STUDENTS.map(([id, email, fullName]) => user(id, email, fullName, 'estudiante')),
     ],
     ovas: [
       {

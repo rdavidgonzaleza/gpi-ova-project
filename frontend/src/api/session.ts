@@ -25,11 +25,14 @@ export function clearToken() {
   localStorage.removeItem(TOKEN_KEY)
 }
 
-/** Reads the claims of a JWT without verifying it (verification is the services' job). */
+/**
+ * Reads the claims of a token without verifying it (verification is the
+ * services' job). identity-service issues `payload.signature`, both base64url.
+ */
 export function decodeClaims(token: string | null): Claims | null {
   if (!token) return null
-  const [, payload] = token.split('.')
-  if (!payload) return null
+  const [payload, signature] = token.split('.')
+  if (!payload || !signature) return null
   try {
     const json = atob(payload.replace(/-/g, '+').replace(/_/g, '/'))
     const claims = JSON.parse(json) as Claims
