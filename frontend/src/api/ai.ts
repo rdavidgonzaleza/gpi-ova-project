@@ -14,6 +14,12 @@ export const aiApi = {
       signal,
     }),
 
+  /** Validator panel (RF-10): pending interactions with validated=false. */
+  listInteractions: (validated?: boolean) =>
+    http<AIInteraction[]>('/api/ai-interactions', {
+      query: { validated: validated === undefined ? undefined : String(validated) },
+    }),
+
   validate: (interactionId: UUID, validated: boolean, notes: string) =>
     http<AIInteraction>(`/api/ai-interactions/${interactionId}/validate`, {
       method: 'POST',

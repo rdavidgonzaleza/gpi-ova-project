@@ -239,10 +239,18 @@ servicios.
 | POST | `/api/auth/register` | `{email, full_name, password, role}` | `{id, email, full_name, role}` — 201 | Implementado |
 | POST | `/api/auth/login` | `{email, password}` | `{token, user:{id,email,full_name,role}}` — 200 | Implementado |
 | GET | `/api/auth/me` | header `Authorization` | `{id, email, full_name, role}` — 200 | Pendiente |
+| GET | `/api/auth/users?role={role}` | header `Authorization` (token docente/administrador); `role` opcional | `[{id, email, full_name, role}...]` — 200 | Pendiente |
 | GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 Errores: `409` correo ya registrado; `401` credenciales inválidas; `400`
 cuerpo inválido.
+
+`GET /api/auth/users` lista usuarios ordenados por `full_name`, nunca expone
+`password_hash`. Si se envía `role`, filtra por ese rol (valor inválido → `400`
+`INVALID_QUERY`). Sin token → `401`; rol distinto de `docente` o `administrador`
+→ `403` `FORBIDDEN`. Lo usa el panel docente (UC-13) para listar estudiantes y
+resolver nombres a partir de los `student_id` que guardan los demás servicios.
+Vive bajo el prefijo `/api/auth/*`, así que no requiere cambios en el Gateway.
 
 **Variables de entorno propias:** ninguna adicional a la sección 3.5.
 **Dependencias salientes:** ninguna (es el servicio más independiente).
@@ -327,12 +335,20 @@ registrar cada interacción junto con su validación humana.
 | POST | `/api/ai-activities` | `{activity_id, prompt_template, provider}` | `AI_ACTIVITY` — 201 | Pendiente |
 | POST | `/api/ai-activities/{id}/run` | `{student_id, input}` (requiere token) | `{interaction_id, ai_output}` — 200 | Pendiente |
 | POST | `/api/ai-interactions/{id}/validate` | `{validated: bool, notes}` (requiere token) | `AI_INTERACTION` — 200 | Pendiente |
+| GET | `/api/ai-interactions?validated={bool}` | — (requiere token validador/docente/administrador); `validated` opcional | `[AI_INTERACTION...]` — 200 | Pendiente |
 | GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
+
+`GET /api/ai-interactions` alimenta el panel del validador (RF-10): con
+`validated=false` devuelve las interacciones pendientes de revisión, ordenadas
+de la más reciente a la más antigua. Sin token → `401`; rol `estudiante` → `403`.
 
 Decisión: el `provider` es un valor libre (ej. `"anthropic"`, `"openai"`) y
 el adapter concreto (`adapters/ai_provider/`) se decide en la tarea de
 implementación; el puerto `ai_provider.py` debe quedar desacoplado para poder
 cambiar de proveedor sin tocar `application/` (cumple RF-11 del SRS).
+Decisión (v1): el adapter inicial es Google Gemini (`provider: "gemini"`),
+con la clave en `AI_PROVIDER_API_KEY` y el modelo en `AI_MODEL` (opcional,
+default `gemini-2.5-flash`).
 La respuesta de `run` **siempre** debe ir acompañada, en el frontend, de la
 instrucción de validación crítica (RF-09) — esto es responsabilidad del
 frontend al renderizar, no de este servicio.
@@ -380,12 +396,26 @@ para el docente.
 |---|---|---|---|---|
 | GET | `/api/progress?student_id={id}` | — (requiere token) | `[PROGRESS...]` — 200 | Pendiente |
 | PUT | `/api/progress` | `{student_id, ova_id, status, percent_complete}` | `PROGRESS` — 200 | Pendiente |
-| GET | `/api/reports/usage?group_id={id}` | — (requiere token docente) | agregados de uso — 200 | Pendiente |
+| GET | `/api/reports/usage?group_id={id}` | — (requiere token docente) | `USAGE_REPORT` — 200 | Pendiente |
 | GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
 
 Decisión: `PUT /api/progress` es llamado por el frontend cada vez que un
 estudiante avanza o completa un OVA (no hay eventos asíncronos en la v1, ver
 sección 2).
+
+`USAGE_REPORT`:
+```json
+{
+  "group_id": "gpi-2026-2",
+  "generated_at": "2026-10-14T20:00:00Z",
+  "total_students": 32,
+  "rows": [
+    { "ova_id": "<uuid>", "students_started": 28, "students_completed": 19, "average_percent": 74 }
+  ]
+}
+```
+`rows` tiene una fila por OVA con al menos un registro de progreso;
+`average_percent` es el promedio entero de `percent_complete`.
 
 **Dependencias salientes:** ninguna directa; agrega datos que ya le llegan
 por parámetro (no hace JOIN a otras bases de datos).

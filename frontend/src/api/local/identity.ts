@@ -2,7 +2,7 @@ import type { AuthApi } from '../auth'
 import { getToken } from '../session'
 import type { Role, User } from '../../types/domain'
 import { checkPassword, hashPassword, issueToken, verifyToken } from './crypto'
-import { fail, now, respond, table, uuid } from './store'
+import { fail, now, requireAuth, respond, table, uuid } from './store'
 
 interface UserRow extends User {
   password_hash: string
@@ -48,10 +48,15 @@ export function localIdentity(): AuthApi {
       if (!row) return respond(() => fail(401, 'UNAUTHORIZED', 'token inválido o expirado'), 80)
       return respond(publicUser(row), 80)
     },
-  }
-}
 
-/** Display names for logical user references (local adapters only). */
-export function localUserDirectory(): Map<string, User> {
-  return new Map(users().all().map((row) => [row.id, publicUser(row)]))
+    listUsers: (role) =>
+      respond(() => {
+        requireAuth(['docente', 'administrador'])
+        if (role && !ROLES.includes(role)) fail(400, 'INVALID_QUERY', 'rol inválido')
+        return users()
+          .filter((row) => !role || row.role === role)
+          .map(publicUser)
+          .sort((a, b) => a.full_name.localeCompare(b.full_name, 'es'))
+      }),
+  }
 }
