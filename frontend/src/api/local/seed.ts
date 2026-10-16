@@ -5,7 +5,7 @@
 // Bump SEED_VERSION whenever these rows change: seeded rows are refreshed and
 // rows created by people are kept.
 
-export const SEED_VERSION = 4
+export const SEED_VERSION = 5
 
 const PASSWORD_HASH = 'pbkdf2-sha256$100000$S_7ReoFH-BcJihT5mBE5sw$j0WRgmKUt-R2AZ0D-0bRqfvRAujD_6Yx9rpi3cwFz8c'
 

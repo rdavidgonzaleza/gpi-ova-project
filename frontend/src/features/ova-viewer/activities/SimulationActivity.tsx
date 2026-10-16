@@ -1,6 +1,9 @@
 import type { ComponentType } from 'react'
 import type { SimulationConfig, SimulationKind } from '../../../types/activities'
+import { CPMSimulation } from '../../simulations/CPMSimulation'
 import { EDTSimulation } from '../../simulations/EDTSimulation'
+import { EVMSimulation } from '../../simulations/EVMSimulation'
+import { RiskSimulation } from '../../simulations/RiskSimulation'
 import { ActivityShell, type ActivityProps } from '../ActivityShell'
 
 type SimulationComponent = ComponentType<{
@@ -11,6 +14,9 @@ type SimulationComponent = ComponentType<{
 
 const SIMULATIONS: Partial<Record<SimulationKind, SimulationComponent>> = {
   edt: EDTSimulation,
+  cpm: CPMSimulation,
+  evm: EVMSimulation,
+  riesgos: RiskSimulation,
 }
 
 export function SimulationActivity({ id, title, description, config, done, onComplete }: ActivityProps<SimulationConfig>) {

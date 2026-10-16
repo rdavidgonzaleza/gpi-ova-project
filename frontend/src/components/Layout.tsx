@@ -7,6 +7,7 @@ import { ROLE_LABEL, initials } from '../lib/roles'
 import { NAV_ITEMS, type NavItem } from '../navigation'
 import { BrandMark } from './BrandMark'
 import { ButtonLink } from './Button'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Layout() {
   const { user } = useAuth()
@@ -42,7 +43,7 @@ export function Layout() {
               </ul>
             </nav>
           )}
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
             {user ? (
               <AccountMenu />
             ) : (
@@ -52,6 +53,7 @@ export function Layout() {
                 </ButtonLink>
               )
             )}
+            <ThemeToggle />
           </div>
         </div>
       </header>

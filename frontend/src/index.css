@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/inter';
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 /*
  * Design tokens. Colors are named by role, never by hue, and each one has a
  * light, dark and increased-contrast value (HIG color.md). Contrast against
@@ -33,6 +35,9 @@
   --warning-soft: rgb(255 149 0 / 0.14);
   --danger: #c4001a; /* 6.0:1 */
   --danger-soft: rgb(215 0 21 / 0.09);
+  /* Chart series (identity only; validated for CVD with dataviz validate_palette). */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
   --glass: rgb(255 255 255 / 0.72);
   --glass-border: rgb(255 255 255 / 0.6);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.04);
@@ -41,8 +46,10 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+/* Light is the default; dark applies only when the person picks it
+   (ThemeToggle sets data-theme on <html>). */
+:root[data-theme='dark'] {
+  & {
     --bg: #000000;
     --surface: #1c1c1e;
     --surface-2: #2c2c2e;
@@ -64,6 +71,8 @@
     --warning-soft: rgb(255 159 10 / 0.16);
     --danger: #ff6961;
     --danger-soft: rgb(255 69 58 / 0.16);
+    --series-1: #3987e5;
+    --series-2: #d95926;
     --glass: rgb(28 28 30 / 0.72);
     --glass-border: rgb(255 255 255 / 0.08);
     --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.04);
@@ -81,8 +90,8 @@
     --accent: #004a99;
     --glass: rgb(255 255 255 / 0.96);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  :root[data-theme='dark'] {
+    & {
       --label-2: #d1d1d6;
       --label-3: #aeaeb2;
       --separator: rgb(200 200 210 / 0.5);
@@ -127,6 +136,8 @@
   --color-warning-soft: var(--warning-soft);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
 
   --shadow-card: var(--shadow-card);
   --shadow-raised: var(--shadow-raised);

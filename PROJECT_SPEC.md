@@ -330,6 +330,15 @@ lógicamente `ai_activities.id` del `ai-service`.
 | `simulacion` | `kind` ∈ `{"triple_restriccion","edt","cpm","evm","riesgos"}`, `params` (objeto propio de cada `kind`), `review_ai_activity_id?` |
 | `colaborativa` | `prompt`, `role` (rol que asume el estudiante), `contributions[]` (`author`, `role`, `text`), `synthesis_ai_activity_id?` |
 
+`params` de `simulacion` según `kind`:
+
+| `kind` | `params` |
+|---|---|
+| `edt` | `branches[]` (`id`, `name`), `items[]` (`id`, `text`, `branch` o `null` si no pertenece a la EDT, `reason?`) |
+| `cpm` | `unit`, `activities[]` (`id`, `name`, `duration`, `predecessors[]`, dependencias fin a inicio y en orden topológico), `slack_question` (id de la actividad cuya holgura se pregunta), `delay` (`activity`, `amount`) |
+| `evm` | `currency`, `bac`, `week` (semana de corte), `total_weeks`, `pv[]` (acumulado por semana, de 0 a `total_weeks`), `ev[]` y `ac[]` (acumulados hasta `week`) |
+| `riesgos` | `risks[]` (`id`, `text`, `type` ∈ `{"amenaza","oportunidad"}`, `probability` y `impact` de 1 a 3, `responses[]` aceptadas, `reason`). Prioridad = probabilidad × impacto: 6–9 alta, 3–4 media, 1–2 baja |
+
 `answers` de `POST /api/activities/{id}/attempts` es un objeto libre con las
 respuestas del intento; si hubo retroalimentación de IA, incluye su
 `interaction_id`.
