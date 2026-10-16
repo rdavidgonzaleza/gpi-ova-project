@@ -14,6 +14,7 @@ type Handlers struct {
 	Register   *application.RegisterUser
 	Login      *application.AuthenticateUser
 	GetSession *application.GetActiveSession
+	ListUsers  *application.ListUsers
 	Tokens     ports.TokenIssuer
 }
 
@@ -109,6 +110,38 @@ func (h *Handlers) HandleGetMe(w http.ResponseWriter, r *http.Request) {
 		"full_name": user.FullName,
 		"role":      user.Role,
 	})
+}
+
+func (h *Handlers) HandleListUsers(w http.ResponseWriter, r *http.Request) {
+	authHeader := r.Header.Get("Authorization")
+	if len(authHeader) < 8 || authHeader[:7] != "Bearer " {
+		writeError(w, http.StatusUnauthorized, "UNAUTHORIZED", "token no proporcionado o inválido")
+		return
+	}
+	_, role, err := h.Tokens.Verify(authHeader[7:])
+	if err != nil {
+		writeError(w, http.StatusUnauthorized, "UNAUTHORIZED", "token inválido o expirado")
+		return
+	}
+
+	users, err := h.ListUsers.Execute(role, domain.Role(r.URL.Query().Get("role")))
+	switch {
+	case errors.Is(err, application.ErrForbidden):
+		writeError(w, http.StatusForbidden, "FORBIDDEN", err.Error())
+		return
+	case errors.Is(err, application.ErrInvalidRole):
+		writeError(w, http.StatusBadRequest, "INVALID_QUERY", err.Error())
+		return
+	case err != nil:
+		writeError(w, http.StatusInternalServerError, "INTERNAL_ERROR", "no fue posible consultar los usuarios")
+		return
+	}
+
+	body := make([]map[string]any, 0, len(users))
+	for _, u := range users {
+		body = append(body, map[string]any{"id": u.ID, "email": u.Email, "full_name": u.FullName, "role": u.Role})
+	}
+	writeJSON(w, http.StatusOK, body)
 }
 
 func writeJSON(w http.ResponseWriter, status int, payload any) {
