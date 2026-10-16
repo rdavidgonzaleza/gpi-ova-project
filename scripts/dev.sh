@@ -55,7 +55,7 @@ start identity env -C "$ROOT/identity-service" PORT=8081 DATABASE_URL="$DB/ident
 start evaluation env -C "$ROOT/evaluation-service" PORT=8085 DATABASE_URL="$DB/evaluation" \
   JWT_SECRET="$JWT_SECRET" npm run dev
 start ai env -C "$ROOT/ai-service" PORT=8084 DATABASE_URL="postgresql+psycopg://gpi:gpi@localhost:55432/ai" \
-  JWT_SECRET="$JWT_SECRET" AI_PROVIDER_API_KEY="${AI_PROVIDER_API_KEY:-}" AI_MODEL="${AI_MODEL:-gemini-2.5-flash}" \
+  JWT_SECRET="$JWT_SECRET" AI_PROVIDER_API_KEY="${AI_PROVIDER_API_KEY:-}" AI_MODEL="${AI_MODEL:-gemini-3.8-flash}" \
   uv run python -m app.main
 start frontend env -C "$ROOT/frontend" pnpm dev --strictPort
 

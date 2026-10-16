@@ -69,7 +69,7 @@ def create_app(provider: AIProvider | None = None, database_url: str | None = No
     interactions = SqlAIInteractionRepository(engine)
     provider = provider or GeminiProvider(
         api_key=os.getenv("AI_PROVIDER_API_KEY") or None,
-        model=os.getenv("AI_MODEL", "gemini-2.5-flash"),
+        model=os.getenv("AI_MODEL", "gemini-3.8-flash"),
     )
     loaded = load_seed(activities)
     logging.getLogger(__name__).info("actividades de IA cargadas: %d", loaded)

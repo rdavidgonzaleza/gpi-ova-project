@@ -378,7 +378,7 @@ implementación; el puerto `ai_provider.py` debe quedar desacoplado para poder
 cambiar de proveedor sin tocar `application/` (cumple RF-11 del SRS).
 Decisión (v1): el adapter inicial es Google Gemini (`provider: "gemini"`),
 con la clave en `AI_PROVIDER_API_KEY` y el modelo en `AI_MODEL` (opcional,
-default `gemini-2.5-flash`).
+default `gemini-3.8-flash`).
 La respuesta de `run` **siempre** debe ir acompañada, en el frontend, de la
 instrucción de validación crítica (RF-09) — esto es responsabilidad del
 frontend al renderizar, no de este servicio.

@@ -11,7 +11,7 @@ Proveedor v1: Google Gemini.
 | `DATABASE_URL` | Postgres (`postgresql+psycopg://...`) o SQLite (`sqlite:///./ai.db`) | `sqlite:///./ai.db` |
 | `JWT_SECRET` | Mismo secreto de identity-service | obligatoria |
 | `AI_PROVIDER_API_KEY` | Clave de Gemini (https://aistudio.google.com/apikey) | — |
-| `AI_MODEL` | Modelo de Gemini | `gemini-2.5-flash` |
+| `AI_MODEL` | Modelo de Gemini | `gemini-3.8-flash` |
 | `CORS_ORIGINS` | Orígenes permitidos, separados por coma | `*` |
 | `LOG_LEVEL` | `debug`, `info`, `warn` o `error` | `info` |
 
