@@ -770,6 +770,6 @@ devuelve datos tipados.
 | activity-service | Pendiente No iniciado |
 | ai-service | Pendiente No iniciado |
 | evaluation-service | Pendiente No iniciado |
-| tracking-service | Implementado — progreso por estudiante y reporte de uso |
+| tracking-service | Pendiente No iniciado |
 | API Gateway | Pendiente No iniciado |
 | Frontend (estructura objetivo) | Pendiente No iniciado (existe solo el HTML plano de la demo) |
