@@ -4,6 +4,7 @@ import { activitiesApi } from '../../api/activities'
 import { contentApi } from '../../api/content'
 import { evaluationsApi } from '../../api/evaluations'
 import { trackingApi } from '../../api/tracking'
+import { captionTitle, splitMedia } from '../../lib/media'
 import { usePersistentState } from '../../lib/usePersistentState'
 import type { QuizConfig } from '../../types/activities'
 import type { Activity, ContentBlock, Evaluation, OVA, Progress, UUID } from '../../types/domain'
@@ -24,8 +25,8 @@ interface JourneyState {
 }
 
 function blockTitle(block: ContentBlock): string {
-  if (block.type === 'imagen') return 'Diagrama'
-  if (block.type === 'video') return 'Video'
+  if (block.type === 'imagen') return captionTitle(splitMedia(block.content).description, 'Diagrama')
+  if (block.type === 'video') return captionTitle(splitMedia(block.content).description, 'Video')
   const heading = block.content.match(/^#{1,3}\s+(.+)$/m)
   return heading?.[1]?.trim() ?? 'Lectura'
 }

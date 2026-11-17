@@ -89,6 +89,12 @@ export function localContent(): ContentApi {
         return withDetail(row)
       }),
 
+    requestUpload: () =>
+      respond(() => {
+        requireAuth([...EDITORS])
+        return fail(503, 'STORAGE_NOT_CONFIGURED', 'La subida de archivos necesita el servicio de contenidos en línea.')
+      }),
+
     versions: (id) =>
       respond(() =>
         versions()

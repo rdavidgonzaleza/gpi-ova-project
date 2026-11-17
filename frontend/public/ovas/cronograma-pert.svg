@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Estimación por tres valores (PERT)">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<path class="dg-accent-soft" d="M93.8 220.0 L98.2 187.4 L102.7 165.8 L107.2 148.3 L111.7 133.8 L116.1 121.7 L120.6 111.5 L125.1 103.1 L129.6 96.2 L134.1 90.7 L138.5 86.4 L143.0 83.2 L147.5 81.0 L152.0 79.7 L156.5 79.2 L160.9 79.5 L165.4 80.4 L169.9 82.0 L174.4 84.1 L178.9 86.7 L183.3 89.8 L187.8 93.2 L192.3 97.0 L196.8 101.1 L201.3 105.4 L205.7 110.0 L210.2 114.7 L214.7 119.6 L219.2 124.6 L223.6 129.6 L228.1 134.7 L232.6 139.9 L237.1 145.0 L241.6 150.0 L246.0 155.0 L250.5 160.0 L255.0 164.8 L259.5 169.5 L264.0 174.0 L268.4 178.4 L272.9 182.6 L277.4 186.6 L281.9 190.4 L286.4 194.0 L290.8 197.4 L295.3 200.5 L299.8 203.5 L304.3 206.1 L308.8 208.5 L313.2 210.7 L317.7 212.6 L322.2 214.3 L326.7 215.7 L331.1 216.9 L335.6 217.9 L340.1 218.7 L344.6 219.3 L349.1 219.6 L353.5 219.9 L358.0 220.0 L362.5 220.0 Z"/>
+<path class="dg-line" d="M40 220 H470"/>
+<path class="dg-line" d="M93.75 220 V228"/>
+<text class="dg-t" x="99.8" y="248" font-size="14" font-weight="650" text-anchor="end">O = 3</text>
+<text class="dg-t2" x="99.8" y="268" font-size="13" text-anchor="end">Optimista</text>
+<path class="dg-line" d="M147.5 220 V228"/>
+<text class="dg-t" x="141.5" y="248" font-size="14" font-weight="650">M = 4</text>
+<text class="dg-t2" x="141.5" y="268" font-size="13">Más probable</text>
+<path class="dg-line" d="M362.5 220 V228"/>
+<text class="dg-t" x="362.5" y="248" font-size="14" font-weight="650" text-anchor="middle">P = 8</text>
+<text class="dg-t2" x="362.5" y="268" font-size="13" text-anchor="middle">Pesimista</text>
+<path class="dg-flow" d="M174.375 60 V220"/>
+<path class="dg-accent" d="M174.4 52 L182.4 60 L174.4 68 L166.4 60 Z"/>
+<text class="dg-ta" x="188.4" y="64" font-size="15" font-weight="650">Estimado = 4,5 sem</text>
+<rect class="dg-box" x="510" y="40" width="274" height="196" rx="16"/>
+<text class="dg-t" x="530" y="76" font-size="16" font-weight="650">Fórmula PERT</text>
+<text class="dg-ta" x="530" y="110" font-size="18" font-weight="700">(O + 4M + P) / 6</text>
+<text class="dg-t2" x="530" y="146" font-size="14">(3 + 16 + 8) / 6 = 4,5 semanas</text>
+<text class="dg-t2" x="530" y="182" font-size="13.5"><tspan x="530" dy="0">El valor más probable pesa</tspan><tspan x="530" dy="17.6">cuatro veces más.</tspan></text>
+</svg>

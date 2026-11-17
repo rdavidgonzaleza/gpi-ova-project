@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 364" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Estrategias de respuesta a amenazas y oportunidades">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-danger-soft" x="16" y="16" width="372" height="292" rx="18"/>
+<text class="dg-td" x="38" y="54" font-size="19" font-weight="700">Amenazas</text>
+<text class="dg-t2" x="38" y="78" font-size="14">Reducir lo que puede salir mal</text>
+<rect class="dg-card" x="30" y="98" width="344" height="40" rx="10"/>
+<path class="dg-danger" d="M48 113 L53 118 L48 123 L43 118 Z"/>
+<text class="dg-t" x="62" y="123" font-size="14.5">Evitar · cambiar el plan para eliminarla</text>
+<rect class="dg-card" x="30" y="146" width="344" height="40" rx="10"/>
+<path class="dg-danger" d="M48 161 L53 166 L48 171 L43 166 Z"/>
+<text class="dg-t" x="62" y="171" font-size="14.5">Transferir · contrato, seguro o SLA</text>
+<rect class="dg-card" x="30" y="194" width="344" height="40" rx="10"/>
+<path class="dg-danger" d="M48 209 L53 214 L48 219 L43 214 Z"/>
+<text class="dg-t" x="62" y="219" font-size="14.5">Mitigar · bajar probabilidad o impacto</text>
+<rect class="dg-card" x="30" y="242" width="344" height="40" rx="10"/>
+<path class="dg-danger" d="M48 257 L53 262 L48 267 L43 262 Z"/>
+<text class="dg-t" x="62" y="267" font-size="14.5">Aceptar · reserva si ocurre</text>
+<rect class="dg-success-soft" x="412" y="16" width="372" height="292" rx="18"/>
+<text class="dg-ts" x="434" y="54" font-size="19" font-weight="700">Oportunidades</text>
+<text class="dg-t2" x="434" y="78" font-size="14">Aprovechar lo que puede salir bien</text>
+<rect class="dg-card" x="426" y="98" width="344" height="40" rx="10"/>
+<path class="dg-success" d="M444 113 L449 118 L444 123 L439 118 Z"/>
+<text class="dg-t" x="458" y="123" font-size="14.5">Explotar · asegurar que ocurra</text>
+<rect class="dg-card" x="426" y="146" width="344" height="40" rx="10"/>
+<path class="dg-success" d="M444 161 L449 166 L444 171 L439 166 Z"/>
+<text class="dg-t" x="458" y="171" font-size="14.5">Compartir · aliarse con quien la aprovecha</text>
+<rect class="dg-card" x="426" y="194" width="344" height="40" rx="10"/>
+<path class="dg-success" d="M444 209 L449 214 L444 219 L439 214 Z"/>
+<text class="dg-t" x="458" y="219" font-size="14.5">Mejorar · subir probabilidad o impacto</text>
+<rect class="dg-card" x="426" y="242" width="344" height="40" rx="10"/>
+<path class="dg-success" d="M444 257 L449 262 L444 267 L439 262 Z"/>
+<text class="dg-t" x="458" y="267" font-size="14.5">Aceptar · aprovecharla si llega</text>
+<text class="dg-t2" x="400" y="348" font-size="14" text-anchor="middle">Escalar: si el riesgo excede al proyecto, pasa a la organización · cada respuesta tiene responsable</text>
+</svg>

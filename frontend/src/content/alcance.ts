@@ -18,11 +18,11 @@ export const alcance: CourseUnit = {
       position: 1,
       content: `## El proyecto que nos acompaña
 
-La **Cooperativa de Transportes Brisas del Caribe** mueve cada día a miles de pasajeros entre Cartagena, Barranquilla y Sincelejo. Hoy vende sus tiquetes en taquilla y por WhatsApp. La gerencia contrató a tu equipo para construir **RutaCaribe**: una plataforma web y móvil para comprar tiquetes, elegir silla y pagar en línea.
+La **Cooperativa Brisas del Caribe** vende tiquetes en taquilla y por WhatsApp. Tu equipo construirá **RutaCaribe**: comprar tiquetes, elegir silla y pagar en línea.
 
-Durante los cuatro OVA vas a gestionar este proyecto: definirás su alcance, armarás su cronograma, controlarás sus costos y anticiparás sus riesgos.
+En los cuatro OVA gestionarás este proyecto: **alcance → cronograma → costos → riesgos**.
 
-> Antes de escribir una sola línea de código, el equipo necesita acordar **qué** se va a construir y **qué no**. Eso es gestionar el alcance.`,
+> Antes de programar, hay que acordar **qué** se construye y **qué no**. Eso es gestionar el alcance.`,
     },
     {
       id: ids.block(U, 2),
@@ -30,23 +30,15 @@ Durante los cuatro OVA vas a gestionar este proyecto: definirás su alcance, arm
       position: 2,
       content: `## Alcance del producto y alcance del proyecto
 
-El PMBOK distingue dos ideas que suelen confundirse:
+El PMBOK separa **lo que se entrega** (producto) del **trabajo para entregarlo** (proyecto).
 
-- **Alcance del producto**: las características y funciones de lo que se entrega. En RutaCaribe: compra de tiquetes, selección de silla, pago con PSE y tarjeta, tiquete digital con código QR.
-- **Alcance del proyecto**: el trabajo necesario para entregar ese producto. Incluye levantar requisitos, diseñar, desarrollar, probar, capacitar a los taquilleros y poner en producción.
+![Alcance del producto frente al alcance del proyecto en RutaCaribe](/ovas/alcance-producto-proyecto.svg)
 
 ### Los seis procesos
 
-| Proceso | Pregunta que responde | Salida principal |
-|---|---|---|
-| Planificar la gestión del alcance | ¿Cómo vamos a definir y controlar el alcance? | Plan de gestión del alcance |
-| Recopilar requisitos | ¿Qué necesitan los interesados? | Documentación y matriz de trazabilidad |
-| Definir el alcance | ¿Qué entra y qué queda fuera? | Enunciado del alcance |
-| Crear la EDT | ¿Cómo se descompone el trabajo? | Línea base del alcance |
-| Validar el alcance | ¿El cliente acepta lo entregado? | Entregables aceptados |
-| Controlar el alcance | ¿Cómo manejamos los cambios? | Solicitudes de cambio |
+![Los seis procesos de la gestión del alcance, con la pregunta que responde y la salida de cada uno](/ovas/alcance-procesos.svg)
 
-El **enunciado del alcance** deja por escrito los entregables, los criterios de aceptación, las **exclusiones** y los supuestos. Las exclusiones son tan importantes como lo incluido: "RutaCaribe no incluirá venta de encomiendas en esta versión" evita discusiones meses después.`,
+El **enunciado del alcance** fija entregables, criterios de aceptación, supuestos y **exclusiones**, que evitan discusiones meses después.`,
     },
     {
       id: ids.block(U, 3),
@@ -54,16 +46,11 @@ El **enunciado del alcance** deja por escrito los entregables, los criterios de 
       position: 4,
       content: `## La Estructura de Desglose del Trabajo (EDT)
 
-La EDT (*WBS* en inglés) descompone **todo** el trabajo del proyecto en partes cada vez más pequeñas y manejables. Es la base para estimar costos, asignar responsables y construir el cronograma.
+La EDT descompone **todo** el trabajo en partes manejables. Es la base para estimar, asignar responsables y armar el cronograma.
 
-### Reglas que la hacen útil
+![Las cuatro reglas de una buena EDT](/ovas/alcance-reglas-edt.svg)
 
-1. **Regla del 100 %.** La EDT incluye todo el trabajo del proyecto y nada más. Cada nivel suma exactamente el 100 % de su nivel padre.
-2. **Orientada a entregables.** Los elementos son sustantivos (*"Módulo de pagos"*), no verbos (*"Programar pagos"*). Las actividades aparecen después, en el cronograma.
-3. **Paquetes de trabajo.** El nivel más bajo es el paquete de trabajo: lo bastante pequeño para estimarlo con confianza y asignarlo a un responsable.
-4. **Sin solapamientos.** Un mismo trabajo no aparece en dos ramas.
-
-Cada paquete de trabajo se describe en el **diccionario de la EDT**: responsable, descripción, criterios de aceptación y estimaciones. La EDT, su diccionario y el enunciado del alcance aprobados forman la **línea base del alcance**.`,
+EDT + **diccionario de la EDT** + enunciado del alcance aprobados = **línea base del alcance**.`,
     },
     {
       id: ids.block(U, 4),
@@ -77,19 +64,11 @@ Cada paquete de trabajo se describe en el **diccionario de la EDT**: responsable
       position: 7,
       content: `## Controlar el alcance
 
-Cambiar el alcance no es malo; hacerlo sin control sí lo es. Dos fenómenos aparecen en casi todos los proyectos de software:
+Cambiar el alcance no es malo; hacerlo **sin control** sí lo es.
 
-- **Corrupción del alcance** (*scope creep*): pequeñas peticiones que se aceptan "porque es rápido" y que, sumadas, desbordan el tiempo y el presupuesto.
-- **Enchapado en oro** (*gold plating*): el equipo agrega funciones que nadie pidió, creyendo que agregan valor.
+![Proceso de control de cambios en cuatro pasos, la triple restricción, la corrupción del alcance y el enchapado en oro](/ovas/alcance-control-cambios.svg)
 
-### El proceso de control de cambios
-
-1. El interesado registra una **solicitud de cambio**.
-2. El equipo **analiza el impacto** en alcance, cronograma, costo, calidad y riesgos.
-3. El **Comité de Control de Cambios (CCB)** aprueba, rechaza o difiere la solicitud.
-4. Si se aprueba, se **actualizan las líneas base** y se comunica a los interesados.
-
-Recuerda la **triple restricción**: alcance, tiempo y costo están conectados. Si uno crece, al menos otro debe ajustarse o la calidad se resiente.`,
+Si el alcance crece, el tiempo o el costo deben ajustarse, o la calidad se resiente.`,
     },
   ],
   activities: [
