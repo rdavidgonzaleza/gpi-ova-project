@@ -258,7 +258,7 @@ Vive bajo el prefijo `/api/auth/*`, así que no requiere cambios en el Gateway.
 ---
 
 ### 5.2 Contenidos OVA — `content-service`
-**Estado:** Pendiente **Stack** Go. **Puerto:** `8082`.
+**Estado:** Implementado **Stack** Go. **Puerto:** `8082`.
 **Responsabilidad:** CRUD y versionado de los OVA, sus bloques de contenido y
 sus actividades asociadas.
 **Entidades:** `OVAS`, `OVA_VERSIONS`, `CONTENT_BLOCKS` (ver sección 7.2).
@@ -274,17 +274,36 @@ sus actividades asociadas.
 |---|---|---|---|---|
 | GET | `/api/ovas` | — | `[OVA...]` — 200 | Implementado |
 | GET | `/api/ovas/{id}` | — | `OVA` (con `blocks`, `activities`) — 200 / `404` | Implementado |
-| POST | `/api/ovas` | `{title, description, learning_outcome, blocks[], activities[]}` | `OVA` — 201 | Implementado (sin validar token todavía) |
-| PATCH | `/api/ovas/{id}` | campos a actualizar | `OVA` — 200 | Pendiente |
-| POST | `/api/ovas/{id}/publish` | — | `OVA` con `status: "publicado"` — 200 | Pendiente |
-| GET | `/api/ovas/{id}/versions` | — | `[OVA_VERSION...]` — 200 | Pendiente |
+| POST | `/api/ovas` | `{title, description, learning_outcome, blocks[], activities[]}` (requiere token docente/administrador) | `OVA` — 201 | Implementado |
+| PATCH | `/api/ovas/{id}` | campos a actualizar + `change_notes?` (requiere token docente/administrador) | `OVA` — 200 | Implementado |
+| POST | `/api/ovas/{id}/publish` | — (requiere token docente/administrador) | `OVA` con `status: "publicado"` — 200 | Implementado |
+| GET | `/api/ovas/{id}/versions` | — | `[OVA_VERSION...]` — 200 | Implementado |
+| POST | `/api/ovas/{id}/media` | `{file_name, content_type}` (requiere token docente/administrador) | `{upload_url, public_url, key, block_type, content_type, expires_at}` — 201 | Implementado |
 | GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 `blocks[]` item: `{type: "texto"|"imagen"|"video", position, content}`.
 `activities[]` item: `{title, description, is_ai}`.
 
-**Dependencias salientes:** llama a `identity-service` (`GET /api/auth/me`)
-para validar el token en escrituras.
+`PATCH` reemplaza `blocks` y `activities` completos cuando vienen en el cuerpo
+y deja intactos los campos ausentes. Cada `POST` crea la versión 1 ("Versión
+inicial") y cada `PATCH` registra la siguiente versión con `change_notes`.
+
+`POST /api/ovas/{id}/media` no recibe el archivo: devuelve una URL firmada
+(AWS SigV4, válida 15 minutos) para que el navegador haga
+`PUT upload_url` con el mismo `Content-Type` directo al almacenamiento de
+objetos. Tipos permitidos: `image/png`, `image/jpeg`, `image/webp`,
+`image/gif`, `image/svg+xml` (bloque `imagen`), `video/mp4`, `video/webm`
+(bloque `video`). El bloque guarda luego `public_url|descripción`. Sin
+almacenamiento configurado responde `503 STORAGE_NOT_CONFIGURED`.
+
+Decisión (v1): el almacenamiento de imágenes y videos de los OVA es un bucket
+compatible con S3; se usa Backblaze B2 (plan gratuito). Variables propias:
+`S3_ENDPOINT`, `S3_REGION`, `S3_BUCKET`, `S3_ACCESS_KEY_ID`,
+`S3_SECRET_ACCESS_KEY` y `MEDIA_PUBLIC_BASE_URL` (opcional). El puerto
+`MediaStorage` permite cambiar a otro proveedor S3 sin tocar `application/`.
+
+**Dependencias salientes:** ninguna para el token (verifica la firma HMAC con
+`JWT_SECRET`, spec 3.4); llama al almacenamiento S3 solo para firmar URLs.
 
 ---
 
@@ -525,7 +544,8 @@ CREATE TABLE ova_versions (                -- pendiente
   ova_id          UUID NOT NULL REFERENCES ovas(id),
   version_number  INTEGER NOT NULL,
   change_notes    TEXT,
-  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (ova_id, version_number)
 );
 
 CREATE TABLE content_blocks (
