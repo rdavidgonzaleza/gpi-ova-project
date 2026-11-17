@@ -289,7 +289,7 @@ para validar el token en escrituras.
 ---
 
 ### 5.3 Actividades — `activity-service`
-**Estado:** Pendiente. **Stack:** Node.js + TypeScript + Hono. **Puerto
+**Estado:** Implementado. **Stack:** Node.js + TypeScript + Hono. **Puerto
 propuesto:** `8083`.
 **Responsabilidad:** definir actividades interactivas (quizzes, casos,
 simulaciones) y registrar los intentos de los estudiantes.
@@ -303,22 +303,13 @@ simulaciones) y registrar los intentos de los estudiantes.
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
 | GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Implementado |
-| POST | `/api/activities` | `{ova_id, type, title, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Implementado |
-| GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Pendiente |
-| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token de estudiante; `student_id` debe coincidir con `sub`) | `ACTIVITY_ATTEMPT` — 201 | Implementado |
+| POST | `/api/activities` | `{ova_id, type, title, description?, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Implementado |
+| GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Implementado |
+| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token; `student_id` debe coincidir con `sub`) | `ACTIVITY_ATTEMPT` — 201 | Implementado |
 | GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 `type` ∈ `{"quiz", "caso_estudio", "simulacion", "colaborativa"}`.
-`config` es un objeto JSON con schema según `type`:
-
-- `quiz`: `{ "questions": [{ "id": string, "prompt": string, "options": [{ "id": string, "text": string }], "correct_option_id": string }] }`. Requiere al menos una pregunta, dos opciones por pregunta, IDs únicos y una respuesta correcta que corresponda a una opción.
-- `caso_estudio`: `{ "scenario": string, "tasks": [{ "id": string, "prompt": string }] }`.
-- `simulacion`: `{ "scenario": string, "steps": [{ "id": string, "prompt": string }] }`.
-- `colaborativa`: `{ "instructions": string, "deliverables": [string] }`.
-
-Las listas de preguntas, tareas, pasos y entregables deben tener al menos un
-elemento; los textos e IDs requeridos no pueden estar vacíos. Tipos adicionales
-de config se agregan actualizando primero este contrato.
+`config` sigue el schema por tipo de la sección 5.3.1.
 
 **Variables de entorno propias:** `CONTENT_SERVICE_URL` — URL base de
 `content-service` (default local: `http://localhost:8082`).
@@ -773,7 +764,7 @@ devuelve datos tipados.
 |---|---|
 | identity-service | Implementado Funcional en local — falta: UUID real, `/me`, migrar a Postgres |
 | content-service | Implementado Funcional en local — falta: auth en POST, PATCH, publish, versions, migrar `activities` a su propio servicio |
-| activity-service | Pendiente No iniciado |
+| activity-service | Implementado — actividades por OVA, consulta y registro de intentos |
 | ai-service | Pendiente No iniciado |
 | evaluation-service | Pendiente No iniciado |
 | tracking-service | Pendiente No iniciado |

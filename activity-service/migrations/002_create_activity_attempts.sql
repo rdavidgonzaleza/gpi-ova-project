@@ -1,4 +1,4 @@
-CREATE TABLE activity_attempts (
+CREATE TABLE IF NOT EXISTS activity_attempts (
   id           UUID PRIMARY KEY,
   activity_id  UUID NOT NULL REFERENCES activities(id),
   student_id   UUID NOT NULL,

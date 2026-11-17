@@ -2,7 +2,9 @@ import { randomUUID } from "node:crypto";
 import type { ActivityAttempt } from "../domain/activityAttempt.js";
 import type { ActivityRepository } from "../ports/activityRepository.js";
 
-export class ActivityNotFoundError extends Error {}
+import { ActivityNotFoundError } from "./getActivity.js";
+
+export { ActivityNotFoundError };
 
 export type RegisterActivityAttemptInput = {
   activity_id: string;

@@ -1,4 +1,4 @@
-CREATE TABLE activities (
+CREATE TABLE IF NOT EXISTS activities (
   id           UUID PRIMARY KEY,
   ova_id       UUID NOT NULL,
   type         VARCHAR(20) NOT NULL CHECK (type IN ('quiz','caso_estudio','simulacion','colaborativa')),

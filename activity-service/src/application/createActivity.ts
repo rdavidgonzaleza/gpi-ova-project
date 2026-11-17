@@ -9,6 +9,7 @@ export type CreateActivityInput = {
   ova_id: string;
   type: ActivityType;
   title: string;
+  description?: string | null;
   config: Record<string, unknown>;
 };
 

@@ -1,7 +1,23 @@
-# Activity service
+# activity-service
 
-Servicio de creación y consulta de actividades con Node.js, TypeScript, Hono y
-PostgreSQL.
+Actividades interactivas de cada OVA (quiz, caso de estudio, simulación,
+colaborativa) y registro de intentos (spec 5.3). Node.js + TypeScript + Hono +
+`pg` + Zod, arquitectura hexagonal (spec 4.3). Puerto por defecto: `8083`.
+
+## Endpoints
+
+| Método | Ruta | Auth | Respuesta |
+|---|---|---|---|
+| GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY]` 200, ordenadas por `config.position` |
+| GET | `/api/activities/{id}` | — | `ACTIVITY` 200 / 404 |
+| POST | `/api/activities` | docente/administrador | `ACTIVITY` 201; valida `ova_id` con content-service |
+| POST | `/api/activities/{id}/attempts` | cualquier rol; `student_id` = `sub` | `ACTIVITY_ATTEMPT` 201 |
+| GET | `/healthz` | — | `ok` 200 |
+
+`config` se valida según `type` con el schema de la spec 5.3.1. Errores:
+`400 INVALID_BODY`/`INVALID_QUERY`, `401 UNAUTHORIZED`, `403 FORBIDDEN`/
+`STUDENT_MISMATCH`, `404 OVA_NOT_FOUND`/`ACTIVITY_NOT_FOUND`,
+`502 CONTENT_SERVICE_UNAVAILABLE`.
 
 ## Variables de entorno
 
@@ -10,37 +26,21 @@ PostgreSQL.
 - `CONTENT_SERVICE_URL`: URL base de `content-service` (default `http://localhost:8082`).
 - `PORT`: puerto HTTP (default `8083`).
 
-Aplica las migraciones de `migrations/` antes de iniciar, en orden numérico.
-
 ## Desarrollo
 
 ```sh
 npm install
 npm run dev
+npm run typecheck
 ```
 
-`POST /api/activities` requiere token de `docente` o `administrador`, valida el
-OVA con `GET /api/ovas/{id}` y devuelve `201` con la actividad creada. `GET
-/api/activities?ova_id={id}` devuelve las actividades del OVA sin requerir
-token. `POST /api/activities/{id}/attempts` requiere token de estudiante y
-recibe `{ "student_id": "<uuid>", "answers": { "<id-pregunta>": "<respuesta>" } }`.
-El `student_id` debe coincidir con el `sub` del token; el servicio guarda las
-respuestas en JSONB y devuelve el intento creado con `201`.
+Aplica las migraciones de `migrations/` en orden (son idempotentes;
+`scripts/dev.sh` lo hace solo).
 
-Ejemplo de `config` para una actividad `quiz`:
+## Pruebas
 
-```json
-{
-  "questions": [
-    {
-      "id": "q1",
-      "prompt": "¿Qué documento define el alcance?",
-      "options": [
-        { "id": "a", "text": "Acta de constitución" },
-        { "id": "b", "text": "EDT" }
-      ],
-      "correct_option_id": "b"
-    }
-  ]
-}
+Pruebas de integración contra Postgres (se omiten sin `TEST_DATABASE_URL`):
+
+```sh
+TEST_DATABASE_URL=postgres://gpi:gpi@localhost:55432/activity_test npm test
 ```

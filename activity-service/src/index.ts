@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Pool } from "pg";
 import { CreateActivity } from "./application/createActivity.js";
+import { GetActivity } from "./application/getActivity.js";
 import { ListActivities } from "./application/listActivities.js";
 import { RegisterActivityAttempt } from "./application/registerActivityAttempt.js";
 import { HttpOvaCatalog } from "./adapters/ovaCatalog/httpOvaCatalog.js";
@@ -19,6 +20,7 @@ const repository = new PostgresActivityRepository(pool);
 const app = createRouter({
   createActivity: new CreateActivity(repository, new HttpOvaCatalog(contentServiceUrl)),
   listActivities: new ListActivities(repository),
+  getActivity: new GetActivity(repository),
   registerActivityAttempt: new RegisterActivityAttempt(repository),
   jwtSecret,
 });

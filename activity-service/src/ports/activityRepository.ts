@@ -4,5 +4,6 @@ import type { ActivityAttempt, NewActivityAttempt } from "../domain/activityAtte
 export interface ActivityRepository {
   create(activity: NewActivity): Promise<Activity>;
   listByOvaId(ovaId: string): Promise<Activity[]>;
+  findById(id: string): Promise<Activity | null>;
   createAttempt(attempt: NewActivityAttempt): Promise<ActivityAttempt | null>;
 }

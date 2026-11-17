@@ -27,10 +27,18 @@ export class PostgresActivityRepository implements ActivityRepository {
     const result = await this.pool.query(
       `SELECT id, ova_id, type, title, description, config, created_at
        FROM activities WHERE ova_id = $1
-       ORDER BY created_at, id`,
+       ORDER BY (config->>'position')::int NULLS LAST, created_at, id`,
       [ovaId],
     );
     return result.rows.map(mapActivity);
+  }
+
+  async findById(id: string): Promise<Activity | null> {
+    const result = await this.pool.query(
+      `SELECT id, ova_id, type, title, description, config, created_at FROM activities WHERE id = $1`,
+      [id],
+    );
+    return result.rows.length === 0 ? null : mapActivity(result.rows[0]);
   }
 
   async createAttempt(attempt: NewActivityAttempt): Promise<ActivityAttempt | null> {

@@ -3,6 +3,7 @@ import type { Context } from "hono";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { cors } from "hono/cors";
 import { CreateActivity, OvaNotFoundError } from "../../application/createActivity.js";
+import { GetActivity } from "../../application/getActivity.js";
 import { ListActivities } from "../../application/listActivities.js";
 import { ActivityNotFoundError, RegisterActivityAttempt } from "../../application/registerActivityAttempt.js";
 import { ContentServiceUnavailableError } from "../ovaCatalog/httpOvaCatalog.js";
@@ -12,6 +13,7 @@ import { createActivityAttemptSchema, createActivitySchema } from "./schemas.js"
 type Dependencies = {
   createActivity: CreateActivity;
   listActivities: ListActivities;
+  getActivity: GetActivity;
   registerActivityAttempt: RegisterActivityAttempt;
   jwtSecret: string;
 };
@@ -70,16 +72,26 @@ export function createRouter(dependencies: Dependencies) {
     }
   });
 
+  app.get("/api/activities/:id", async (context) => {
+    const id = context.req.param("id");
+    if (!uuidPattern.test(id)) return error(context, 404, "ACTIVITY_NOT_FOUND", "actividad no encontrada");
+    try {
+      return context.json(await dependencies.getActivity.execute(id), 200);
+    } catch (err) {
+      if (err instanceof ActivityNotFoundError) {
+        return error(context, 404, "ACTIVITY_NOT_FOUND", "actividad no encontrada");
+      }
+      console.error("no fue posible consultar la actividad", err);
+      return error(context, 500, "INTERNAL_ERROR", "no fue posible consultar la actividad");
+    }
+  });
+
   app.post("/api/activities/:id/attempts", async (context) => {
     const claims = getClaims(context.req.header("Authorization"), dependencies.jwtSecret);
     if (!claims) return error(context, 401, "UNAUTHORIZED", "token inválido o expirado");
-    if (claims.role !== "estudiante") {
-      return error(context, 403, "FORBIDDEN", "solo estudiantes pueden registrar intentos");
-    }
-
     const activityId = context.req.param("id");
     if (!uuidPattern.test(activityId)) {
-      return error(context, 400, "INVALID_PATH", "id de actividad inválido");
+      return error(context, 404, "ACTIVITY_NOT_FOUND", "actividad no encontrada");
     }
 
     let body: unknown;
