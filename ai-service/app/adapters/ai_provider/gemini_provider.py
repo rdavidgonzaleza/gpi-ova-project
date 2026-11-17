@@ -1,6 +1,8 @@
 import logging
 import time
 
+import httpx
+
 from google import genai
 from google.genai import errors, types
 
@@ -20,7 +22,10 @@ class GeminiProvider:
 
     def __init__(self, api_key: str | None, model: str):
         self.model = model
-        self.client = genai.Client(api_key=api_key) if api_key else None
+        # 30 s por intento: con los reintentos la respuesta llega antes de los
+        # 100 s que espera el Gateway para las rutas de IA.
+        options = types.HttpOptions(timeout=30_000)
+        self.client = genai.Client(api_key=api_key, http_options=options) if api_key else None
 
     def generate(self, prompt: str, *, system: str, expects_json: bool) -> str:
         if self.client is None:
@@ -45,6 +50,9 @@ class GeminiProvider:
             if error.code in (401, 403):
                 raise ProviderUnavailableError("La clave del proveedor de IA no es válida.") from error
             raise ProviderFailedError("La IA no pudo procesar esta solicitud.") from error
+        except httpx.TimeoutException as error:
+            log.warning("gemini no respondió a tiempo: %s", error)
+            raise ProviderFailedError("La IA está tardando más de lo normal. Inténtalo de nuevo en unos segundos.") from error
         except (errors.ServerError, errors.APIError) as error:
             log.warning("gemini falló: %s", error)
             raise ProviderFailedError("La IA está saturada en este momento. Inténtalo de nuevo en unos segundos.") from error
@@ -62,8 +70,8 @@ class GeminiProvider:
         for attempt, delay in enumerate((*RETRY_DELAYS, None), start=1):
             try:
                 return self.client.models.generate_content(model=self.model, contents=prompt, config=config)
-            except errors.ServerError as error:
+            except (errors.ServerError, httpx.TimeoutException) as error:
                 if delay is None:
                     raise
-                log.info("gemini respondió %s; reintento %d en %.1f s", error.code, attempt, delay)
+                log.info("gemini falló (%s); reintento %d en %.1f s", getattr(error, "code", "timeout"), attempt, delay)
                 time.sleep(delay)
