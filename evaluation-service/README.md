@@ -45,3 +45,14 @@ npm run dev
   solo consultan su historial y docentes/administradores pueden consultar por
   estudiante.
 - `GET /healthz` — respuesta `ok`.
+
+## Pruebas
+
+Pruebas de integración contra Postgres (se omiten sin `TEST_DATABASE_URL`):
+
+```sh
+TEST_DATABASE_URL=postgres://gpi:gpi@localhost:55432/evaluation_test npm test
+```
+
+`GET /api/evaluations` nunca devuelve `correct_answer` ni `feedback_*`: solo
+el `id` de cada pregunta. La clave se lee únicamente al calificar un intento.

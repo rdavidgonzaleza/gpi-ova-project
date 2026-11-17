@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 270" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Riesgo frente a problema">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<path class="dg-line" d="M30 120 H770"/>
+<path class="dg-accent" d="M400 109 L411 120 L400 131 L389 120 Z"/>
+<text class="dg-ta" x="400" y="96" font-size="15" font-weight="700" text-anchor="middle">Hoy</text>
+<rect class="dg-box" x="24" y="170" width="340" height="84" rx="16"/>
+<text class="dg-t" x="44" y="202" font-size="16" font-weight="650">Problema (issue)</text>
+<text class="dg-t2" x="44" y="228" font-size="13.5">Ya ocurrió: se resuelve, no se “gestiona”.</text>
+<text class="dg-t3" x="194" y="146" font-size="13" text-anchor="middle">← Pasado</text>
+<text class="dg-t3" x="606" y="146" font-size="13" text-anchor="middle">Futuro incierto →</text>
+<rect class="dg-danger-soft" x="436" y="16" width="160" height="84" rx="16"/>
+<text class="dg-td" x="452" y="48" font-size="16" font-weight="650">Amenaza</text>
+<text class="dg-t2" x="452" y="74" font-size="13">Si ocurre, perjudica</text>
+<rect class="dg-success-soft" x="612" y="16" width="168" height="84" rx="16"/>
+<text class="dg-ts" x="628" y="48" font-size="16" font-weight="650">Oportunidad</text>
+<text class="dg-t2" x="628" y="74" font-size="13">Si ocurre, beneficia</text>
+<rect class="dg-accent-soft" x="436" y="170" width="344" height="84" rx="16"/>
+<text class="dg-ta" x="452" y="202" font-size="16" font-weight="650">Riesgo</text>
+<text class="dg-t2" x="452" y="228" font-size="13.5">Evento incierto que afectaría un objetivo.</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 330" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Proceso de control de cambios y triple restricción">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="16" width="170" height="118" rx="16"/>
+<circle class="dg-accent" cx="42" cy="44" r="14"/>
+<text class="dg-on" x="42" y="49" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t" x="64" y="50" font-size="16" font-weight="650">Solicitud</text>
+<text class="dg-t2" x="32" y="82" font-size="13.5"><tspan x="32" dy="0">El interesado</tspan><tspan x="32" dy="17.6">registra el cambio</tspan></text>
+<path class="dg-flow" d="M190 75 L201.3 75"/>
+<path class="dg-head" d="M211.3 75 L200.5 69.8 L200.5 80.2 Z"/>
+<rect class="dg-accent-soft" x="215.3" y="16" width="170" height="118" rx="16"/>
+<circle class="dg-accent" cx="241.3" cy="44" r="14"/>
+<text class="dg-on" x="241.3" y="49" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text class="dg-t" x="263.3" y="50" font-size="16" font-weight="650">Impacto</text>
+<text class="dg-t2" x="231.3" y="82" font-size="13.5"><tspan x="231.3" dy="0">Alcance, tiempo,</tspan><tspan x="231.3" dy="17.6">costo, calidad, riesgo</tspan></text>
+<path class="dg-flow" d="M389.3 75 L400.7 75"/>
+<path class="dg-head" d="M410.7 75 L399.9 69.8 L399.9 80.2 Z"/>
+<rect class="dg-warning-soft" x="414.7" y="16" width="170" height="118" rx="16"/>
+<circle class="dg-warning" cx="440.7" cy="44" r="14"/>
+<text class="dg-on" x="440.7" y="49" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t" x="462.7" y="50" font-size="16" font-weight="650">Comité (CCB)</text>
+<text class="dg-t2" x="430.7" y="82" font-size="13.5"><tspan x="430.7" dy="0">Aprueba, rechaza</tspan><tspan x="430.7" dy="17.6">o difiere</tspan></text>
+<path class="dg-flow" d="M588.7 75 L600 75"/>
+<path class="dg-head" d="M610 75 L599.2 69.8 L599.2 80.2 Z"/>
+<rect class="dg-accent-soft" x="614" y="16" width="170" height="118" rx="16"/>
+<circle class="dg-accent" cx="640" cy="44" r="14"/>
+<text class="dg-on" x="640" y="49" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t" x="662" y="50" font-size="16" font-weight="650">Líneas base</text>
+<text class="dg-t2" x="630" y="82" font-size="13.5"><tspan x="630" dy="0">Se actualizan y</tspan><tspan x="630" dy="17.6">se comunican</tspan></text>
+<path class="dg-accent-soft" d="M240 168 L350 312 L130 312 Z"/>
+<text class="dg-ta" x="240" y="160" font-size="15" font-weight="650" text-anchor="middle">Alcance</text>
+<text class="dg-ta" x="122" y="314" font-size="15" font-weight="650" text-anchor="end">Tiempo</text>
+<text class="dg-ta" x="358" y="314" font-size="15" font-weight="650">Costo</text>
+<text class="dg-t2" x="240" y="268" font-size="14" text-anchor="middle">Calidad</text>
+<rect class="dg-danger-soft" x="430" y="170" width="354" height="66" rx="14"/>
+<text class="dg-td" x="446" y="196" font-size="15" font-weight="650">Corrupción del alcance</text>
+<text class="dg-t2" x="446" y="220" font-size="13.5">Pequeños “sí, es rápido” que desbordan todo</text>
+<rect class="dg-warning-soft" x="430" y="246" width="354" height="66" rx="14"/>
+<text class="dg-tw" x="446" y="272" font-size="15" font-weight="650">Enchapado en oro</text>
+<text class="dg-t2" x="446" y="296" font-size="13.5">Funciones que nadie pidió</text>
+</svg>

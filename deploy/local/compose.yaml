@@ -1,0 +1,22 @@
+# Base de datos local para los microservicios (database per service: una base
+# por servicio dentro del mismo servidor Postgres). Usar con scripts/dev.sh.
+name: gpi-ova
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: gpi
+      POSTGRES_PASSWORD: gpi
+      POSTGRES_DB: postgres
+    ports:
+      - "55432:5432"
+    volumes:
+      - gpi-ova-db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gpi"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  gpi-ova-db:

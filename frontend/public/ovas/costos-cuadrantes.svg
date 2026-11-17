@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Lectura combinada de CPI y SPI">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-warning-soft" x="114" y="24" width="162" height="162" rx="14"/>
+<text class="dg-t" x="130" y="58" font-size="15" font-weight="650"><tspan x="130" dy="0">Adelantado,</tspan><tspan x="130" dy="19.5">pero caro</tspan></text>
+<text class="dg-t2" x="130" y="120" font-size="13"><tspan x="130" dy="0">Horas extra, más</tspan><tspan x="130" dy="16.9">recursos</tspan></text>
+<rect class="dg-success-soft" x="284" y="24" width="162" height="162" rx="14"/>
+<text class="dg-t" x="300" y="58" font-size="15" font-weight="650"><tspan x="300" dy="0">Adelantado y</tspan><tspan x="300" dy="19.5">bajo presupuesto</tspan></text>
+<text class="dg-t2" x="300" y="120" font-size="13"><tspan x="300" dy="0">Verifica que la</tspan><tspan x="300" dy="16.9">calidad no sufra</tspan></text>
+<rect class="dg-danger-soft" x="114" y="194" width="162" height="162" rx="14"/>
+<text class="dg-t" x="130" y="228" font-size="15" font-weight="650"><tspan x="130" dy="0">Atrasado y</tspan><tspan x="130" dy="19.5">con sobrecosto</tspan></text>
+<text class="dg-t2" x="130" y="290" font-size="13"><tspan x="130" dy="0">Busca la causa</tspan><tspan x="130" dy="16.9">antes de pedir dinero</tspan></text>
+<rect class="dg-warning-soft" x="284" y="194" width="162" height="162" rx="14"/>
+<text class="dg-t" x="300" y="228" font-size="15" font-weight="650"><tspan x="300" dy="0">Atrasado, pero</tspan><tspan x="300" dy="19.5">barato</tspan></text>
+<text class="dg-t2" x="300" y="290" font-size="13"><tspan x="300" dy="0">Suele faltar gente</tspan><tspan x="300" dy="16.9">en el equipo</tspan></text>
+<path class="dg-line" d="M110 374 H450"/>
+<text class="dg-t2" x="110" y="394" font-size="13">CPI &lt; 1</text>
+<text class="dg-t2" x="450" y="394" font-size="13" text-anchor="end">CPI &gt; 1</text>
+<text class="dg-t" x="280" y="394" font-size="13" font-weight="650" text-anchor="middle">Costo</text>
+<path class="dg-line" d="M96 20 V360"/>
+<text class="dg-t2" x="88" y="36" font-size="13" text-anchor="end">SPI &gt; 1</text>
+<text class="dg-t2" x="88" y="360" font-size="13" text-anchor="end">SPI &lt; 1</text>
+<text class="dg-t" x="88" y="195" font-size="13" font-weight="650" text-anchor="end">Tiempo</text>
+<rect class="dg-box" x="500" y="40" width="284" height="140" rx="16"/>
+<text class="dg-t" x="518" y="74" font-size="16" font-weight="650">Regla del 20 %</text>
+<text class="dg-t2" x="518" y="104" font-size="13.5"><tspan x="518" dy="0">Pasado el 20 % de avance, el CPI</tspan><tspan x="518" dy="17.6">rara vez mejora solo. Si el EAC</tspan><tspan x="518" dy="17.6">supera el presupuesto, actúa ya.</tspan></text>
+<rect class="dg-accent-soft" x="500" y="200" width="284" height="140" rx="16"/>
+<text class="dg-ta" x="518" y="234" font-size="16" font-weight="650">EV usa el presupuesto</text>
+<text class="dg-t2" x="518" y="264" font-size="13.5"><tspan x="518" dy="0">Paquete de $40 M al 50 %:</tspan><tspan x="518" dy="17.6">EV = $20 M, aunque se hayan</tspan><tspan x="518" dy="17.6">gastado $30 M.</tspan></text>
+</svg>

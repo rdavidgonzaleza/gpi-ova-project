@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 356" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Los cuatro procesos de la gestión de los costos">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="16" width="366" height="140" rx="16"/>
+<circle class="dg-accent" cx="42" cy="44" r="14"/>
+<text class="dg-on" x="42" y="49" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t" x="64" y="50" font-size="16" font-weight="650">Planificar</text>
+<text class="dg-t2" x="34" y="80" font-size="14"><tspan x="34" dy="0">Unidades, precisión y umbrales</tspan><tspan x="34" dy="18.9">de control</tspan></text>
+<path class="dg-line" d="M34 116 H364"/>
+<path class="dg-accent" d="M40 131 L45 136 L40 141 L35 136 Z"/>
+<text class="dg-ta" x="52" y="141" font-size="13.5" font-weight="600">Plan de costos</text>
+<path class="dg-flow" d="M386 86 L404 86"/>
+<path class="dg-head" d="M414 86 L403.2 80.8 L403.2 91.2 Z"/>
+<rect class="dg-accent-soft" x="418" y="16" width="366" height="140" rx="16"/>
+<circle class="dg-accent" cx="444" cy="44" r="14"/>
+<text class="dg-on" x="444" y="49" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text class="dg-t" x="466" y="50" font-size="16" font-weight="650">Estimar</text>
+<text class="dg-t2" x="436" y="80" font-size="14">Costo de cada paquete de trabajo</text>
+<path class="dg-line" d="M436 116 H766"/>
+<path class="dg-accent" d="M442 131 L447 136 L442 141 L437 136 Z"/>
+<text class="dg-ta" x="454" y="141" font-size="13.5" font-weight="600">Estimaciones</text>
+<path class="dg-flow" d="M601 160 V178 H199 V188"/>
+<path class="dg-head" d="M199 198 l-6 -11 h12 z"/>
+<rect class="dg-accent-soft" x="16" y="200" width="366" height="140" rx="16"/>
+<circle class="dg-accent" cx="42" cy="228" r="14"/>
+<text class="dg-on" x="42" y="233" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t" x="64" y="234" font-size="16" font-weight="650">Presupuestar</text>
+<text class="dg-t2" x="34" y="264" font-size="14"><tspan x="34" dy="0">Sumar y repartir</tspan><tspan x="34" dy="18.9">en el tiempo</tspan></text>
+<path class="dg-line" d="M34 300 H364"/>
+<path class="dg-accent" d="M40 315 L45 320 L40 325 L35 320 Z"/>
+<text class="dg-ta" x="52" y="325" font-size="13.5" font-weight="600">Línea base (curva S)</text>
+<path class="dg-flow" d="M386 270 L404 270"/>
+<path class="dg-head" d="M414 270 L403.2 264.8 L403.2 275.2 Z"/>
+<rect class="dg-warning-soft" x="418" y="200" width="366" height="140" rx="16"/>
+<circle class="dg-warning" cx="444" cy="228" r="14"/>
+<text class="dg-on" x="444" y="233" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t" x="466" y="234" font-size="16" font-weight="650">Controlar</text>
+<text class="dg-t2" x="436" y="264" font-size="14"><tspan x="436" dy="0">Comparar lo gastado</tspan><tspan x="436" dy="18.9">con lo logrado</tspan></text>
+<path class="dg-line" d="M436 300 H766"/>
+<path class="dg-warning" d="M442 315 L447 320 L442 325 L437 320 Z"/>
+<text class="dg-tw" x="454" y="325" font-size="13.5" font-weight="600">CPI, SPI y EAC</text>
+</svg>

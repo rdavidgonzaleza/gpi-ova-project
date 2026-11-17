@@ -7,6 +7,8 @@ type UserRepository interface {
 	Save(u *domain.User) error
 	FindByEmail(email string) (*domain.User, error)
 	FindByID(id string) (*domain.User, error)
+	// List devuelve los usuarios ordenados por nombre; role vacío no filtra.
+	List(role domain.Role) ([]*domain.User, error)
 }
 
 // PasswordHasher es el puerto de salida hacia el algoritmo de hashing.

@@ -1,11 +1,11 @@
-CREATE TABLE evaluations (
+CREATE TABLE IF NOT EXISTS evaluations (
   id       UUID PRIMARY KEY,
   ova_id   UUID NOT NULL,
   type     VARCHAR(20) NOT NULL CHECK (type IN ('autoevaluacion','transferencia')),
   config   JSONB NOT NULL
 );
 
-CREATE TABLE evaluation_attempts (
+CREATE TABLE IF NOT EXISTS evaluation_attempts (
   id             UUID PRIMARY KEY,
   evaluation_id  UUID NOT NULL REFERENCES evaluations(id),
   student_id     UUID NOT NULL,

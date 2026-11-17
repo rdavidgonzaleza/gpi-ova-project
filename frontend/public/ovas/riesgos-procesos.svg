@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 372" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Los siete procesos de la gestión de riesgos">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="16" width="165" height="130" rx="16"/>
+<circle class="dg-accent" cx="42" cy="44" r="14"/>
+<text class="dg-on" x="42" y="49" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t" x="64" y="50" font-size="16" font-weight="650">Planificar</text>
+<text class="dg-t2" x="34" y="80" font-size="14"><tspan x="34" dy="0">¿Cómo</tspan><tspan x="34" dy="18.9">gestionaremos</tspan><tspan x="34" dy="18.9">los riesgos?</tspan></text>
+<path class="dg-flow" d="M185 81 L203 81"/>
+<path class="dg-head" d="M213 81 L202.2 75.8 L202.2 86.2 Z"/>
+<rect class="dg-accent-soft" x="217" y="16" width="165" height="130" rx="16"/>
+<circle class="dg-accent" cx="243" cy="44" r="14"/>
+<text class="dg-on" x="243" y="49" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text class="dg-t" x="265" y="50" font-size="16" font-weight="650">Identificar</text>
+<text class="dg-t2" x="235" y="80" font-size="14">¿Qué podría pasar?</text>
+<path class="dg-flow" d="M386 81 L404 81"/>
+<path class="dg-head" d="M414 81 L403.2 75.8 L403.2 86.2 Z"/>
+<rect class="dg-accent-soft" x="418" y="16" width="165" height="130" rx="16"/>
+<circle class="dg-accent" cx="444" cy="44" r="14"/>
+<text class="dg-on" x="444" y="49" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t" x="466" y="50" font-size="16" font-weight="650">Cualitativo</text>
+<text class="dg-t2" x="436" y="80" font-size="14"><tspan x="436" dy="0">¿Cuáles importan</tspan><tspan x="436" dy="18.9">más?</tspan></text>
+<path class="dg-flow" d="M587 81 L605 81"/>
+<path class="dg-head" d="M615 81 L604.2 75.8 L604.2 86.2 Z"/>
+<rect class="dg-accent-soft" x="619" y="16" width="165" height="130" rx="16"/>
+<circle class="dg-accent" cx="645" cy="44" r="14"/>
+<text class="dg-on" x="645" y="49" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t" x="667" y="50" font-size="16" font-weight="650">Cuantitativo</text>
+<text class="dg-t2" x="637" y="80" font-size="14"><tspan x="637" dy="0">¿Cuánto afectan</tspan><tspan x="637" dy="18.9">en costo y plazo?</tspan></text>
+<path class="dg-flow" d="M701.5 150 V168 H98.5 V178"/>
+<path class="dg-head" d="M98.5 188 l-6 -11 h12 z"/>
+<rect class="dg-success-soft" x="16" y="190" width="165" height="130" rx="16"/>
+<circle class="dg-success" cx="42" cy="218" r="14"/>
+<text class="dg-on" x="42" y="223" font-size="14" font-weight="700" text-anchor="middle">5</text>
+<text class="dg-t" x="64" y="224" font-size="16" font-weight="650">Responder</text>
+<text class="dg-t2" x="34" y="254" font-size="14"><tspan x="34" dy="0">¿Qué haremos con</tspan><tspan x="34" dy="18.9">cada uno?</tspan></text>
+<path class="dg-flow" d="M185 255 L203 255"/>
+<path class="dg-head" d="M213 255 L202.2 249.8 L202.2 260.2 Z"/>
+<rect class="dg-success-soft" x="217" y="190" width="165" height="130" rx="16"/>
+<circle class="dg-success" cx="243" cy="218" r="14"/>
+<text class="dg-on" x="243" y="223" font-size="14" font-weight="700" text-anchor="middle">6</text>
+<text class="dg-t" x="265" y="224" font-size="16" font-weight="650">Implementar</text>
+<text class="dg-t2" x="235" y="254" font-size="14"><tspan x="235" dy="0">¿Hicimos lo que</tspan><tspan x="235" dy="18.9">planeamos?</tspan></text>
+<path class="dg-flow" d="M386 255 L404 255"/>
+<path class="dg-head" d="M414 255 L403.2 249.8 L403.2 260.2 Z"/>
+<rect class="dg-warning-soft" x="418" y="190" width="165" height="130" rx="16"/>
+<circle class="dg-warning" cx="444" cy="218" r="14"/>
+<text class="dg-on" x="444" y="223" font-size="14" font-weight="700" text-anchor="middle">7</text>
+<text class="dg-t" x="466" y="224" font-size="16" font-weight="650">Monitorear</text>
+<text class="dg-t2" x="436" y="254" font-size="14"><tspan x="436" dy="0">¿Qué cambió? ¿Hay</tspan><tspan x="436" dy="18.9">riesgos nuevos?</tspan></text>
+<text class="dg-t3" x="400" y="358" font-size="13" text-anchor="middle">Todo queda en el registro de riesgos: probabilidad, impacto, prioridad, responsable y respuesta</text>
+</svg>
