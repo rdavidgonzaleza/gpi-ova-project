@@ -1,0 +1,341 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Design tokens. Colors are named by role, never by hue, and each one has a
+ * light, dark and increased-contrast value (HIG color.md). Contrast against
+ * the surface they sit on is noted next to text colors.
+ *
+ * One color, one meaning:
+ *   accent   → interactive elements and the learner's own progress
+ *   ai       → anything produced by generative AI (and only that)
+ *   success / warning / danger → feedback states
+ */
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f2f2f7;
+  --surface-3: #e8e8ed;
+  --label: #1d1d1f; /* 16.8:1 on surface */
+  --label-2: #5e5e63; /* 6.6:1 on surface */
+  --label-3: #86868b; /* 3.6:1, large or non-essential text only */
+  --separator: rgb(60 60 67 / 0.18);
+  --separator-strong: rgb(60 60 67 / 0.3);
+  --accent: #0066cc; /* 5.6:1 on surface */
+  --accent-hover: #0058b0;
+  --accent-soft: rgb(0 102 204 / 0.1);
+  --on-accent: #ffffff;
+  --ai: #7c3aed; /* 5.7:1 on surface */
+  --ai-soft: rgb(124 58 237 / 0.09);
+  --success: #1b7f37; /* 5.2:1 */
+  --success-soft: rgb(36 138 61 / 0.12);
+  --warning: #a35200; /* 5.0:1 */
+  --warning-soft: rgb(255 149 0 / 0.14);
+  --danger: #c4001a; /* 6.0:1 */
+  --danger-soft: rgb(215 0 21 / 0.09);
+  /* Chart series (identity only; validated for CVD with dataviz validate_palette). */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --glass: rgb(255 255 255 / 0.72);
+  --glass-border: rgb(255 255 255 / 0.6);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.04);
+  --shadow-raised: 0 2px 6px rgb(0 0 0 / 0.06), 0 12px 32px rgb(0 0 0 / 0.08);
+  --focus-ring: rgb(0 102 204 / 0.45);
+  color-scheme: light;
+}
+
+/* Light is the default; dark applies only when the person picks it
+   (ThemeToggle sets data-theme on <html>). */
+:root[data-theme='dark'] {
+  & {
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --surface-2: #2c2c2e;
+    --surface-3: #3a3a3c;
+    --label: #f5f5f7; /* 16.1:1 on surface */
+    --label-2: #a1a1a6; /* 7.0:1 on surface */
+    --label-3: #7c7c80;
+    --separator: rgb(84 84 88 / 0.55);
+    --separator-strong: rgb(120 120 128 / 0.6);
+    --accent: #3b9eff; /* 6.4:1 on surface */
+    --accent-hover: #63b3ff;
+    --accent-soft: rgb(59 158 255 / 0.16);
+    --on-accent: #001a33;
+    --ai: #c084fc; /* 7.2:1 on surface */
+    --ai-soft: rgb(192 132 252 / 0.14);
+    --success: #34d058;
+    --success-soft: rgb(48 209 88 / 0.15);
+    --warning: #ffb340;
+    --warning-soft: rgb(255 159 10 / 0.16);
+    --danger: #ff6961;
+    --danger-soft: rgb(255 69 58 / 0.16);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --glass: rgb(28 28 30 / 0.72);
+    --glass-border: rgb(255 255 255 / 0.08);
+    --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.04);
+    --shadow-raised: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 40px rgb(0 0 0 / 0.5);
+    --focus-ring: rgb(59 158 255 / 0.55);
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --label-2: #3a3a3c;
+    --label-3: #545458;
+    --separator: rgb(60 60 67 / 0.45);
+    --accent: #004a99;
+    --glass: rgb(255 255 255 / 0.96);
+  }
+  :root[data-theme='dark'] {
+    & {
+      --label-2: #d1d1d6;
+      --label-3: #aeaeb2;
+      --separator: rgb(200 200 210 / 0.5);
+      --accent: #7cc0ff;
+      --glass: rgb(28 28 30 / 0.97);
+    }
+  }
+}
+
+/* Glass belongs only to the floating functional layer (liquid-glass.md). */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass: var(--surface);
+  }
+}
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter Variable', 'Segoe UI', Roboto,
+    sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable', 'Segoe UI',
+    Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-label: var(--label);
+  --color-label-2: var(--label-2);
+  --color-label-3: var(--label-3);
+  --color-separator: var(--separator);
+  --color-separator-strong: var(--separator-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-ai: var(--ai);
+  --color-ai-soft: var(--ai-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-raised: var(--shadow-raised);
+
+  --radius-card: 1.25rem;
+  --radius-control: 0.75rem;
+
+  /* Type scale (rem, so it follows the browser text-size setting). */
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+  --text-footnote: 0.8125rem;
+  --text-footnote--line-height: 1.125rem;
+  --text-subhead: 0.9375rem;
+  --text-subhead--line-height: 1.375rem;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6rem;
+  --text-headline: 1.0625rem;
+  --text-headline--line-height: 1.375rem;
+  --text-headline--font-weight: 600;
+  --text-title-3: 1.25rem;
+  --text-title-3--line-height: 1.625rem;
+  --text-title-2: 1.5rem;
+  --text-title-2--line-height: 1.875rem;
+  --text-title-1: 2rem;
+  --text-title-1--line-height: 2.375rem;
+  --text-large-title: 2.75rem;
+  --text-large-title--line-height: 3.125rem;
+
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-bg text-label font-sans text-body;
+    min-height: 100dvh;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background: var(--accent-soft);
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Floating functional layer: navigation bars, toolbars, sheets. */
+  .glass {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.4);
+    border-color: var(--glass-border);
+  }
+  .card {
+    @apply bg-surface rounded-card;
+    box-shadow: var(--shadow-card);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Long-form reading: OVA blocks and AI-generated Markdown. */
+  .prose-ova {
+    @apply text-body text-label;
+    line-height: 1.7;
+  }
+  .prose-ova > * + * {
+    margin-top: 1rem;
+  }
+  .prose-ova h2 {
+    @apply font-display text-title-1 font-bold;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+  .prose-ova h3 {
+    @apply text-title-3 font-semibold;
+    margin-top: 2rem;
+  }
+  .prose-ova p,
+  .prose-ova li {
+    color: var(--label);
+  }
+  .prose-ova strong {
+    font-weight: 650;
+  }
+  .prose-ova em {
+    color: var(--label-2);
+  }
+  .prose-ova ul,
+  .prose-ova ol {
+    padding-left: 1.4rem;
+  }
+  .prose-ova ul {
+    list-style: disc;
+  }
+  .prose-ova ol {
+    list-style: decimal;
+  }
+  .prose-ova li + li {
+    margin-top: 0.5rem;
+  }
+  .prose-ova li::marker {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .prose-ova blockquote {
+    @apply rounded-control bg-accent-soft px-5 py-4;
+    border-left: 3px solid var(--accent);
+  }
+  .prose-ova blockquote p {
+    color: var(--label);
+  }
+  .prose-ova table {
+    @apply w-full overflow-hidden rounded-control text-subhead;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 0 1px var(--separator);
+  }
+  .prose-ova th {
+    @apply bg-surface-2 text-left font-semibold;
+  }
+  .prose-ova th,
+  .prose-ova td {
+    padding: 0.65rem 0.9rem;
+    vertical-align: top;
+  }
+  .prose-ova tr + tr td {
+    border-top: 1px solid var(--separator);
+  }
+  .prose-ova code {
+    @apply rounded bg-surface-2 px-1.5 py-0.5 font-mono text-footnote;
+  }
+  .prose-ova.compact {
+    @apply text-subhead;
+    line-height: 1.6;
+  }
+  .prose-ova.compact > * + * {
+    margin-top: 0.6rem;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@utility animate-rise {
+  animation: rise-in 420ms var(--ease-standard) both;
+}
+@utility animate-fade {
+  animation: fade-in 240ms var(--ease-standard) both;
+}
+@utility skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

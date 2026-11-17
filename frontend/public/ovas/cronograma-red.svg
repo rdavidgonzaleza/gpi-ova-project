@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Red de actividades de RutaCaribe">
+<style>.bg{fill:#fff}.nd{fill:#f2f2f7;stroke:#3c3c4322}.id{fill:#0066cc}.it{fill:#fff}.nt{fill:#1d1d1f}.dt{fill:#5e5e63}.ln{stroke:#3c3c4366;stroke-width:1.75;fill:none}.ah{fill:#3c3c4388}.ms{fill:#0066cc}@media (prefers-color-scheme:dark){.bg{fill:#1c1c1e}.nd{fill:#2c2c2e;stroke:#ffffff1a}.id{fill:#3b9eff}.it{fill:#001a33}.nt{fill:#f5f5f7}.dt{fill:#a1a1a6}.ln{stroke:#ffffff55}.ah{fill:#ffffff77}.ms{fill:#3b9eff}}</style>
+<rect class="bg" width="1000" height="400" rx="20"/>
+<path class="ln" d="M202 202.0 C215.0 202.0 215.0 202.0 220 202.0"/>
+<path class="ah" d="M228 202.0 l-9 -5 v10z"/>
+<path class="ln" d="M390 202.0 C409.0 202.0 409.0 82.0 420 82.0"/>
+<path class="ah" d="M428 82.0 l-9 -5 v10z"/>
+<path class="ln" d="M390 202.0 C409.0 202.0 409.0 202.0 420 202.0"/>
+<path class="ah" d="M428 202.0 l-9 -5 v10z"/>
+<path class="ln" d="M390 202.0 C409.0 202.0 409.0 322.0 420 322.0"/>
+<path class="ah" d="M428 322.0 l-9 -5 v10z"/>
+<path class="ln" d="M590 82.0 C609.0 82.0 609.0 82.0 620 82.0"/>
+<path class="ah" d="M628 82.0 l-9 -5 v10z"/>
+<path class="ln" d="M590 82.0 C609.0 82.0 609.0 262.0 620 262.0"/>
+<path class="ah" d="M628 262.0 l-9 -5 v10z"/>
+<path class="ln" d="M590 202.0 C609.0 202.0 609.0 262.0 620 262.0"/>
+<path class="ah" d="M628 262.0 l-9 -5 v10z"/>
+<path class="ln" d="M590 322.0 C609.0 322.0 609.0 262.0 620 262.0"/>
+<path class="ah" d="M628 262.0 l-9 -5 v10z"/>
+<path class="ln" d="M790 262.0 C804.0 262.0 804.0 202.0 810 202.0"/>
+<path class="ah" d="M818 202.0 l-9 -5 v10z"/>
+<path class="ln" d="M790 82.0 C804.0 82.0 804.0 202.0 810 202.0"/>
+<path class="ah" d="M818 202.0 l-9 -5 v10z"/>
+<rect class="nd" x="40" y="170" width="162" height="64" rx="12"/>
+<rect class="id" x="50" y="180" width="24" height="24" rx="7"/><text class="it" x="62" y="197" text-anchor="middle" font-size="13" font-weight="700">A</text>
+<text class="nt" x="82" y="197" font-size="13" font-weight="600">Requisitos y UX</text>
+<text class="dt" x="82" y="218" font-size="12">4 sem</text>
+<rect class="nd" x="228" y="170" width="162" height="64" rx="12"/>
+<rect class="id" x="238" y="180" width="24" height="24" rx="7"/><text class="it" x="250" y="197" text-anchor="middle" font-size="13" font-weight="700">B</text>
+<text class="nt" x="270" y="197" font-size="13" font-weight="600">Arquitectura y BD</text>
+<text class="dt" x="270" y="218" font-size="12">2 sem</text>
+<rect class="nd" x="428" y="50" width="162" height="64" rx="12"/>
+<rect class="id" x="438" y="60" width="24" height="24" rx="7"/><text class="it" x="450" y="77" text-anchor="middle" font-size="13" font-weight="700">C</text>
+<text class="nt" x="470" y="77" font-size="13" font-weight="600">Plataforma web</text>
+<text class="dt" x="470" y="98" font-size="12">5 sem</text>
+<rect class="nd" x="428" y="170" width="162" height="64" rx="12"/>
+<rect class="id" x="438" y="180" width="24" height="24" rx="7"/><text class="it" x="450" y="197" text-anchor="middle" font-size="13" font-weight="700">D</text>
+<text class="nt" x="470" y="197" font-size="13" font-weight="600">Aplicación móvil</text>
+<text class="dt" x="470" y="218" font-size="12">6 sem</text>
+<rect class="nd" x="428" y="290" width="162" height="64" rx="12"/>
+<rect class="id" x="438" y="300" width="24" height="24" rx="7"/><text class="it" x="450" y="317" text-anchor="middle" font-size="13" font-weight="700">E</text>
+<text class="nt" x="470" y="317" font-size="13" font-weight="600">Pagos PSE</text>
+<text class="dt" x="470" y="338" font-size="12">4 sem</text>
+<rect class="nd" x="628" y="50" width="162" height="64" rx="12"/>
+<rect class="id" x="638" y="60" width="24" height="24" rx="7"/><text class="it" x="650" y="77" text-anchor="middle" font-size="13" font-weight="700">G</text>
+<text class="nt" x="670" y="77" font-size="13" font-weight="600">Capacitación</text>
+<text class="dt" x="670" y="98" font-size="12">2 sem</text>
+<rect class="nd" x="628" y="230" width="162" height="64" rx="12"/>
+<rect class="id" x="638" y="240" width="24" height="24" rx="7"/><text class="it" x="650" y="257" text-anchor="middle" font-size="13" font-weight="700">F</text>
+<text class="nt" x="670" y="257" font-size="13" font-weight="600">Pruebas integrales</text>
+<text class="dt" x="670" y="278" font-size="12">2 sem</text>
+<rect class="nd" x="818" y="170" width="162" height="64" rx="12"/>
+<rect class="id" x="828" y="180" width="24" height="24" rx="7"/><text class="it" x="840" y="197" text-anchor="middle" font-size="13" font-weight="700">H</text>
+<text class="nt" x="860" y="197" font-size="13" font-weight="600">Producción</text>
+<text class="dt" x="860" y="218" font-size="12">2 sem</text>
+<path class="ms" d="M20 202 l9 -9 9 9 -9 9z"/>
+<text class="dt" x="500" y="385" text-anchor="middle" font-size="12">Dependencias fin a inicio · duraciones en semanas</text>
+</svg>
