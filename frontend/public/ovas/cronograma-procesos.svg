@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 396" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Los seis procesos de la gestión del cronograma">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="16" width="232" height="160" rx="16"/>
+<circle class="dg-accent" cx="42" cy="44" r="14"/>
+<text class="dg-on" x="42" y="49" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t" x="64" y="50" font-size="16" font-weight="650">Planificar</text>
+<text class="dg-t2" x="34" y="80" font-size="14"><tspan x="34" dy="0">Reglas para estimar,</tspan><tspan x="34" dy="18.9">medir y controlar</tspan><tspan x="34" dy="18.9">el tiempo</tspan></text>
+<path class="dg-line" d="M34 136 H230"/>
+<path class="dg-accent" d="M40 151 L45 156 L40 161 L35 156 Z"/>
+<text class="dg-ta" x="52" y="161" font-size="13.5" font-weight="600">Plan del cronograma</text>
+<path class="dg-flow" d="M252 96 L270 96"/>
+<path class="dg-head" d="M280 96 L269.2 90.8 L269.2 101.2 Z"/>
+<rect class="dg-accent-soft" x="284" y="16" width="232" height="160" rx="16"/>
+<circle class="dg-accent" cx="310" cy="44" r="14"/>
+<text class="dg-on" x="310" y="49" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text class="dg-t" x="332" y="50" font-size="16" font-weight="650">Definir</text>
+<text class="dg-t2" x="302" y="80" font-size="14"><tspan x="302" dy="0">Actividades a partir</tspan><tspan x="302" dy="18.9">de los paquetes</tspan><tspan x="302" dy="18.9">de trabajo</tspan></text>
+<path class="dg-line" d="M302 136 H498"/>
+<path class="dg-accent" d="M308 151 L313 156 L308 161 L303 156 Z"/>
+<text class="dg-ta" x="320" y="161" font-size="13.5" font-weight="600">Lista de actividades</text>
+<path class="dg-flow" d="M520 96 L538 96"/>
+<path class="dg-head" d="M548 96 L537.2 90.8 L537.2 101.2 Z"/>
+<rect class="dg-accent-soft" x="552" y="16" width="232" height="160" rx="16"/>
+<circle class="dg-accent" cx="578" cy="44" r="14"/>
+<text class="dg-on" x="578" y="49" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t" x="600" y="50" font-size="16" font-weight="650">Secuenciar</text>
+<text class="dg-t2" x="570" y="80" font-size="14"><tspan x="570" dy="0">Qué depende de qué:</tspan><tspan x="570" dy="18.9">la red de actividades</tspan></text>
+<path class="dg-line" d="M570 136 H766"/>
+<path class="dg-accent" d="M576 151 L581 156 L576 161 L571 156 Z"/>
+<text class="dg-ta" x="588" y="161" font-size="13.5" font-weight="600">Diagrama de red</text>
+<path class="dg-flow" d="M668 180 V198 H132 V208"/>
+<path class="dg-head" d="M132 218 l-6 -11 h12 z"/>
+<rect class="dg-accent-soft" x="16" y="220" width="232" height="160" rx="16"/>
+<circle class="dg-accent" cx="42" cy="248" r="14"/>
+<text class="dg-on" x="42" y="253" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t" x="64" y="254" font-size="16" font-weight="650">Estimar</text>
+<text class="dg-t2" x="34" y="284" font-size="14"><tspan x="34" dy="0">Cuánto dura cada</tspan><tspan x="34" dy="18.9">actividad</tspan></text>
+<path class="dg-line" d="M34 340 H230"/>
+<path class="dg-accent" d="M40 355 L45 360 L40 365 L35 360 Z"/>
+<text class="dg-ta" x="52" y="365" font-size="13.5" font-weight="600">Duraciones</text>
+<path class="dg-flow" d="M252 300 L270 300"/>
+<path class="dg-head" d="M280 300 L269.2 294.8 L269.2 305.2 Z"/>
+<rect class="dg-accent-soft" x="284" y="220" width="232" height="160" rx="16"/>
+<circle class="dg-accent" cx="310" cy="248" r="14"/>
+<text class="dg-on" x="310" y="253" font-size="14" font-weight="700" text-anchor="middle">5</text>
+<text class="dg-t" x="332" y="254" font-size="16" font-weight="650">Desarrollar</text>
+<text class="dg-t2" x="302" y="284" font-size="14"><tspan x="302" dy="0">Red + duraciones +</tspan><tspan x="302" dy="18.9">calendario</tspan></text>
+<path class="dg-line" d="M302 340 H498"/>
+<path class="dg-accent" d="M308 355 L313 360 L308 365 L303 360 Z"/>
+<text class="dg-ta" x="320" y="365" font-size="13.5" font-weight="600">Línea base y Gantt</text>
+<path class="dg-flow" d="M520 300 L538 300"/>
+<path class="dg-head" d="M548 300 L537.2 294.8 L537.2 305.2 Z"/>
+<rect class="dg-warning-soft" x="552" y="220" width="232" height="160" rx="16"/>
+<circle class="dg-warning" cx="578" cy="248" r="14"/>
+<text class="dg-on" x="578" y="253" font-size="14" font-weight="700" text-anchor="middle">6</text>
+<text class="dg-t" x="600" y="254" font-size="16" font-weight="650">Controlar</text>
+<text class="dg-t2" x="570" y="284" font-size="14"><tspan x="570" dy="0">Comparar lo real con</tspan><tspan x="570" dy="18.9">lo planeado</tspan></text>
+<path class="dg-line" d="M570 340 H766"/>
+<path class="dg-warning" d="M576 355 L581 360 L576 365 L571 360 Z"/>
+<text class="dg-tw" x="588" y="365" font-size="13.5" font-weight="600">Pronósticos</text>
+</svg>

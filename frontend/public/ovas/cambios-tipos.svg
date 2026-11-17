@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 352" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Tipos de solicitud de cambio">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="16" width="374" height="150" rx="16"/>
+<circle class="dg-accent" cx="42" cy="44" r="14"/>
+<text class="dg-on" x="42" y="49" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t" x="64" y="50" font-size="16" font-weight="650">Cambio de alcance</text>
+<text class="dg-t2" x="34" y="80" font-size="14"><tspan x="34" dy="0">Agrega, quita o modifica</tspan><tspan x="34" dy="18.9">lo que se entrega.</tspan><tspan x="34" dy="18.9">Va siempre al comité.</tspan></text>
+<path class="dg-line" d="M34 126 H372"/>
+<path class="dg-accent" d="M40 141 L45 146 L40 151 L35 146 Z"/>
+<text class="dg-ta" x="52" y="151" font-size="13.5" font-weight="600">Actualiza la línea base</text>
+<rect class="dg-warning-soft" x="410" y="16" width="374" height="150" rx="16"/>
+<circle class="dg-warning" cx="436" cy="44" r="14"/>
+<text class="dg-on" x="436" y="49" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text class="dg-t" x="458" y="50" font-size="16" font-weight="650">Acción correctiva</text>
+<text class="dg-t2" x="428" y="80" font-size="14"><tspan x="428" dy="0">Devuelve el desempeño</tspan><tspan x="428" dy="18.9">al plan después de un</tspan><tspan x="428" dy="18.9">desvío ya medido.</tspan></text>
+<path class="dg-line" d="M428 126 H766"/>
+<path class="dg-warning" d="M434 141 L439 146 L434 151 L429 146 Z"/>
+<text class="dg-tw" x="446" y="151" font-size="13.5" font-weight="600">Responde a un desvío</text>
+<rect class="dg-success-soft" x="16" y="186" width="374" height="150" rx="16"/>
+<circle class="dg-success" cx="42" cy="214" r="14"/>
+<text class="dg-on" x="42" y="219" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t" x="64" y="220" font-size="16" font-weight="650">Acción preventiva</text>
+<text class="dg-t2" x="34" y="250" font-size="14"><tspan x="34" dy="0">Evita que ocurra un</tspan><tspan x="34" dy="18.9">desvío futuro.</tspan></text>
+<path class="dg-line" d="M34 296 H372"/>
+<path class="dg-success" d="M40 311 L45 316 L40 321 L35 316 Z"/>
+<text class="dg-ts" x="52" y="321" font-size="13.5" font-weight="600">Se anticipa</text>
+<rect class="dg-danger-soft" x="410" y="186" width="374" height="150" rx="16"/>
+<circle class="dg-danger" cx="436" cy="214" r="14"/>
+<text class="dg-on" x="436" y="219" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t" x="458" y="220" font-size="16" font-weight="650">Reparar defecto</text>
+<text class="dg-t2" x="428" y="250" font-size="14"><tspan x="428" dy="0">Corrige un producto que</tspan><tspan x="428" dy="18.9">no cumple un requisito</tspan><tspan x="428" dy="18.9">ya aprobado.</tspan></text>
+<path class="dg-line" d="M428 296 H766"/>
+<path class="dg-danger" d="M434 311 L439 316 L434 321 L429 316 Z"/>
+<text class="dg-td" x="446" y="321" font-size="13.5" font-weight="600">Arregla el producto</text>
+</svg>

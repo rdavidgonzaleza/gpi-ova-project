@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Ciclo de vida del proyecto y grupos de procesos">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent-soft" x="16" y="24" width="120" height="128" rx="16"/>
+<text class="dg-t" x="32" y="56" font-size="17" font-weight="700">Inicio</text>
+<text class="dg-t2" x="32" y="86" font-size="13.5"><tspan x="32" dy="0">Acta e</tspan><tspan x="32" dy="17.6">interesados</tspan></text>
+<rect class="dg-accent-soft" x="148" y="24" width="220" height="128" rx="16"/>
+<text class="dg-t" x="164" y="56" font-size="17" font-weight="700">Planificación</text>
+<text class="dg-t2" x="164" y="86" font-size="13.5"><tspan x="164" dy="0">Alcance, cronograma,</tspan><tspan x="164" dy="17.6">costos y riesgos</tspan></text>
+<rect class="dg-success-soft" x="380" y="24" width="236" height="128" rx="16"/>
+<text class="dg-t" x="396" y="56" font-size="17" font-weight="700">Ejecución</text>
+<text class="dg-t2" x="396" y="86" font-size="13.5"><tspan x="396" dy="0">Equipo, comunicaciones</tspan><tspan x="396" dy="17.6">y calidad</tspan></text>
+<rect class="dg-box" x="628" y="24" width="156" height="128" rx="16"/>
+<text class="dg-t" x="644" y="56" font-size="17" font-weight="700">Cierre</text>
+<text class="dg-t2" x="644" y="86" font-size="13.5"><tspan x="644" dy="0">Aceptación y</tspan><tspan x="644" dy="17.6">lecciones</tspan></text>
+<rect class="dg-warning-soft" x="16" y="168" width="768" height="56" rx="16"/>
+<text class="dg-tw" x="32" y="202" font-size="15" font-weight="650">Monitoreo y control · durante todo el proyecto: desempeño y gestión de cambios</text>
+<path class="dg-line" d="M16 256 H784"/>
+<path class="dg-accent" d="M24 247 L33 256 L24 265 L15 256 Z"/>
+<text class="dg-t2" x="40" y="284" font-size="13">Acta firmada</text>
+<path class="dg-accent" d="M776 247 L785 256 L776 265 L767 256 Z"/>
+<text class="dg-t2" x="760" y="284" font-size="13" text-anchor="end">Aceptación final</text>
+<text class="dg-t3" x="400" y="284" font-size="13" text-anchor="middle">Tiempo →</text>
+</svg>
