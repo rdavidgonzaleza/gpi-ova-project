@@ -308,7 +308,7 @@ compatible con S3; se usa Backblaze B2 (plan gratuito). Variables propias:
 ---
 
 ### 5.3 Actividades — `activity-service`
-**Estado:** Pendiente. **Stack:** Node.js + TypeScript + Hono. **Puerto
+**Estado:** Implementado. **Stack:** Node.js + TypeScript + Hono. **Puerto
 propuesto:** `8083`.
 **Responsabilidad:** definir actividades interactivas (quizzes, casos,
 simulaciones) y registrar los intentos de los estudiantes.
@@ -321,16 +321,17 @@ simulaciones) y registrar los intentos de los estudiantes.
 
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
-| GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Pendiente |
-| POST | `/api/activities` | `{ova_id, type, title, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Pendiente |
-| GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Pendiente |
-| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token) | `ACTIVITY_ATTEMPT` — 201 | Pendiente |
-| GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
+| GET | `/api/activities?ova_id={id}` | — | `[ACTIVITY...]` — 200 | Implementado |
+| POST | `/api/activities` | `{ova_id, type, title, description?, config}` (requiere token docente/administrador) | `ACTIVITY` — 201 | Implementado |
+| GET | `/api/activities/{id}` | — | `ACTIVITY` — 200 / `404` | Implementado |
+| POST | `/api/activities/{id}/attempts` | `{student_id, answers}` (requiere token; `student_id` debe coincidir con `sub`) | `ACTIVITY_ATTEMPT` — 201 | Implementado |
+| GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 `type` ∈ `{"quiz", "caso_estudio", "simulacion", "colaborativa"}`.
-`config`: objeto JSON libre según `type` (ej. para `quiz`: lista de preguntas
-y opciones) — definir el schema exacto de `config` como tarea de diseño
-técnico antes de implementar, y agregarlo a este documento.
+`config` sigue el schema por tipo de la sección 5.3.1.
+
+**Variables de entorno propias:** `CONTENT_SERVICE_URL` — URL base de
+`content-service` (default local: `http://localhost:8082`).
 
 **Dependencias salientes:** valida `ova_id` contra `content-service`
 (`GET /api/ovas/{id}`) al crear una actividad, para evitar huérfanas.
