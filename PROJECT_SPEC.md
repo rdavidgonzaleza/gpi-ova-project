@@ -758,7 +758,7 @@ devuelve datos tipados.
 | content-service | Implementado Funcional en local — falta: auth en POST, PATCH, publish, versions, migrar `activities` a su propio servicio |
 | activity-service | Pendiente No iniciado |
 | ai-service | Pendiente No iniciado |
-| evaluation-service | Implementado — evaluaciones sin clave pública, intentos e historial |
+| evaluation-service | Pendiente No iniciado |
 | tracking-service | Pendiente No iniciado |
 | API Gateway | Pendiente No iniciado |
 | Frontend (estructura objetivo) | Pendiente No iniciado (existe solo el HTML plano de la demo) |
