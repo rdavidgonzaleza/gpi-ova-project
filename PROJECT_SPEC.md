@@ -409,7 +409,7 @@ no depende de otro microservicio propio.
 ---
 
 ### 5.5 Evaluación — `evaluation-service`
-**Estado:** Pendiente. **Stack:** Node.js + TypeScript + Hono. **Puerto
+**Estado:** Implementado. **Stack:** Node.js + TypeScript + Hono. **Puerto
 propuesto:** `8085`.
 **Responsabilidad:** autoevaluaciones, retroalimentación y su historial.
 **Entidades:** `EVALUATIONS`, `EVALUATION_ATTEMPTS` (ver sección 7.5).
@@ -428,20 +428,13 @@ propuesto:** `8085`.
 
 **Dependencias salientes:** valida `ova_id` contra `content-service`.
 
-**Problema de seguridad conocido — Pendiente (rama sugerida `fix/evaluation-hide-answers`):**
-`GET /api/evaluations?ova_id={id}` es público y devuelve `config` completo,
-incluidos `correct_answer`, `feedback_correct` y `feedback_incorrect` de cada
-pregunta (ver 7.5). Cualquier estudiante puede leer la clave de respuestas con
-las herramientas del navegador antes de responder, lo que invalida la
-autoevaluación (RF-12, RF-13). Corrección esperada:
-- El GET público responde cada pregunta solo con su `id`, sin
-  `correct_answer` ni la retroalimentación.
-- La calificación sigue ocurriendo solo en el servidor
-  (`POST /api/evaluations/{id}/attempts`), que es el único que lee la clave.
-- Si un docente necesita ver la clave, se expone aparte con token
-  docente/administrador; el GET público no se reutiliza para eso.
-- Prueba de integración que verifique que la respuesta pública no contiene
-  `correct_answer` ni `feedback_*`.
+**Clave de respuestas — Implementado (rama `fix/evaluation-hide-answers`):**
+`GET /api/evaluations?ova_id={id}` es público y responde cada pregunta solo con
+su `id`, sin `correct_answer` ni `feedback_*`. La calificación ocurre solo en
+el servidor (`POST /api/evaluations/{id}/attempts`), que es el único que lee la
+clave. Una prueba de integración verifica que la respuesta pública no contiene
+esos campos. Si un docente necesita ver la clave, se expondrá aparte con token
+docente/administrador; el GET público no se reutiliza para eso.
 
 ---
 
