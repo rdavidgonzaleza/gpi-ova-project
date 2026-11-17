@@ -764,7 +764,7 @@ devuelve datos tipados.
 |---|---|
 | identity-service | Implementado Funcional en local — falta: UUID real, `/me`, migrar a Postgres |
 | content-service | Implementado Funcional en local — falta: auth en POST, PATCH, publish, versions, migrar `activities` a su propio servicio |
-| activity-service | Implementado — actividades por OVA, consulta y registro de intentos |
+| activity-service | Pendiente No iniciado |
 | ai-service | Pendiente No iniciado |
 | evaluation-service | Pendiente No iniciado |
 | tracking-service | Pendiente No iniciado |
