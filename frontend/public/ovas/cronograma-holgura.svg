@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Notación de un nodo CPM y consumo de holgura">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-card" x="24" y="40" width="276" height="168" rx="14"/>
+<path class="dg-line" d="M24 96 H300 M24 152 H300"/>
+<path class="dg-line" d="M116 40 V96 M208 40 V96 M116 152 V208 M208 152 V208"/>
+<text class="dg-t2" x="70" y="62" font-size="12" text-anchor="middle">IT</text>
+<text class="dg-t" x="70" y="84" font-size="17" font-weight="700" text-anchor="middle">3</text>
+<text class="dg-t2" x="162" y="62" font-size="12" text-anchor="middle">Duración</text>
+<text class="dg-t" x="162" y="84" font-size="17" font-weight="700" text-anchor="middle">5</text>
+<text class="dg-t2" x="254" y="62" font-size="12" text-anchor="middle">FT</text>
+<text class="dg-t" x="254" y="84" font-size="17" font-weight="700" text-anchor="middle">8</text>
+<text class="dg-t" x="162" y="130" font-size="15" font-weight="650" text-anchor="middle">Reportes de ventas</text>
+<text class="dg-t2" x="70" y="174" font-size="12" text-anchor="middle">ITa</text>
+<text class="dg-t" x="70" y="196" font-size="17" font-weight="700" text-anchor="middle">4</text>
+<text class="dg-t2" x="162" y="174" font-size="12" text-anchor="middle">Holgura</text>
+<text class="dg-ta" x="162" y="196" font-size="17" font-weight="700" text-anchor="middle">1</text>
+<text class="dg-t2" x="254" y="174" font-size="12" text-anchor="middle">FTa</text>
+<text class="dg-t" x="254" y="196" font-size="17" font-weight="700" text-anchor="middle">9</text>
+<text class="dg-ta" x="24" y="236" font-size="14" font-weight="600">Holgura = ITa − IT = FTa − FT</text>
+<text class="dg-t2" x="24" y="260" font-size="13.5">Holgura cero → actividad crítica</text>
+<text class="dg-t" x="360" y="52" font-size="15" font-weight="650">Se retrasa 3 semanas con 1 de holgura</text>
+<rect class="dg-accent" x="360" y="76" width="220" height="34" rx="8"/>
+<text class="dg-on" x="470" y="98" font-size="13" font-weight="600" text-anchor="middle">Duración 5</text>
+<rect class="dg-accent-soft" x="580" y="76" width="44" height="34" rx="8"/>
+<text class="dg-ta" x="602" y="98" font-size="13" text-anchor="middle">1</text>
+<path class="dg-dash" d="M624 66 V184"/>
+<rect class="dg-accent" x="360" y="130" width="220" height="34" rx="8"/>
+<text class="dg-on" x="470" y="152" font-size="13" font-weight="600" text-anchor="middle">Duración 5</text>
+<rect class="dg-warning-soft" x="580" y="130" width="44" height="34" rx="8"/>
+<rect class="dg-danger-soft" x="624" y="130" width="88" height="34" rx="8"/>
+<text class="dg-td" x="668" y="152" font-size="14" font-weight="700" text-anchor="middle">+2</text>
+<text class="dg-t3" x="624" y="202" font-size="12.5" text-anchor="middle">Fin tardío</text>
+<text class="dg-t2" x="360" y="240" font-size="13.5"><tspan x="360" dy="0">La holgura absorbe 1 semana; las otras 2 llegan</tspan><tspan x="360" dy="17.6">al final del proyecto y la actividad se vuelve crítica.</tspan></text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Red de actividades de RutaCaribe">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<path class="dg-line" d="M144 182 C158 182 158 182 164 182"/>
+<path class="dg-head-muted" d="M172 182 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M302 182 C316 182 316 72 322 72"/>
+<path class="dg-head-muted" d="M330 72 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M302 182 C316 182 316 182 322 182"/>
+<path class="dg-head-muted" d="M330 182 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M302 182 C316 182 316 292 322 292"/>
+<path class="dg-head-muted" d="M330 292 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M460 72 C474 72 474 72 480 72"/>
+<path class="dg-head-muted" d="M488 72 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M460 72 C474 72 474 237 480 237"/>
+<path class="dg-head-muted" d="M488 237 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M460 182 C474 182 474 237 480 237"/>
+<path class="dg-head-muted" d="M488 237 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M460 292 C474 292 474 237 480 237"/>
+<path class="dg-head-muted" d="M488 237 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M618 237 C632 237 632 182 638 182"/>
+<path class="dg-head-muted" d="M646 182 l-10 -5.5 v11 z"/>
+<path class="dg-line" d="M618 72 C632 72 632 182 638 182"/>
+<path class="dg-head-muted" d="M646 182 l-10 -5.5 v11 z"/>
+<rect class="dg-box" x="16" y="150" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="26" y="160" width="24" height="24" rx="7"/>
+<text class="dg-on" x="38" y="177" font-size="13" font-weight="700" text-anchor="middle">A</text>
+<text class="dg-t" x="58" y="177" font-size="13" font-weight="600">Requisitos</text>
+<text class="dg-t2" x="58" y="200" font-size="12.5">4 semanas</text>
+<rect class="dg-box" x="174" y="150" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="184" y="160" width="24" height="24" rx="7"/>
+<text class="dg-on" x="196" y="177" font-size="13" font-weight="700" text-anchor="middle">B</text>
+<text class="dg-t" x="216" y="177" font-size="13" font-weight="600">Arquitectura</text>
+<text class="dg-t2" x="216" y="200" font-size="12.5">2 semanas</text>
+<rect class="dg-box" x="332" y="40" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="342" y="50" width="24" height="24" rx="7"/>
+<text class="dg-on" x="354" y="67" font-size="13" font-weight="700" text-anchor="middle">C</text>
+<text class="dg-t" x="374" y="67" font-size="13" font-weight="600">Web</text>
+<text class="dg-t2" x="374" y="90" font-size="12.5">5 semanas</text>
+<rect class="dg-box" x="332" y="150" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="342" y="160" width="24" height="24" rx="7"/>
+<text class="dg-on" x="354" y="177" font-size="13" font-weight="700" text-anchor="middle">D</text>
+<text class="dg-t" x="374" y="177" font-size="13" font-weight="600">App móvil</text>
+<text class="dg-t2" x="374" y="200" font-size="12.5">6 semanas</text>
+<rect class="dg-box" x="332" y="260" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="342" y="270" width="24" height="24" rx="7"/>
+<text class="dg-on" x="354" y="287" font-size="13" font-weight="700" text-anchor="middle">E</text>
+<text class="dg-t" x="374" y="287" font-size="13" font-weight="600">Pagos PSE</text>
+<text class="dg-t2" x="374" y="310" font-size="12.5">4 semanas</text>
+<rect class="dg-box" x="490" y="40" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="500" y="50" width="24" height="24" rx="7"/>
+<text class="dg-on" x="512" y="67" font-size="13" font-weight="700" text-anchor="middle">G</text>
+<text class="dg-t" x="532" y="67" font-size="13" font-weight="600">Capacitación</text>
+<text class="dg-t2" x="532" y="90" font-size="12.5">2 semanas</text>
+<rect class="dg-box" x="490" y="205" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="500" y="215" width="24" height="24" rx="7"/>
+<text class="dg-on" x="512" y="232" font-size="13" font-weight="700" text-anchor="middle">F</text>
+<text class="dg-t" x="532" y="232" font-size="13" font-weight="600">Pruebas</text>
+<text class="dg-t2" x="532" y="255" font-size="12.5">2 semanas</text>
+<rect class="dg-box" x="648" y="150" width="128" height="64" rx="12"/>
+<rect class="dg-accent" x="658" y="160" width="24" height="24" rx="7"/>
+<text class="dg-on" x="670" y="177" font-size="13" font-weight="700" text-anchor="middle">H</text>
+<text class="dg-t" x="690" y="177" font-size="13" font-weight="600">Producción</text>
+<text class="dg-t2" x="690" y="200" font-size="12.5">2 semanas</text>
+<text class="dg-t3" x="400" y="348" font-size="13" text-anchor="middle">Dependencias fin a inicio · ¿cuál es la secuencia más larga?</text>
+</svg>
