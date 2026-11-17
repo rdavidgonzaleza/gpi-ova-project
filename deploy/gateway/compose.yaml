@@ -1,0 +1,11 @@
+# API Gateway KrakenD (spec 6). Enruta por prefijo hacia los microservicios
+# que corren en el host. network_mode: host funciona en Linux; en macOS o
+# Windows cambia los hosts de krakend.json a host.docker.internal.
+name: gpi-ova-gateway
+services:
+  krakend:
+    image: devopsfaith/krakend:2.7.2
+    network_mode: host
+    volumes:
+      - ./krakend.json:/etc/krakend/krakend.json:ro
+    command: ["run", "-c", "/etc/krakend/krakend.json"]

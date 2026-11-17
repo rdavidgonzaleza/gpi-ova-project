@@ -492,7 +492,7 @@ por parámetro (no hace JOIN a otras bases de datos).
 
 ## 6. API Gateway
 
-**Estado:** Pendiente. **Herramienta:** KrakenD (config declarativa, sin
+**Estado:** Implementado (`deploy/gateway`). **Herramienta:** KrakenD (config declarativa, sin
 código). **Puerto local propuesto:** `8080`.
 
 Mapeo de rutas (el Gateway reescribe el prefijo hacia el servicio interno):
@@ -508,8 +508,15 @@ Mapeo de rutas (el Gateway reescribe el prefijo hacia el servicio interno):
 
 El frontend en producción solo conoce la URL del Gateway (una sola variable
 de entorno `VITE_API_BASE_URL`); nunca habla directo con un microservicio.
-En local, mientras el Gateway no esté montado, el frontend puede seguir
-apuntando directo a cada puerto (como hace hoy `demo-ova.zip`).
+En local, `scripts/dev.sh` levanta KrakenD 2.7 en Docker (`deploy/gateway`,
+`network_mode: host`) y el frontend usa `VITE_API_BASE_URL=http://localhost:8080`.
+KrakenD CE no admite comodines, así que `krakend.json` declara cada endpoint
+de la sección 5 con `output_encoding: "no-op"`: el Gateway reenvía cuerpo,
+código HTTP y los encabezados `Authorization`, `Content-Type` y `Accept` sin
+transformarlos, y no valida tokens (spec 3.4). Al agregar un endpoint en un
+servicio hay que declararlo también en `krakend.json`. Si el Gateway no está
+disponible, dejar `VITE_API_BASE_URL` vacío hace que el servidor de Vite
+enrute por prefijo con la misma tabla.
 
 ---
 
@@ -785,11 +792,11 @@ devuelve datos tipados.
 
 | Componente | Estado |
 |---|---|
-| identity-service | Implementado Funcional en local — falta: UUID real, `/me`, migrar a Postgres |
-| content-service | Implementado Funcional en local — falta: auth en POST, PATCH, publish, versions, migrar `activities` a su propio servicio |
-| activity-service | Pendiente No iniciado |
-| ai-service | Pendiente No iniciado |
-| evaluation-service | Pendiente No iniciado |
-| tracking-service | Pendiente No iniciado |
-| API Gateway | Pendiente No iniciado |
-| Frontend (estructura objetivo) | Pendiente No iniciado (existe solo el HTML plano de la demo) |
+| identity-service | Implementado — registro, login, `/me` y listado de usuarios |
+| content-service | Implementado — CRUD, versionado, publicación y subida de medios a B2 con URL firmada |
+| activity-service | Implementado — actividades por OVA, consulta y registro de intentos |
+| ai-service | Implementado — ejecución con Gemini, validación humana y panel del validador |
+| evaluation-service | Implementado — evaluaciones sin clave pública, intentos e historial |
+| tracking-service | Implementado — progreso por estudiante y reporte de uso |
+| API Gateway | Implementado — KrakenD en `deploy/gateway` |
+| Frontend | Implementado — React + TS; todos los servicios en modo `remote` vía Gateway |

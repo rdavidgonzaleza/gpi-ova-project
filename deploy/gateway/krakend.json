@@ -1,0 +1,734 @@
+{
+  "$schema": "https://www.krakend.io/schema/v2.7/krakend.json",
+  "version": 3,
+  "name": "Hito API Gateway",
+  "port": 8080,
+  "timeout": "10s",
+  "cache_ttl": "0s",
+  "extra_config": {
+    "security/cors": {
+      "allow_origins": [
+        "*"
+      ],
+      "allow_methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "allow_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "max_age": "12h"
+    },
+    "router": {
+      "return_error_msg": true
+    }
+  },
+  "endpoints": [
+    {
+      "endpoint": "/api/auth/register",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8081"
+          ],
+          "url_pattern": "/api/auth/register",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/auth/login",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8081"
+          ],
+          "url_pattern": "/api/auth/login",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/auth/me",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8081"
+          ],
+          "url_pattern": "/api/auth/me",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/auth/users",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8081"
+          ],
+          "url_pattern": "/api/auth/users",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas/{id}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas/{id}",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas/{id}",
+      "method": "PATCH",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas/{id}",
+          "encoding": "no-op",
+          "method": "PATCH"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas/{id}/publish",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas/{id}/publish",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas/{id}/versions",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas/{id}/versions",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ovas/{id}/media",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8082"
+          ],
+          "url_pattern": "/api/ovas/{id}/media",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/activities",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8083"
+          ],
+          "url_pattern": "/api/activities",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/activities",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8083"
+          ],
+          "url_pattern": "/api/activities",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/activities/{id}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8083"
+          ],
+          "url_pattern": "/api/activities/{id}",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/activities/{id}/attempts",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8083"
+          ],
+          "url_pattern": "/api/activities/{id}/attempts",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ai-activities",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "60s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8084"
+          ],
+          "url_pattern": "/api/ai-activities",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ai-activities/{id}/run",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "60s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8084"
+          ],
+          "url_pattern": "/api/ai-activities/{id}/run",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ai-interactions",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "60s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8084"
+          ],
+          "url_pattern": "/api/ai-interactions",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/ai-interactions/{id}/validate",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "60s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8084"
+          ],
+          "url_pattern": "/api/ai-interactions/{id}/validate",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/evaluations",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8085"
+          ],
+          "url_pattern": "/api/evaluations",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/evaluations/attempts",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8085"
+          ],
+          "url_pattern": "/api/evaluations/attempts",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/evaluations/{id}/attempts",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8085"
+          ],
+          "url_pattern": "/api/evaluations/{id}/attempts",
+          "encoding": "no-op",
+          "method": "POST"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/progress",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8086"
+          ],
+          "url_pattern": "/api/progress",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/progress",
+      "method": "PUT",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8086"
+          ],
+          "url_pattern": "/api/progress",
+          "encoding": "no-op",
+          "method": "PUT"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/reports/usage",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "input_headers": [
+        "Authorization",
+        "Content-Type",
+        "Accept"
+      ],
+      "input_query_strings": [
+        "ova_id",
+        "student_id",
+        "group_id",
+        "role",
+        "validated"
+      ],
+      "timeout": "10s",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8086"
+          ],
+          "url_pattern": "/api/reports/usage",
+          "encoding": "no-op",
+          "method": "GET"
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,9 @@ y tiene dos adaptadores:
 Se elige con `VITE_SOURCE_<SERVICIO>` en `.env.local` (`IDENTITY`, `CONTENT`,
 `ACTIVITY`, `EVALUATION`, `TRACKING`). El servicio de IA siempre es `remote`.
 
-Sin `VITE_API_BASE_URL`, el servidor de Vite hace de gateway: enruta cada prefijo
+Por defecto todos los servicios son `remote` y pasan por el API Gateway
+KrakenD (`VITE_API_BASE_URL=http://localhost:8080`); el entorno completo se
+levanta con `scripts/dev.sh` desde la raíz. Sin `VITE_API_BASE_URL`, el servidor de Vite hace de gateway: enruta cada prefijo
 `/api/*` al puerto de su servicio (`SERVICE_*_URL`, ver `vite.config.ts`).
 
 ## Cuentas iniciales (adaptador local de identidad)
@@ -52,3 +54,16 @@ Basado en las Human Interface Guidelines de Apple:
 - Respeta `prefers-reduced-motion` y `prefers-reduced-transparency`.
 - Un color, un significado: azul para interacción y progreso, violeta solo para
   contenido generado por IA.
+
+## Diagramas, videos y fuentes para NotebookLM
+
+- `pnpm diagrams` regenera los SVG de `public/ovas` desde `seed-tools/diagrams/`.
+  Usan clases `.dg-*` (ver `src/index.css`) para seguir el tema claro/oscuro.
+- Un bloque de texto puede incluir un diagrama con una línea
+  `![descripción](/ovas/archivo.svg)`.
+- Los bloques de video aceptan YouTube o MP4/WebM (por ejemplo, subidos a
+  Backblaze B2 desde el editor de OVA o con `scripts/upload-media.sh`).
+- `pnpm notebooklm` escribe en `docs/notebooklm/` una fuente por OVA para generar
+  el video resumen (ver `docs/notebooklm/README.md`).
+- `pnpm seed:export` escribe las semillas de todos los servicios en
+  `deploy/local/seed/` y `ai-service/seed/`.
