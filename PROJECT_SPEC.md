@@ -426,7 +426,7 @@ autoevaluación (RF-12, RF-13). Corrección esperada:
 ---
 
 ### 5.6 Seguimiento y reportes — `tracking-service`
-**Estado:** Pendiente. **Stack:** Node.js + TypeScript + Hono. **Puerto
+**Estado:** Implementado. **Stack:** Node.js + TypeScript + Hono. **Puerto
 propuesto:** `8086`.
 **Responsabilidad:** progreso del estudiante por OVA y reportes agregados
 para el docente.
@@ -439,10 +439,10 @@ para el docente.
 
 | Método | Ruta | Request | Response | Estado |
 |---|---|---|---|---|
-| GET | `/api/progress?student_id={id}` | — (requiere token) | `[PROGRESS...]` — 200 | Pendiente |
-| PUT | `/api/progress` | `{student_id, ova_id, status, percent_complete}` | `PROGRESS` — 200 | Pendiente |
-| GET | `/api/reports/usage?group_id={id}` | — (requiere token docente) | `USAGE_REPORT` — 200 | Pendiente |
-| GET | `/healthz` | — | `"ok"` — 200 | Pendiente |
+| GET | `/api/progress?student_id={id}` | — (requiere token; estudiantes solo el propio, docentes/administradores cualquiera) | `[PROGRESS...]` — 200 | Implementado |
+| PUT | `/api/progress` | `{student_id, ova_id, status, percent_complete}` (requiere token; un estudiante solo su propio `student_id`) | `PROGRESS` — 200 | Implementado |
+| GET | `/api/reports/usage?group_id={id}` | — (requiere token docente/administrador) | `USAGE_REPORT` — 200 | Implementado |
+| GET | `/healthz` | — | `"ok"` — 200 | Implementado |
 
 Decisión: `PUT /api/progress` es llamado por el frontend cada vez que un
 estudiante avanza o completa un OVA (no hay eventos asíncronos en la v1, ver
@@ -461,6 +461,10 @@ sección 2).
 ```
 `rows` tiene una fila por OVA con al menos un registro de progreso;
 `average_percent` es el promedio entero de `percent_complete`.
+
+Decisión (v1): no existe una entidad de grupos; `group_id` solo identifica el
+reporte y se agregan todos los registros de `progress`. `total_students` es el
+número de estudiantes distintos con al menos un registro.
 
 **Dependencias salientes:** ninguna directa; agrega datos que ya le llegan
 por parámetro (no hace JOIN a otras bases de datos).
@@ -766,6 +770,6 @@ devuelve datos tipados.
 | activity-service | Pendiente No iniciado |
 | ai-service | Pendiente No iniciado |
 | evaluation-service | Pendiente No iniciado |
-| tracking-service | Pendiente No iniciado |
+| tracking-service | Implementado — progreso por estudiante y reporte de uso |
 | API Gateway | Pendiente No iniciado |
 | Frontend (estructura objetivo) | Pendiente No iniciado (existe solo el HTML plano de la demo) |
