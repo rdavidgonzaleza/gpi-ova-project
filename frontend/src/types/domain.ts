@@ -66,6 +66,16 @@ export interface CreateOVARequest {
   activities: Array<Pick<OVAActivitySummary, 'title' | 'description' | 'is_ai'>>
 }
 
+/** Response of POST /api/ovas/{id}/media: presigned upload to the bucket. */
+export interface MediaUpload {
+  upload_url: string
+  public_url: string
+  key: string
+  block_type: 'imagen' | 'video'
+  content_type: string
+  expires_at: ISODate
+}
+
 export interface OVAVersion {
   id: UUID
   ova_id: UUID

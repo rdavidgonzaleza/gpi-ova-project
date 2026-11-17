@@ -1,82 +1,90 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="EDT de RutaCaribe">
-<style>.bg{fill:#fff}.root{fill:#0066cc}.rt{fill:#fff}.br{fill:#e8f1fb;stroke:#0066cc33}.bt{fill:#00315f}.lf{fill:#f2f2f7;stroke:#3c3c4322}.lt{fill:#3a3a3c}.ln{stroke:#3c3c4355;stroke-width:1.5;fill:none}.wp{fill:#0066cc}@media (prefers-color-scheme:dark){.bg{fill:#1c1c1e}.root{fill:#3b9eff}.rt{fill:#001a33}.br{fill:#0f2a45;stroke:#3b9eff44}.bt{fill:#cfe5ff}.lf{fill:#2c2c2e;stroke:#ffffff1a}.lt{fill:#e5e5ea}.ln{stroke:#ffffff40}.wp{fill:#3b9eff}}</style>
-<rect class="bg" width="1000" height="400" rx="20"/>
-<rect class="root" x="380.0" y="24" width="240" height="52" rx="12"/><text class="rt" x="500.0" y="56" text-anchor="middle" font-size="18" font-weight="700">RutaCaribe</text>
-<path class="ln" d="M500.0 76 V100"/>
-<path class="ln" d="M108.0 100 H892.0"/>
-<path class="ln" d="M108.0 100 V120"/>
-<rect class="br" x="20.0" y="120" width="176" height="56" rx="12"/><text class="bt" x="108.0" y="153" text-anchor="middle" font-size="14" font-weight="600">1. Gestión del proyecto</text>
-<path class="ln" d="M36.0 176 V342"/>
-<path class="ln" d="M36.0 226 H48.0"/>
-<rect class="lf" x="48.0" y="204" width="148" height="44" rx="10"/>
-<path class="wp" d="M62.0 220 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="76.0" y="231" font-size="12.5">1.1 Acta de constitución</text>
-<path class="ln" d="M36.0 284 H48.0"/>
-<rect class="lf" x="48.0" y="262" width="148" height="44" rx="10"/>
-<path class="wp" d="M62.0 278 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="76.0" y="289" font-size="12.5">1.2 Plan del proyecto</text>
-<path class="ln" d="M36.0 342 H48.0"/>
-<rect class="lf" x="48.0" y="320" width="148" height="44" rx="10"/>
-<path class="wp" d="M62.0 336 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="76.0" y="347" font-size="12.5">1.3 Informes de avance</text>
-<path class="ln" d="M304.0 100 V120"/>
-<rect class="br" x="216.0" y="120" width="176" height="56" rx="12"/><text class="bt" x="304.0" y="153" text-anchor="middle" font-size="14" font-weight="600">2. Plataforma web</text>
-<path class="ln" d="M232.0 176 V342"/>
-<path class="ln" d="M232.0 226 H244.0"/>
-<rect class="lf" x="244.0" y="204" width="148" height="44" rx="10"/>
-<path class="wp" d="M258.0 220 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="272.0" y="231" font-size="12.5">2.1 Buscador de rutas</text>
-<path class="ln" d="M232.0 284 H244.0"/>
-<rect class="lf" x="244.0" y="262" width="148" height="44" rx="10"/>
-<path class="wp" d="M258.0 278 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="272.0" y="289" font-size="12.5">2.2 Mapa de sillas</text>
-<path class="ln" d="M232.0 342 H244.0"/>
-<rect class="lf" x="244.0" y="320" width="148" height="44" rx="10"/>
-<path class="wp" d="M258.0 336 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="272.0" y="347" font-size="12.5">2.3 Panel de taquilla</text>
-<path class="ln" d="M500.0 100 V120"/>
-<rect class="br" x="412.0" y="120" width="176" height="56" rx="12"/><text class="bt" x="500.0" y="153" text-anchor="middle" font-size="14" font-weight="600">3. Aplicación móvil</text>
-<path class="ln" d="M428.0 176 V342"/>
-<path class="ln" d="M428.0 226 H440.0"/>
-<rect class="lf" x="440.0" y="204" width="148" height="44" rx="10"/>
-<path class="wp" d="M454.0 220 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="468.0" y="231" font-size="12.5">3.1 Compra de tiquetes</text>
-<path class="ln" d="M428.0 284 H440.0"/>
-<rect class="lf" x="440.0" y="262" width="148" height="44" rx="10"/>
-<path class="wp" d="M454.0 278 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="468.0" y="289" font-size="12.5">3.2 Tiquete con QR</text>
-<path class="ln" d="M428.0 342 H440.0"/>
-<rect class="lf" x="440.0" y="320" width="148" height="44" rx="10"/>
-<path class="wp" d="M454.0 336 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="468.0" y="347" font-size="12.5">3.3 Notificaciones</text>
-<path class="ln" d="M696.0 100 V120"/>
-<rect class="br" x="608.0" y="120" width="176" height="56" rx="12"/><text class="bt" x="696.0" y="153" text-anchor="middle" font-size="14" font-weight="600">4. Integración de pagos</text>
-<path class="ln" d="M624.0 176 V342"/>
-<path class="ln" d="M624.0 226 H636.0"/>
-<rect class="lf" x="636.0" y="204" width="148" height="44" rx="10"/>
-<path class="wp" d="M650.0 220 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="664.0" y="231" font-size="12.5">4.1 Pasarela PSE</text>
-<path class="ln" d="M624.0 284 H636.0"/>
-<rect class="lf" x="636.0" y="262" width="148" height="44" rx="10"/>
-<path class="wp" d="M650.0 278 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="664.0" y="289" font-size="12.5">4.2 Pago con tarjeta</text>
-<path class="ln" d="M624.0 342 H636.0"/>
-<rect class="lf" x="636.0" y="320" width="148" height="44" rx="10"/>
-<path class="wp" d="M650.0 336 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="664.0" y="347" font-size="12.5">4.3 Conciliación</text>
-<path class="ln" d="M892.0 100 V120"/>
-<rect class="br" x="804.0" y="120" width="176" height="56" rx="12"/><text class="bt" x="892.0" y="153" text-anchor="middle" font-size="14" font-weight="600">5. Puesta en producción</text>
-<path class="ln" d="M820.0 176 V342"/>
-<path class="ln" d="M820.0 226 H832.0"/>
-<rect class="lf" x="832.0" y="204" width="148" height="44" rx="10"/>
-<path class="wp" d="M846.0 220 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="860.0" y="231" font-size="12.5">5.1 Migración de datos</text>
-<path class="ln" d="M820.0 284 H832.0"/>
-<rect class="lf" x="832.0" y="262" width="148" height="44" rx="10"/>
-<path class="wp" d="M846.0 278 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="860.0" y="289" font-size="12.5">5.2 Capacitación</text>
-<path class="ln" d="M820.0 342 H832.0"/>
-<rect class="lf" x="832.0" y="320" width="148" height="44" rx="10"/>
-<path class="wp" d="M846.0 336 l6 6 -6 6 -6 -6z"/>
-<text class="lt" x="860.0" y="347" font-size="12.5">5.3 Salida en vivo</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 452" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="EDT de RutaCaribe en tres niveles">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<rect class="dg-accent" x="290" y="14" width="220" height="52" rx="14"/>
+<text class="dg-on" x="400" y="47" font-size="19" font-weight="700" text-anchor="middle">RutaCaribe</text>
+<path class="dg-line" d="M400 66 V88"/>
+<path class="dg-line" d="M85.6 88 H714.4"/>
+<path class="dg-line" d="M85.6 88 V106"/>
+<rect class="dg-accent-soft" x="12" y="106" width="147.2" height="62" rx="12"/>
+<text class="dg-ta" x="85.6" y="132" font-size="14.5" font-weight="650" text-anchor="middle"><tspan x="85.6" dy="0">1. Gestión del</tspan><tspan x="85.6" dy="18.9">proyecto</tspan></text>
+<path class="dg-line" d="M24 168 V346"/>
+<path class="dg-line" d="M24 214 H34"/>
+<rect class="dg-box" x="34" y="190" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M46 209 L51 214 L46 219 L41 214 Z"/>
+<text class="dg-t" x="57" y="219" font-size="13">1.1 Acta</text>
+<path class="dg-line" d="M24 280 H34"/>
+<rect class="dg-box" x="34" y="256" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M46 275 L51 280 L46 285 L41 280 Z"/>
+<text class="dg-t" x="57" y="285" font-size="13">1.2 Plan</text>
+<path class="dg-line" d="M24 346 H34"/>
+<rect class="dg-box" x="34" y="322" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M46 341 L51 346 L46 351 L41 346 Z"/>
+<text class="dg-t" x="57" y="351" font-size="13">1.3 Informes</text>
+<path class="dg-line" d="M242.79999999999998 88 V106"/>
+<rect class="dg-accent-soft" x="169.2" y="106" width="147.2" height="62" rx="12"/>
+<text class="dg-ta" x="242.8" y="132" font-size="14.5" font-weight="650" text-anchor="middle"><tspan x="242.8" dy="0">2. Plataforma</tspan><tspan x="242.8" dy="18.9">web</tspan></text>
+<path class="dg-line" d="M181.2 168 V346"/>
+<path class="dg-line" d="M181.2 214 H191.2"/>
+<rect class="dg-box" x="191.2" y="190" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M203.2 209 L208.2 214 L203.2 219 L198.2 214 Z"/>
+<text class="dg-t" x="214.2" y="219" font-size="13">2.1 Buscador</text>
+<path class="dg-line" d="M181.2 280 H191.2"/>
+<rect class="dg-box" x="191.2" y="256" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M203.2 275 L208.2 280 L203.2 285 L198.2 280 Z"/>
+<text class="dg-t" x="214.2" y="285" font-size="13">2.2 Sillas</text>
+<path class="dg-line" d="M181.2 346 H191.2"/>
+<rect class="dg-box" x="191.2" y="322" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M203.2 341 L208.2 346 L203.2 351 L198.2 346 Z"/>
+<text class="dg-t" x="214.2" y="351" font-size="13">2.3 Taquilla</text>
+<path class="dg-line" d="M400 88 V106"/>
+<rect class="dg-accent-soft" x="326.4" y="106" width="147.2" height="62" rx="12"/>
+<text class="dg-ta" x="400" y="132" font-size="14.5" font-weight="650" text-anchor="middle"><tspan x="400" dy="0">3. Aplicación</tspan><tspan x="400" dy="18.9">móvil</tspan></text>
+<path class="dg-line" d="M338.4 168 V346"/>
+<path class="dg-line" d="M338.4 214 H348.4"/>
+<rect class="dg-box" x="348.4" y="190" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M360.4 209 L365.4 214 L360.4 219 L355.4 214 Z"/>
+<text class="dg-t" x="371.4" y="219" font-size="13">3.1 Compra</text>
+<path class="dg-line" d="M338.4 280 H348.4"/>
+<rect class="dg-box" x="348.4" y="256" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M360.4 275 L365.4 280 L360.4 285 L355.4 280 Z"/>
+<text class="dg-t" x="371.4" y="285" font-size="13">3.2 Tiquete QR</text>
+<path class="dg-line" d="M338.4 346 H348.4"/>
+<rect class="dg-box" x="348.4" y="322" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M360.4 341 L365.4 346 L360.4 351 L355.4 346 Z"/>
+<text class="dg-t" x="371.4" y="351" font-size="13">3.3 Avisos</text>
+<path class="dg-line" d="M557.1999999999999 88 V106"/>
+<rect class="dg-accent-soft" x="483.6" y="106" width="147.2" height="62" rx="12"/>
+<text class="dg-ta" x="557.2" y="132" font-size="14.5" font-weight="650" text-anchor="middle"><tspan x="557.2" dy="0">4. Integración</tspan><tspan x="557.2" dy="18.9">de pagos</tspan></text>
+<path class="dg-line" d="M495.59999999999997 168 V346"/>
+<path class="dg-line" d="M495.59999999999997 214 H505.59999999999997"/>
+<rect class="dg-box" x="505.6" y="190" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M517.6 209 L522.6 214 L517.6 219 L512.6 214 Z"/>
+<text class="dg-t" x="528.6" y="219" font-size="13">4.1 PSE</text>
+<path class="dg-line" d="M495.59999999999997 280 H505.59999999999997"/>
+<rect class="dg-box" x="505.6" y="256" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M517.6 275 L522.6 280 L517.6 285 L512.6 280 Z"/>
+<text class="dg-t" x="528.6" y="285" font-size="13">4.2 Tarjeta</text>
+<path class="dg-line" d="M495.59999999999997 346 H505.59999999999997"/>
+<rect class="dg-box" x="505.6" y="322" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M517.6 341 L522.6 346 L517.6 351 L512.6 346 Z"/>
+<text class="dg-t" x="528.6" y="351" font-size="13">4.3 Conciliación</text>
+<path class="dg-line" d="M714.4 88 V106"/>
+<rect class="dg-accent-soft" x="640.8" y="106" width="147.2" height="62" rx="12"/>
+<text class="dg-ta" x="714.4" y="132" font-size="14.5" font-weight="650" text-anchor="middle"><tspan x="714.4" dy="0">5. Puesta en</tspan><tspan x="714.4" dy="18.9">producción</tspan></text>
+<path class="dg-line" d="M652.8 168 V346"/>
+<path class="dg-line" d="M652.8 214 H662.8"/>
+<rect class="dg-box" x="662.8" y="190" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M674.8 209 L679.8 214 L674.8 219 L669.8 214 Z"/>
+<text class="dg-t" x="685.8" y="219" font-size="13">5.1 Migración</text>
+<path class="dg-line" d="M652.8 280 H662.8"/>
+<rect class="dg-box" x="662.8" y="256" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M674.8 275 L679.8 280 L674.8 285 L669.8 280 Z"/>
+<text class="dg-t" x="685.8" y="285" font-size="13">5.2 Capacitar</text>
+<path class="dg-line" d="M652.8 346 H662.8"/>
+<rect class="dg-box" x="662.8" y="322" width="125.2" height="48" rx="10"/>
+<path class="dg-accent" d="M674.8 341 L679.8 346 L674.8 351 L669.8 346 Z"/>
+<text class="dg-t" x="685.8" y="351" font-size="13">5.3 Lanzamiento</text>
+<rect class="dg-card" x="12" y="400" width="776" height="40" rx="12"/>
+<path class="dg-accent" d="M34 414 L40 420 L34 426 L28 420 Z"/>
+<text class="dg-t2" x="48" y="425" font-size="13.5">Paquete de trabajo: el nivel más bajo, con un responsable y una estimación</text>
 </svg>

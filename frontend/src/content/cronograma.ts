@@ -18,11 +18,11 @@ export const cronograma: CourseUnit = {
       position: 1,
       content: `## De la EDT al calendario
 
-Con la línea base del alcance aprobada, el equipo de **RutaCaribe** sabe *qué* va a construir. Ahora la gerencia de Brisas del Caribe pregunta lo inevitable: **¿cuándo estará lista la app?** La respuesta no puede ser una corazonada. La cooperativa quiere lanzar antes de la temporada de diciembre, cuando la demanda de tiquetes se triplica.
+Ya sabemos *qué* construir. La gerencia pregunta: **¿cuándo estará lista la app?** Quieren lanzar antes de diciembre, cuando la demanda se triplica.
 
-Gestionar el cronograma es convertir los paquetes de trabajo de la EDT en un calendario realista que el equipo pueda cumplir y controlar.
+Gestionar el cronograma es convertir los paquetes de la EDT en un **calendario realista**.
 
-> Un cronograma no es una promesa: es un modelo. Su valor está en mostrar qué pasa cuando algo cambia.`,
+> Un cronograma no es una promesa: es un modelo que muestra qué pasa cuando algo cambia.`,
     },
     {
       id: ids.block(U, 2),
@@ -30,20 +30,15 @@ Gestionar el cronograma es convertir los paquetes de trabajo de la EDT en un cal
       position: 2,
       content: `## Los procesos del cronograma
 
-| Proceso | Qué produce |
-|---|---|
-| Planificar la gestión del cronograma | Reglas para estimar, medir y controlar el tiempo |
-| Definir las actividades | Lista de actividades a partir de los paquetes de trabajo |
-| Secuenciar las actividades | Red con sus dependencias |
-| Estimar las duraciones | Duración de cada actividad |
-| Desarrollar el cronograma | Línea base del cronograma (red, fechas, Gantt) |
-| Controlar el cronograma | Pronósticos y solicitudes de cambio |
+![Los seis procesos de la gestión del cronograma y la salida de cada uno](/ovas/cronograma-procesos.svg)
 
-### Dependencias entre actividades
+La dependencia más común es **fin a inicio (FI)**: las pruebas integrales no empiezan hasta terminar web, app y pagos.
 
-La más común es **fin a inicio (FI)**: una actividad no empieza hasta que su predecesora termina. *Las pruebas integrales* no pueden empezar hasta que estén construidos la web, la app y los pagos.
+### ¿Cuánto dura cada actividad?
 
-Para estimar duraciones se usan el **juicio de expertos**, la **estimación análoga** (proyectos parecidos), la **paramétrica** (por ejemplo, horas por pantalla) y la **estimación por tres valores** (PERT): \`(Optimista + 4 × Más probable + Pesimista) / 6\`.`,
+Se estima con juicio de expertos, estimación **análoga**, **paramétrica** o **por tres valores (PERT)**:
+
+![Estimación por tres valores: optimista, más probable y pesimista con la fórmula PERT](/ovas/cronograma-pert.svg)`,
     },
     {
       id: ids.block(U, 3),
@@ -51,18 +46,13 @@ Para estimar duraciones se usan el **juicio de expertos**, la **estimación aná
       position: 4,
       content: `## El método de la ruta crítica (CPM)
 
-La **ruta crítica** es la secuencia más larga de actividades dependientes. Su duración es la duración mínima del proyecto: si cualquiera de sus actividades se retrasa, el proyecto entero se retrasa.
+La **ruta crítica** es la secuencia más larga de actividades dependientes: marca la duración mínima del proyecto.
 
-### Cómo se calcula
+1. **Pasada hacia adelante:** \`FT = IT + duración\`.
+2. **Pasada hacia atrás:** \`ITa = FTa − duración\`.
+3. **Holgura** = \`ITa − IT\`. Holgura cero → actividad crítica.
 
-1. **Pasada hacia adelante.** Para cada actividad, el *inicio temprano* (IT) es el mayor *fin temprano* (FT) de sus predecesoras, y \`FT = IT + duración\`.
-2. **Pasada hacia atrás.** Desde el final, el *fin tardío* (FTa) es el menor *inicio tardío* (ITa) de sus sucesoras, y \`ITa = FTa − duración\`.
-3. **Holgura total** = \`ITa − IT\`. Es cuánto puede retrasarse una actividad sin mover la fecha final.
-4. Las actividades con **holgura cero** forman la ruta crítica.
-
-### Lo que la holgura te dice
-
-Si una actividad con 2 semanas de holgura se retrasa 3, consume su holgura y **1 semana** se transmite al final del proyecto. Además, la ruta crítica puede cambiar: una actividad que no era crítica puede volverse crítica.`,
+![Notación de un nodo CPM y cómo un retraso mayor que la holgura mueve el final del proyecto](/ovas/cronograma-holgura.svg)`,
     },
     {
       id: ids.block(U, 4),
@@ -77,14 +67,11 @@ Si una actividad con 2 semanas de holgura se retrasa 3, consume su holgura y **1
       position: 7,
       content: `## Comprimir el cronograma
 
-Cuando la fecha no alcanza, hay dos técnicas clásicas. Ambas actúan **solo sobre la ruta crítica**: acortar una actividad con holgura no adelanta el final.
+Si la fecha no alcanza, se comprime **solo la ruta crítica**: acortar una actividad con holgura no adelanta el final.
 
-- **Intensificación** (*crashing*): agregar recursos a actividades críticas. Aumenta el costo. Conviene empezar por la actividad crítica más barata de acortar.
-- **Ejecución rápida** (*fast tracking*): hacer en paralelo actividades que se planearon en secuencia. Aumenta el riesgo de retrabajo.
+![Intensificación frente a ejecución rápida: qué cambia y cuánto cuesta cada una](/ovas/cronograma-compresion.svg)
 
-Ninguna técnica es gratis. Agregar personas a una tarea de software ya atrasada puede retrasarla más (ley de Brooks), porque los nuevos necesitan tiempo para aprender y el equipo dedica tiempo a coordinarse.
-
-El **diagrama de Gantt** es la forma habitual de comunicar el cronograma a los interesados: barras por actividad sobre un eje de tiempo, con la ruta crítica resaltada y los hitos marcados.`,
+El **diagrama de Gantt** comunica el resultado: barras en el tiempo, ruta crítica resaltada e hitos.`,
     },
   ],
   activities: [

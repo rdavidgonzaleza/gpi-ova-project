@@ -345,6 +345,12 @@ respuestas del intento; si hubo retroalimentación de IA, incluye su
 
 Los bloques `imagen` y `video` de `content_blocks` guardan en `content` el
 formato `url|descripción`; los bloques `texto` usan Markdown.
+Un bloque `texto` puede intercalar figuras con una línea que contenga solo
+`![descripción](url)`; el frontend la muestra como diagrama dentro de la misma
+lectura. Un bloque `video` acepta un enlace de YouTube o un archivo MP4/WebM
+(por ejemplo, un video resumen subido al bucket con
+`POST /api/ovas/{id}/media`). Los diagramas propios del curso viven en
+`frontend/public/ovas` y se generan con `pnpm diagrams`.
 
 ---
 

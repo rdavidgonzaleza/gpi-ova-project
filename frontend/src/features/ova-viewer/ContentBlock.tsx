@@ -1,49 +1,48 @@
 import { useMemo } from 'react'
 import { renderMarkdown } from '../../lib/markdown'
+import { splitMedia } from '../../lib/media'
 import type { ContentBlock as Block } from '../../types/domain'
+import { MediaFigure } from './MediaFigure'
 
-/** Image and video blocks store `url|description` in `content`. */
-function splitMedia(content: string) {
-  const [url, ...rest] = content.split('|')
-  return { url: url.trim(), description: rest.join('|').trim() }
-}
+type Part = { kind: 'markdown'; html: string } | { kind: 'figure'; url: string; description: string }
 
-function embedUrl(url: string) {
-  const youtube = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/)
-  return youtube ? `https://www.youtube-nocookie.com/embed/${youtube[1]}` : url
+/**
+ * A Markdown line holding only an image (`![descripción](url)`) becomes a
+ * figure, so a reading can mix short text with diagrams in the same step.
+ */
+const FIGURE_LINE = /^!\[([^\]]*)\]\(([^)\s]+)\)\s*$/gm
+
+function splitText(markdown: string): Part[] {
+  const parts: Part[] = []
+  let last = 0
+  for (const match of markdown.matchAll(FIGURE_LINE)) {
+    const before = markdown.slice(last, match.index).trim()
+    if (before) parts.push({ kind: 'markdown', html: renderMarkdown(before) })
+    parts.push({ kind: 'figure', url: match[2], description: match[1] })
+    last = match.index + match[0].length
+  }
+  const rest = markdown.slice(last).trim()
+  if (rest) parts.push({ kind: 'markdown', html: renderMarkdown(rest) })
+  return parts
 }
 
 export function ContentBlock({ block }: { block: Block }) {
-  const html = useMemo(() => (block.type === 'texto' ? renderMarkdown(block.content) : ''), [block])
+  const parts = useMemo(() => (block.type === 'texto' ? splitText(block.content) : []), [block])
 
   if (block.type === 'texto') {
-    return <div className="prose-ova" dangerouslySetInnerHTML={{ __html: html }} />
-  }
-
-  const { url, description } = splitMedia(block.content)
-  if (block.type === 'imagen') {
     return (
-      <figure className="space-y-3">
-        <div className="card overflow-hidden p-2 sm:p-3">
-          <img src={url} alt={description} className="w-full rounded-xl" loading="lazy" />
-        </div>
-        {description && <figcaption className="px-1 text-footnote text-label-2">{description}</figcaption>}
-      </figure>
+      <div className="space-y-8">
+        {parts.map((part, index) =>
+          part.kind === 'markdown' ? (
+            <div key={index} className="prose-ova" dangerouslySetInnerHTML={{ __html: part.html }} />
+          ) : (
+            <MediaFigure key={index} type="imagen" url={part.url} description={part.description} />
+          ),
+        )}
+      </div>
     )
   }
 
-  return (
-    <figure className="space-y-3">
-      <div className="card aspect-video overflow-hidden">
-        <iframe
-          src={embedUrl(url)}
-          title={description || 'Video del OVA'}
-          className="size-full"
-          allow="accelerometer; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      {description && <figcaption className="px-1 text-footnote text-label-2">{description}</figcaption>}
-    </figure>
-  )
+  const { url, description } = splitMedia(block.content)
+  return <MediaFigure type={block.type} url={url} description={description} />
 }

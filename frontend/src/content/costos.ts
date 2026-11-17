@@ -18,11 +18,11 @@ export const costos: CourseUnit = {
       position: 1,
       content: `## ¿Cuánto cuesta RutaCaribe?
 
-La junta de Brisas del Caribe aprobó un presupuesto de **$480 millones** para RutaCaribe. Es la primera vez que la cooperativa invierte tanto en tecnología, y la gerencia financiera quiere saber cada mes si el dinero alcanza.
+La junta aprobó **$480 millones**. La gerencia quiere saber cada mes si el dinero alcanza.
 
-"Llevamos gastado el 47 %" no responde esa pregunta. Haber gastado la mitad del dinero es buena noticia si se hizo la mitad del trabajo, y mala si solo se hizo un tercio. Por eso la gestión de costos compara siempre **lo gastado** con **lo logrado**.
+"Llevamos gastado el 47 %" no basta: es buena noticia si se hizo la mitad del trabajo y mala si se hizo un tercio.
 
-> Un proyecto no se controla mirando cuánto se ha gastado, sino cuánto valor se ha ganado con lo que se gastó.`,
+> No se controla cuánto se gastó, sino **cuánto valor se ganó** con lo que se gastó.`,
     },
     {
       id: ids.block(U, 2),
@@ -30,18 +30,13 @@ La junta de Brisas del Caribe aprobó un presupuesto de **$480 millones** para R
       position: 2,
       content: `## Estimar, presupuestar y controlar
 
-| Proceso | Qué produce |
-|---|---|
-| Planificar la gestión de los costos | Reglas de estimación, unidades, umbrales de control |
-| Estimar los costos | Costo de cada paquete de trabajo |
-| Determinar el presupuesto | Línea base de costos (curva S) |
-| Controlar los costos | Indicadores de desempeño y pronósticos |
+![Los cuatro procesos de la gestión de los costos](/ovas/costos-procesos.svg)
 
 ### Del costo estimado al presupuesto
 
-Los costos de los paquetes de trabajo se suman hacia arriba en la EDT. A esa suma se agrega la **reserva para contingencias**, para riesgos identificados, y se obtiene la **línea base de costos**. Si además se suma la **reserva de gestión**, para imprevistos no identificados, se obtiene el **presupuesto total**. La reserva de gestión no forma parte de la línea base: usarla requiere una aprobación.
+![Paquetes de trabajo más reserva para contingencias forman la línea base; con la reserva de gestión se llega al presupuesto total](/ovas/costos-presupuesto.svg)
 
-Al repartir la línea base en el tiempo resulta la **curva S**: el gasto acumulado empieza lento, se acelera cuando todo el equipo trabaja en paralelo y se aplana al final.`,
+La **reserva de gestión** cubre imprevistos no identificados y **no** forma parte de la línea base: usarla requiere aprobación. Repartida en el tiempo, la línea base forma la **curva S**: arranca lento, se acelera cuando todo el equipo trabaja en paralelo y se aplana al final.`,
     },
     {
       id: ids.block(U, 3),
@@ -49,26 +44,11 @@ Al repartir la línea base en el tiempo resulta la **curva S**: el gasto acumula
       position: 4,
       content: `## La gestión del valor ganado (EVM)
 
-EVM combina alcance, tiempo y costo con tres datos medidos en una fecha de corte:
+EVM mide tres datos en una **fecha de corte**. \`EV = % completado × BAC\`, donde **BAC** es el presupuesto de la línea base.
 
-- **PV, valor planificado**: cuánto trabajo, en dinero, *debía* estar hecho según la línea base.
-- **EV, valor ganado**: cuánto trabajo, en dinero del presupuesto, *está* realmente hecho. \`EV = % completado × BAC\`
-- **AC, costo real**: cuánto se *gastó* realmente para hacer ese trabajo.
+![Curva S con PV, EV y AC en la fecha de corte; CV es la distancia entre EV y AC y SV entre EV y PV](/ovas/costos-curva-s.svg)
 
-**BAC** (*presupuesto hasta la conclusión*) es el presupuesto total de la línea base.
-
-### Indicadores
-
-| Indicador | Fórmula | Cómo leerlo |
-|---|---|---|
-| Variación del costo | \`CV = EV − AC\` | Negativa: sobrecosto |
-| Variación del cronograma | \`SV = EV − PV\` | Negativa: atraso |
-| Índice de desempeño del costo | \`CPI = EV / AC\` | Menor que 1: cada peso rinde menos de lo planeado |
-| Índice de desempeño del cronograma | \`SPI = EV / PV\` | Menor que 1: se avanza más lento de lo planeado |
-
-### Pronósticos
-
-Si el desempeño del costo se mantiene, el costo final estimado es \`EAC = BAC / CPI\`. La **variación a la conclusión** \`VAC = BAC − EAC\` dice cuánto faltará (o sobrará) al terminar.`,
+![Fórmulas de CV, SV, CPI, SPI, EAC y VAC con su lectura](/ovas/costos-indicadores.svg)`,
     },
     {
       id: ids.block(U, 4),
@@ -76,15 +56,11 @@ Si el desempeño del costo se mantiene, el costo final estimado es \`EAC = BAC /
       position: 7,
       content: `## De los números a las decisiones
 
-Los indicadores no son el final del análisis, sino el principio de una conversación:
+Los indicadores abren la conversación; no la cierran.
 
-- **CPI < 1 y SPI < 1**: el proyecto gasta más y avanza menos. Es la situación más delicada: hay que encontrar la causa (estimaciones optimistas, productividad, retrabajo) antes de pedir más dinero.
-- **CPI < 1 y SPI > 1**: se está adelantando trabajo a costa de gastar más, por ejemplo con horas extra.
-- **CPI > 1 y SPI < 1**: se gasta menos porque se trabaja menos de lo planeado; a veces faltan personas en el equipo.
+![Los cuatro cuadrantes de CPI y SPI con su lectura, la regla del 20 % y por qué EV usa el presupuesto](/ovas/costos-cuadrantes.svg)
 
-Un CPI se estabiliza pronto: después del 20 % de avance, rara vez mejora mucho por sí solo. Por eso, si el EAC supera el presupuesto, el director debe proponer acciones (reducir alcance, renegociar, usar reservas) y no solo esperar que mejore.
-
-Recuerda que **EV se calcula con el presupuesto, no con lo gastado**: si un paquete de $40 millones está al 50 %, su EV es $20 millones, aunque se hayan gastado $30 millones.`,
+Si el EAC supera el presupuesto, el director propone acciones: reducir alcance, renegociar o usar reservas.`,
     },
   ],
   activities: [

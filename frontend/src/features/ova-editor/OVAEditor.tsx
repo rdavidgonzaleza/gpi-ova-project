@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { CheckCircle2 } from 'lucide-react'
 import { activitiesApi } from '../../api/activities'
 import { ApiError } from '../../api/client'
-import { contentApi } from '../../api/content'
+import { contentApi, uploadOVAMedia } from '../../api/content'
 import { Button, ButtonLink } from '../../components/Button'
 import { TextArea } from '../../components/TextArea'
 import { TextField } from '../../components/TextField'
@@ -24,23 +24,41 @@ export function OVAEditor() {
   const [quizTitle, setQuizTitle] = useState('Comprueba lo aprendido')
   const [questions, setQuestions] = useState<DraftQuestion[]>([emptyQuestion()])
   const [created, setCreated] = useState<OVA | null>(null)
+  const [uploading, setUploading] = useState<string | null>(null)
 
   const validQuestions = questions.filter((q) => q.prompt.trim() && q.options.every((o) => o.trim()))
-  const ready = title.trim().length >= 4 && description.trim().length >= 10 && outcome.trim().length >= 10
+  const mediaReady = blocks.every((block) => block.type === 'texto' || block.file || block.content.trim())
+  const ready = title.trim().length >= 4 && description.trim().length >= 10 && outcome.trim().length >= 10 && mediaReady
 
   const save = useMutation({
     mutationFn: async () => {
-      const ova = await contentApi.create({
+      const toBlock = (block: DraftBlock, index: number, url = block.content) => ({
+        type: block.type,
+        position: index + 1,
+        content: block.type === 'texto' ? block.content : `${url}|${block.alt ?? ''}`,
+      })
+      const pending = blocks.filter((block) => block.file)
+      let ova = await contentApi.create({
         title,
         description,
         learning_outcome: outcome,
-        blocks: blocks.map((block, index) => ({
-          type: block.type,
-          position: index + 1,
-          content: block.type === 'imagen' ? `${block.content}|${block.alt ?? ''}` : block.content,
-        })),
+        // Blocks waiting for an upload are added once the OVA has an id.
+        blocks: blocks.flatMap((block, index) => (block.file ? [] : [toBlock(block, index)])),
         activities: validQuestions.length ? [{ title: quizTitle, description: 'Quiz de comprobación', is_ai: true }] : [],
       })
+      if (pending.length) {
+        const urls = new Map<string, string>()
+        for (const [i, block] of pending.entries()) {
+          const label = `Subiendo ${block.file!.name} (${i + 1} de ${pending.length})`
+          setUploading(label)
+          urls.set(block.key, await uploadOVAMedia(ova.id, block.file!, (f) => setUploading(`${label} · ${Math.round(f * 100)} %`)))
+        }
+        setUploading(null)
+        ova = await contentApi.update(ova.id, {
+          blocks: blocks.map((block, index) => toBlock(block, index, urls.get(block.key) ?? block.content)),
+          change_notes: `Se agregan ${pending.length} archivos multimedia`,
+        })
+      }
       if (validQuestions.length) {
         const config: QuizConfig = {
           position: blocks.length + 1,
@@ -57,6 +75,7 @@ export function OVAEditor() {
       }
       return ova
     },
+    onSettled: () => setUploading(null),
     onSuccess: (ova) => {
       setCreated(ova)
       queryClient.invalidateQueries({ queryKey: ['ovas'] })
@@ -133,8 +152,8 @@ export function OVAEditor() {
         <Button type="submit" disabled={!ready} loading={save.isPending}>
           Guardar borrador
         </Button>
-        <p className="text-footnote text-label-2">
-          {blocks.length} bloques · {validQuestions.length} preguntas completas
+        <p className="text-footnote text-label-2" aria-live="polite">
+          {uploading ?? `${blocks.length} bloques · ${validQuestions.length} preguntas completas`}
         </p>
         {save.error && (
           <p role="alert" className="w-full text-footnote text-danger">

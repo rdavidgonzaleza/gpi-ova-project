@@ -1,16 +1,22 @@
 import { useMemo, useState } from 'react'
-import { ArrowDown, ArrowUp, Eye, ImagePlus, Pencil, TextCursorInput, Trash2 } from 'lucide-react'
+import { ArrowDown, ArrowUp, Clapperboard, Eye, ImagePlus, Pencil, TextCursorInput, Trash2 } from 'lucide-react'
 import { Button } from '../../components/Button'
 import { TextArea } from '../../components/TextArea'
-import { TextField } from '../../components/TextField'
 import { renderMarkdown } from '../../lib/markdown'
+import { MediaField } from './MediaField'
 
 export interface DraftBlock {
   key: string
-  type: 'texto' | 'imagen'
+  type: 'texto' | 'imagen' | 'video'
+  /** Markdown for texto; URL for imagen/video. */
   content: string
   alt?: string
+  /** File chosen to upload to the bucket when the OVA is saved. */
+  file?: File
+  error?: string
 }
+
+const TYPE_LABEL: Record<DraftBlock['type'], string> = { texto: 'Texto', imagen: 'Imagen', video: 'Video' }
 
 interface Props {
   blocks: DraftBlock[]
@@ -35,7 +41,7 @@ export function BlocksEditor({ blocks, onChange }: Props) {
         <div key={block.key} className="card space-y-3 p-4 sm:p-5">
           <div className="flex items-center justify-between gap-2">
             <p className="text-footnote font-semibold text-label-2">
-              Bloque {index + 1} · {block.type === 'texto' ? 'Texto' : 'Imagen'}
+              Bloque {index + 1} · {TYPE_LABEL[block.type]}
             </p>
             <div className="flex gap-1">
               <IconButton label="Subir" disabled={index === 0} onClick={() => move(index, -1)}>
@@ -52,10 +58,7 @@ export function BlocksEditor({ blocks, onChange }: Props) {
           {block.type === 'texto' ? (
             <MarkdownField value={block.content} onChange={(content) => update(block.key, { content })} />
           ) : (
-            <div className="grid gap-3 sm:grid-cols-2">
-              <TextField label="URL de la imagen" value={block.content} onChange={(e) => update(block.key, { content: e.target.value })} />
-              <TextField label="Descripción (texto alternativo)" value={block.alt ?? ''} onChange={(e) => update(block.key, { alt: e.target.value })} />
-            </div>
+            <MediaField block={block as DraftBlock & { type: 'imagen' | 'video' }} onChange={(patch) => update(block.key, patch)} />
           )}
         </div>
       ))}
@@ -65,6 +68,9 @@ export function BlocksEditor({ blocks, onChange }: Props) {
         </Button>
         <Button variant="secondary" size="sm" icon={<ImagePlus className="size-4" aria-hidden />} onClick={() => add('imagen')}>
           Agregar imagen
+        </Button>
+        <Button variant="secondary" size="sm" icon={<Clapperboard className="size-4" aria-hidden />} onClick={() => add('video')}>
+          Agregar video
         </Button>
       </div>
     </div>

@@ -18,11 +18,11 @@ export const riesgos: CourseUnit = {
       position: 1,
       content: `## Lo que todavía no ha pasado
 
-RutaCaribe tiene alcance, cronograma y presupuesto aprobados. Aun así, el equipo sabe que muchas cosas pueden salir distinto de lo planeado: el proveedor de pagos puede cambiar su API, un desarrollador clave puede irse, el lanzamiento puede coincidir con la semana de más ventas del año.
+RutaCaribe ya tiene alcance, cronograma y presupuesto. Aun así, el proveedor de pagos puede cambiar su API o un desarrollador clave puede irse.
 
-Un **riesgo** es un evento o condición **incierta** que, si ocurre, afecta al menos un objetivo del proyecto. Puede ser negativo (**amenaza**) o positivo (**oportunidad**). Lo que ya ocurrió no es un riesgo: es un **problema** (*issue*) y se gestiona de otra forma.
+![Riesgo frente a problema: el riesgo es futuro e incierto y puede ser amenaza u oportunidad; el problema ya ocurrió](/ovas/riesgos-riesgo-problema.svg)
 
-> Gestionar riesgos no es ser pesimista. Es decidir hoy, con calma, lo que de otro modo habría que decidir mañana con prisa.`,
+> Gestionar riesgos es decidir hoy, con calma, lo que mañana habría que decidir con prisa.`,
     },
     {
       id: ids.block(U, 2),
@@ -30,21 +30,13 @@ Un **riesgo** es un evento o condición **incierta** que, si ocurre, afecta al m
       position: 2,
       content: `## Los procesos de la gestión de riesgos
 
-| Proceso | Pregunta que responde |
-|---|---|
-| Planificar la gestión de los riesgos | ¿Cómo vamos a gestionar los riesgos en este proyecto? |
-| Identificar los riesgos | ¿Qué podría pasar? |
-| Análisis cualitativo | ¿Cuáles importan más? |
-| Análisis cuantitativo | ¿Cuánto afectan, en números, a costo y plazo? |
-| Planificar la respuesta | ¿Qué vamos a hacer con cada uno? |
-| Implementar la respuesta | ¿Hicimos lo que planeamos? |
-| Monitorear los riesgos | ¿Qué cambió? ¿Aparecieron riesgos nuevos? |
+![Los siete procesos de la gestión de riesgos](/ovas/riesgos-procesos.svg)
 
 ### Cómo escribir un riesgo
 
-Un buen enunciado tiene **causa, riesgo y efecto**: *"Debido a que la documentación de la API de PSE está desactualizada (causa), puede que la integración tome más tiempo del estimado (riesgo), lo que retrasaría las pruebas integrales (efecto)."*
+Un buen enunciado tiene **causa, riesgo y efecto**:
 
-Todo queda en el **registro de riesgos**: descripción, probabilidad, impacto, prioridad, responsable y respuesta.`,
+![Ejemplo de enunciado: causa, riesgo y efecto de la integración con PSE](/ovas/riesgos-enunciado.svg)`,
     },
     {
       id: ids.block(U, 3),
@@ -52,17 +44,11 @@ Todo queda en el **registro de riesgos**: descripción, probabilidad, impacto, p
       position: 4,
       content: `## La matriz de probabilidad e impacto
 
-El análisis cualitativo prioriza los riesgos con dos preguntas: **¿qué tan probable es?** y **¿qué tanto afectaría?** Cada riesgo se ubica en una matriz y su zona define la prioridad.
+Dos preguntas: **¿qué tan probable?** y **¿qué tanto afectaría?** La puntuación es \`probabilidad × impacto\`.
 
-En una escala de tres niveles (baja = 1, media = 2, alta = 3), la puntuación es \`probabilidad × impacto\`:
+![Matriz 3 × 3 de probabilidad e impacto con las zonas de prioridad alta, media y baja](/ovas/riesgos-matriz.svg)
 
-| Puntuación | Prioridad | Qué hacer |
-|---|---|---|
-| 6 a 9 | **Alta** | Respuesta activa y responsable asignado ya |
-| 3 a 4 | **Media** | Respuesta planificada y monitoreo frecuente |
-| 1 a 2 | **Baja** | Lista de observación |
-
-Un riesgo de probabilidad baja pero impacto alto (por ejemplo, que se caigan los servidores el día del lanzamiento) no debe descartarse: queda en prioridad media y necesita un plan.`,
+Probabilidad baja con impacto alto (servidores caídos el día del lanzamiento) **no se descarta**: es prioridad media y necesita plan.`,
     },
     {
       id: ids.block(U, 4),
@@ -70,21 +56,9 @@ Un riesgo de probabilidad baja pero impacto alto (por ejemplo, que se caigan los
       position: 6,
       content: `## Estrategias de respuesta
 
-**Para amenazas**
+![Estrategias para amenazas (evitar, transferir, mitigar, aceptar) y para oportunidades (explotar, compartir, mejorar, aceptar)](/ovas/riesgos-estrategias.svg)
 
-- **Evitar**: cambiar el plan para eliminar la amenaza. *Usar una librería de mapas de sillas mantenida en lugar de una abandonada.*
-- **Transferir**: trasladar el impacto a un tercero, normalmente con un contrato o un seguro. *Contratar hosting con acuerdo de nivel de servicio y penalidades.*
-- **Mitigar**: reducir la probabilidad o el impacto. *Documentar el código y hacer programación en pareja para que nadie sea indispensable.*
-- **Aceptar**: no actuar ahora; si ocurre, se usa la reserva. Puede ser activa (con reserva para contingencias) o pasiva.
-
-**Para oportunidades**
-
-- **Explotar**: asegurar que la oportunidad ocurra.
-- **Compartir**: aliarse con quien puede aprovecharla mejor.
-- **Mejorar**: aumentar su probabilidad o su impacto.
-- **Aceptar**: aprovecharla si se presenta, sin buscarla.
-
-Además, **escalar** se usa cuando el riesgo está fuera del alcance del proyecto y le corresponde a la organización. Cada respuesta tiene un **responsable** y puede generar **riesgos secundarios**, que también se registran.`,
+Cada respuesta tiene un **responsable** y puede generar **riesgos secundarios**, que también se registran.`,
     },
   ],
   activities: [
