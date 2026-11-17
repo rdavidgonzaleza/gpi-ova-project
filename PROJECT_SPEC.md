@@ -782,7 +782,7 @@ devuelve datos tipados.
 | Componente | Estado |
 |---|---|
 | identity-service | Implementado Funcional en local — falta: UUID real, `/me`, migrar a Postgres |
-| content-service | Implementado — CRUD, versionado, publicación y subida de medios a B2 con URL firmada |
+| content-service | Implementado Funcional en local — falta: auth en POST, PATCH, publish, versions, migrar `activities` a su propio servicio |
 | activity-service | Pendiente No iniciado |
 | ai-service | Pendiente No iniciado |
 | evaluation-service | Pendiente No iniciado |
