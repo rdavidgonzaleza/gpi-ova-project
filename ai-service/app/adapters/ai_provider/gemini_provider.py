@@ -23,7 +23,10 @@ class GeminiProvider:
         config = types.GenerateContentConfig(
             system_instruction=system,
             temperature=0.4,
-            max_output_tokens=2048,
+            # El razonamiento interno consume el mismo presupuesto de tokens que
+            # la respuesta: con nivel bajo la retroalimentación llega completa.
+            max_output_tokens=8192,
+            thinking_config=types.ThinkingConfig(thinking_level="low"),
             response_mime_type="application/json" if expects_json else "text/plain",
         )
         try:
@@ -42,6 +45,10 @@ class GeminiProvider:
             raise ProviderFailedError("La IA no respondió a tiempo. Inténtalo de nuevo.") from error
 
         text = response.text or ""
+        candidate = response.candidates[0] if response.candidates else None
+        if expects_json and candidate is not None and candidate.finish_reason == types.FinishReason.MAX_TOKENS:
+            log.warning("gemini cortó la respuesta JSON por límite de tokens")
+            raise ProviderFailedError("La respuesta de la IA quedó incompleta. Inténtalo de nuevo.")
         if not text.strip():
             raise ProviderFailedError("La IA no generó una respuesta para este aporte. Intenta reformularlo.")
         return text
