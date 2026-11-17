@@ -347,7 +347,7 @@ lógicamente `ai_activities.id` del `ai-service`.
 |---|---|
 | `quiz` | `questions[]` (`id`, `prompt`, `options[]` de `{id, text}`, `answer?`, `explanation?`), `hints_ai_activity_id?`. Si trae `evaluation_id`, es la presentación de una evaluación de `evaluation-service`: no incluye `answer` (la clave vive solo en `evaluations.config`) y puede traer `explain_ai_activity_id?` |
 | `caso_estudio` | `scenario` (Markdown), `questions[]` (`id`, `prompt`, `placeholder?`), `rubric[]` (`id`, `name`, `description`), `review_ai_activity_id`, `variant_ai_activity_id?` |
-| `simulacion` | `kind` ∈ `{"triple_restriccion","edt","cpm","evm","riesgos"}`, `params` (objeto propio de cada `kind`), `review_ai_activity_id?` |
+| `simulacion` | `kind` ∈ `{"triple_restriccion","edt","cpm","evm","riesgos","clasificacion","secuencia"}`, `params` (objeto propio de cada `kind`), `review_ai_activity_id?` |
 | `colaborativa` | `prompt`, `role` (rol que asume el estudiante), `contributions[]` (`author`, `role`, `text`), `synthesis_ai_activity_id?` |
 
 `params` de `simulacion` según `kind`:
@@ -358,6 +358,8 @@ lógicamente `ai_activities.id` del `ai-service`.
 | `cpm` | `unit`, `activities[]` (`id`, `name`, `duration`, `predecessors[]`, dependencias fin a inicio y en orden topológico), `slack_question` (id de la actividad cuya holgura se pregunta), `delay` (`activity`, `amount`) |
 | `evm` | `currency`, `bac`, `week` (semana de corte), `total_weeks`, `pv[]` (acumulado por semana, de 0 a `total_weeks`), `ev[]` y `ac[]` (acumulados hasta `week`) |
 | `riesgos` | `risks[]` (`id`, `text`, `type` ∈ `{"amenaza","oportunidad"}`, `probability` y `impact` de 1 a 3, `responses[]` aceptadas, `reason`). Prioridad = probabilidad × impacto: 6–9 alta, 3–4 media, 1–2 baja |
+| `clasificacion` | `categories[]` (`id`, `name`, `hint?`), `items[]` (`id`, `text`, `category`, `reason`). Sirve para la matriz de interesados, las etapas del equipo o los tipos de solicitud de cambio |
+| `secuencia` | `steps[]` (`id`, `text`, `why`) en el orden correcto; el frontend los muestra desordenados y el estudiante los reordena |
 
 `answers` de `POST /api/activities/{id}/attempts` es un objeto libre con las
 respuestas del intento; si hubo retroalimentación de IA, incluye su

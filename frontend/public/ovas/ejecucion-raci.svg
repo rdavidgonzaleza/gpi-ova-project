@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 290" font-family="-apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,sans-serif" role="img" aria-label="Matriz RACI de RutaCaribe">
+<style>.dg-box{fill:#f2f2f7;stroke:#3c3c432e}.dg-card{fill:#fff;stroke:#3c3c434d}.dg-accent{fill:#0066cc}.dg-accent-soft{fill:#0066cc1a;stroke:#0066cc59}.dg-success-soft{fill:#248a3d1f;stroke:#1b7f3759}.dg-warning-soft{fill:#ff950024;stroke:#a3520059}.dg-danger-soft{fill:#d7001517;stroke:#c4001a59}.dg-ai-soft{fill:#7c3aed17;stroke:#7c3aed59}.dg-success{fill:#1b7f37}.dg-warning{fill:#a35200}.dg-danger{fill:#c4001a}.dg-t{fill:#1d1d1f}.dg-t2{fill:#5e5e63}.dg-t3{fill:#86868b}.dg-on{fill:#fff}.dg-ta{fill:#0066cc}.dg-ts{fill:#1b7f37}.dg-tw{fill:#a35200}.dg-td{fill:#c4001a}.dg-line{stroke:#3c3c434d;stroke-width:1.75;fill:none}.dg-flow{stroke:#0066cc;stroke-width:2;fill:none}.dg-head{fill:#0066cc}.dg-head-muted{fill:#86868b}.dg-dash{stroke:#86868b;stroke-width:1.5;stroke-dasharray:5 5;fill:none}.dg-s1{stroke:#2a78d6;stroke-width:3;fill:none}.dg-s2{stroke:#eb6834;stroke-width:3;fill:none}.dg-s3{stroke:#5e5e63;stroke-width:3;fill:none;stroke-dasharray:8 6}.dg-f1{fill:#2a78d6}.dg-f2{fill:#eb6834}.dg-f3{fill:#5e5e63}@media (prefers-color-scheme:dark){.dg-box{fill:#2c2c2e;stroke:#5454588c}.dg-card{fill:#1c1c1e;stroke:#78788099}.dg-accent{fill:#3b9eff}.dg-accent-soft{fill:#3b9eff29;stroke:#3b9eff59}.dg-t{fill:#f5f5f7}.dg-t2{fill:#a1a1a6}.dg-t3{fill:#7c7c80}.dg-on{fill:#001a33}.dg-ta{fill:#3b9eff}.dg-ts{fill:#34d058}.dg-tw{fill:#ffb340}.dg-td{fill:#ff6961}.dg-success{fill:#34d058}.dg-warning{fill:#ffb340}.dg-danger{fill:#ff6961}.dg-line{stroke:#78788099}.dg-flow{stroke:#3b9eff}.dg-head{fill:#3b9eff}}</style>
+<text class="dg-t" x="240.4" y="34" font-size="13.5" font-weight="650" text-anchor="middle">Director</text>
+<text class="dg-t" x="361.2" y="34" font-size="13.5" font-weight="650" text-anchor="middle">Líder técnico</text>
+<text class="dg-t" x="482" y="34" font-size="13.5" font-weight="650" text-anchor="middle">Desarrollador</text>
+<text class="dg-t" x="602.8" y="34" font-size="13.5" font-weight="650" text-anchor="middle">Analista QA</text>
+<text class="dg-t" x="723.6" y="34" font-size="13.5" font-weight="650" text-anchor="middle">Gerente</text>
+<text class="dg-t" x="16" y="80" font-size="14.5" font-weight="600">Arquitectura</text>
+<rect class="dg-danger-soft" x="188" y="56" width="104.8" height="36" rx="10"/>
+<text class="dg-td" x="240.4" y="80" font-size="15" font-weight="700" text-anchor="middle">A</text>
+<rect class="dg-accent" x="308.8" y="56" width="104.8" height="36" rx="10"/>
+<text class="dg-on" x="361.2" y="80" font-size="15" font-weight="700" text-anchor="middle">R</text>
+<rect class="dg-warning-soft" x="429.6" y="56" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="482" y="80" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-warning-soft" x="550.4" y="56" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="602.8" y="80" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-box" x="671.2" y="56" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="723.6" y="80" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<text class="dg-t" x="16" y="128" font-size="14.5" font-weight="600">App móvil</text>
+<rect class="dg-danger-soft" x="188" y="104" width="104.8" height="36" rx="10"/>
+<text class="dg-td" x="240.4" y="128" font-size="15" font-weight="700" text-anchor="middle">A</text>
+<rect class="dg-warning-soft" x="308.8" y="104" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="361.2" y="128" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-accent" x="429.6" y="104" width="104.8" height="36" rx="10"/>
+<text class="dg-on" x="482" y="128" font-size="15" font-weight="700" text-anchor="middle">R</text>
+<rect class="dg-warning-soft" x="550.4" y="104" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="602.8" y="128" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-box" x="671.2" y="104" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="723.6" y="128" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<text class="dg-t" x="16" y="176" font-size="14.5" font-weight="600">Plan de pruebas</text>
+<rect class="dg-danger-soft" x="188" y="152" width="104.8" height="36" rx="10"/>
+<text class="dg-td" x="240.4" y="176" font-size="15" font-weight="700" text-anchor="middle">A</text>
+<rect class="dg-warning-soft" x="308.8" y="152" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="361.2" y="176" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-box" x="429.6" y="152" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="482" y="176" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<rect class="dg-accent" x="550.4" y="152" width="104.8" height="36" rx="10"/>
+<text class="dg-on" x="602.8" y="176" font-size="15" font-weight="700" text-anchor="middle">R</text>
+<rect class="dg-box" x="671.2" y="152" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="723.6" y="176" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<text class="dg-t" x="16" y="224" font-size="14.5" font-weight="600">Aceptación final</text>
+<rect class="dg-accent" x="188" y="200" width="104.8" height="36" rx="10"/>
+<text class="dg-on" x="240.4" y="224" font-size="15" font-weight="700" text-anchor="middle">R</text>
+<rect class="dg-box" x="308.8" y="200" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="361.2" y="224" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<rect class="dg-box" x="429.6" y="200" width="104.8" height="36" rx="10"/>
+<text class="dg-t2" x="482" y="224" font-size="15" font-weight="700" text-anchor="middle">I</text>
+<rect class="dg-warning-soft" x="550.4" y="200" width="104.8" height="36" rx="10"/>
+<text class="dg-tw" x="602.8" y="224" font-size="15" font-weight="700" text-anchor="middle">C</text>
+<rect class="dg-danger-soft" x="671.2" y="200" width="104.8" height="36" rx="10"/>
+<text class="dg-td" x="723.6" y="224" font-size="15" font-weight="700" text-anchor="middle">A</text>
+<text class="dg-t2" x="16" y="268" font-size="13.5">R responsable de hacerlo · A aprueba (solo uno) · C consultado · I informado</text>
+</svg>

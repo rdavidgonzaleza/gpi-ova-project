@@ -61,7 +61,7 @@ export interface CaseStudyConfig extends BaseConfig {
   variant_ai_activity_id?: UUID
 }
 
-export type SimulationKind = 'triple_restriccion' | 'edt' | 'cpm' | 'evm' | 'riesgos'
+export type SimulationKind = 'triple_restriccion' | 'edt' | 'cpm' | 'evm' | 'riesgos' | 'clasificacion' | 'secuencia'
 
 export interface SimulationConfig extends BaseConfig {
   kind: SimulationKind

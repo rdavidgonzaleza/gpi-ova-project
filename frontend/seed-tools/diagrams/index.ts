@@ -4,14 +4,33 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as alcance from './alcance'
+import * as cambios from './cambios'
+import * as cierre from './cierre'
 import * as costos from './costos'
 import * as cronograma from './cronograma'
+import * as ejecucion from './ejecucion'
+import * as inicio from './inicio'
 import * as riesgos from './riesgos'
 import type { Svg } from './svg'
 
 const out = join(dirname(fileURLToPath(import.meta.url)), '../../public/ovas')
 
 const diagrams: Record<string, () => Svg> = {
+  'inicio-ciclo-vida': inicio.cicloVida,
+  'inicio-acta': inicio.acta,
+  'inicio-interesados': inicio.interesados,
+  'inicio-plan': inicio.plan,
+  'ejecucion-procesos': ejecucion.procesos,
+  'ejecucion-tuckman': ejecucion.tuckman,
+  'ejecucion-raci': ejecucion.raci,
+  'ejecucion-calidad': ejecucion.calidad,
+  'cambios-semaforo': cambios.semaforo,
+  'cambios-flujo': cambios.flujo,
+  'cambios-tipos': cambios.tipos,
+  'cambios-configuracion': cambios.configuracion,
+  'cierre-tipos': cierre.tipos,
+  'cierre-lecciones': cierre.lecciones,
+  'cierre-exito': cierre.exito,
   'alcance-producto-proyecto': alcance.productoProyecto,
   'alcance-procesos': alcance.procesos,
   'alcance-edt': alcance.edt,

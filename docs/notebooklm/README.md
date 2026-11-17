@@ -11,8 +11,8 @@ contenido).
 2. Agrega como fuente el `.md` del OVA (por ejemplo `gestion-del-alcance.md`).
    Si quieres que el video use los diagramas, agrega también los PNG de
    `frontend/public/ovas` convertidos (ver abajo).
-3. En **Studio → Video Overview → Personalizar**, idioma **Español** y una
-   instrucción como:
+3. En **Studio → Video Overview → Personalizar**, idioma **Español** y la
+   instrucción de `prompts-videos.md` para ese OVA (o una genérica como esta):
 
    > Resumen de 3 a 5 minutos para estudiantes de Ingeniería de Sistemas que van
    > a empezar este OVA. Usa el proyecto RutaCaribe como hilo conductor, explica
@@ -47,7 +47,11 @@ IDs de los OVA (`frontend/src/content/ids.ts`):
 
 | OVA | ID |
 |---|---|
+| Inicio y planificación del proyecto | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a05` |
 | Gestión del alcance | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a01` |
 | Gestión del cronograma | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a02` |
 | Gestión de costos | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a03` |
 | Gestión de riesgos | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a04` |
+| Ejecución del proyecto | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a06` |
+| Monitoreo, control y gestión de cambios | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a07` |
+| Cierre del proyecto | `6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a08` |

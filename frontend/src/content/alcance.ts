@@ -16,13 +16,11 @@ export const alcance: CourseUnit = {
       id: ids.block(U, 1),
       type: 'texto',
       position: 1,
-      content: `## El proyecto que nos acompaña
+      content: `## Qué entra y qué no
 
-La **Cooperativa Brisas del Caribe** vende tiquetes en taquilla y por WhatsApp. Tu equipo construirá **RutaCaribe**: comprar tiquetes, elegir silla y pagar en línea.
+Con el acta firmada, el equipo de **RutaCaribe** sabe *por qué* existe el proyecto. Ahora debe acordar **qué** se construye y **qué no**: compra de tiquetes, selección de silla y pago en línea… ¿y las encomiendas?
 
-En los cuatro OVA gestionarás este proyecto: **alcance → cronograma → costos → riesgos**.
-
-> Antes de programar, hay que acordar **qué** se construye y **qué no**. Eso es gestionar el alcance.`,
+> Antes de programar, hay que acordar qué se entrega. Eso es gestionar el alcance.`,
     },
     {
       id: ids.block(U, 2),

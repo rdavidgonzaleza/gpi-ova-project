@@ -6,6 +6,10 @@ export const OVA_IDS = {
   cronograma: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a02',
   costos: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a03',
   riesgos: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a04',
+  inicio: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a05',
+  ejecucion: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a06',
+  cambios: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a07',
+  cierre: '6f1c2a3e-1b7d-4c55-9a0e-2d4b8e7f1a08',
 } as const
 
 const KIND = { block: 1, activity: 2, evaluation: 3, ai: 4 } as const

@@ -166,6 +166,8 @@ const SIMULATION_FOCUS: Record<string, string> = {
   evm: 'Se evalúa la interpretación de PV, EV, AC, CPI, SPI y el pronóstico EAC.',
   riesgos: 'Se evalúa la priorización de riesgos por probabilidad e impacto y la elección de respuestas.',
   triple_restriccion: 'Se evalúa la comprensión de la triple restricción.',
+  clasificacion: 'Se evalúa el criterio con que el estudiante clasificó cada situación; usa el motivo de cada error para explicar el concepto.',
+  secuencia: 'Se evalúa el orden lógico de los pasos de un proceso y por qué cada paso depende del anterior.',
 }
 
 const perActivity: AITemplate[] = COURSE_UNITS.flatMap((unit) =>

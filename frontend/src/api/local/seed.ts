@@ -5,7 +5,7 @@
 // Bump SEED_VERSION whenever these rows change: seeded rows are refreshed and
 // rows created by people are kept.
 
-export const SEED_VERSION = 6
+export const SEED_VERSION = 7
 
 const PASSWORD_HASH = 'pbkdf2-sha256$100000$S_7ReoFH-BcJihT5mBE5sw$j0WRgmKUt-R2AZ0D-0bRqfvRAujD_6Yx9rpi3cwFz8c'
 
@@ -110,6 +110,50 @@ export function seedTables(): Record<string, Row[]> {
         created_by: USER_IDS.docente,
         created_at: '2026-09-04T13:00:00Z',
       },
+      {
+        id: OVA_IDS.inicio,
+        title: 'Inicio y planificación del proyecto',
+        description:
+          'Recorre el ciclo de vida de un proyecto informático, redacta el acta de constitución, identifica a los interesados y arma el plan para la dirección.',
+        learning_outcome:
+          'Formula el acta de constitución con objetivos medibles y clasifica a los interesados según su poder e interés para planificar su gestión.',
+        status: 'publicado',
+        created_by: USER_IDS.docente,
+        created_at: '2026-08-31T13:00:00Z',
+      },
+      {
+        id: OVA_IDS.ejecucion,
+        title: 'Ejecución del proyecto',
+        description:
+          'Dirige al equipo, asigna responsabilidades con la matriz RACI, planifica las comunicaciones y gestiona la calidad mientras se construye el producto.',
+        learning_outcome:
+          'Reconoce la etapa de desarrollo de un equipo y propone acciones de dirección, comunicación y calidad acordes con la situación del proyecto.',
+        status: 'publicado',
+        created_by: USER_IDS.docente,
+        created_at: '2026-09-05T13:00:00Z',
+      },
+      {
+        id: OVA_IDS.cambios,
+        title: 'Monitoreo, control y gestión de cambios',
+        description:
+          'Mide el desempeño con informes semáforo, gestiona solicitudes de cambio con el comité y mantiene las líneas base bajo control de configuración.',
+        learning_outcome:
+          'Clasifica solicitudes de cambio y las gestiona con el control integrado de cambios, sustentando el análisis de impacto ante el comité.',
+        status: 'publicado',
+        created_by: USER_IDS.docente,
+        created_at: '2026-09-06T13:00:00Z',
+      },
+      {
+        id: OVA_IDS.cierre,
+        title: 'Cierre del proyecto',
+        description:
+          'Obtén la aceptación formal, transfiere el producto, cierra contratos, registra lecciones aprendidas y evalúa el éxito del proyecto.',
+        learning_outcome:
+          'Ejecuta el cierre ordenado de un proyecto y redacta lecciones aprendidas accionables que otros proyectos puedan reutilizar.',
+        status: 'publicado',
+        created_by: USER_IDS.docente,
+        created_at: '2026-09-07T13:00:00Z',
+      },
     ],
   }
 }
@@ -120,24 +164,27 @@ function user(id: string, email: string, full_name: string, role: string) {
 
 // Progress of the rest of the course group, so the teacher dashboard reflects
 // a class already working through the path (tracking-service, spec 7.6).
-const GROUP_PROGRESS: Array<[number, number, number, number]> = [
-  // alcance, cronograma, costos, riesgos (percent; -1 = not started)
-  [100, 100, 64, 18],
-  [100, 82, 27, -1],
-  [100, 100, 100, 45],
-  [73, 18, -1, -1],
-  [100, 91, 45, -1],
-  [36, -1, -1, -1],
-  [100, 100, 82, 9],
-  [100, 55, -1, -1],
-  [9, -1, -1, -1],
-  [100, 100, 100, 100],
-  [91, 27, -1, -1],
-  [100, 73, 9, -1],
+const GROUP_PROGRESS: Array<[number, number, number, number, number, number, number, number]> = [
+  // inicio, alcance, cronograma, costos, riesgos, ejecución, cambios, cierre (percent; -1 = not started)
+  [100, 100, 100, 64, 18, -1, -1, -1],
+  [100, 100, 82, 27, -1, -1, -1, -1],
+  [100, 100, 100, 100, 100, 60, 20, -1],
+  [100, 73, 18, -1, -1, -1, -1, -1],
+  [100, 100, 91, 45, -1, -1, -1, -1],
+  [82, 36, -1, -1, -1, -1, -1, -1],
+  [100, 100, 100, 82, 9, -1, -1, -1],
+  [100, 100, 55, -1, -1, -1, -1, -1],
+  [45, 9, -1, -1, -1, -1, -1, -1],
+  [100, 100, 100, 100, 100, 100, 100, 71],
+  [100, 91, 27, -1, -1, -1, -1, -1],
+  [100, 100, 73, 9, -1, -1, -1, -1],
 ]
 
 function groupProgress(): Row[] {
-  const order = [OVA_IDS.alcance, OVA_IDS.cronograma, OVA_IDS.costos, OVA_IDS.riesgos]
+  const order = [
+    OVA_IDS.inicio, OVA_IDS.alcance, OVA_IDS.cronograma, OVA_IDS.costos,
+    OVA_IDS.riesgos, OVA_IDS.ejecucion, OVA_IDS.cambios, OVA_IDS.cierre,
+  ]
   return STUDENTS.slice(1).flatMap(([studentId], row) =>
     GROUP_PROGRESS[row].flatMap((percent, column) =>
       percent < 0

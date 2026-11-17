@@ -58,7 +58,7 @@ const caseStudyConfig = z.object({
 
 const simulationConfig = z.object({
   ...base,
-  kind: z.enum(["triple_restriccion", "edt", "cpm", "evm", "riesgos"]),
+  kind: z.enum(["triple_restriccion", "edt", "cpm", "evm", "riesgos", "clasificacion", "secuencia"]),
   params: z.record(z.string(), z.unknown()),
   review_ai_activity_id: uuid.optional(),
 }).passthrough();

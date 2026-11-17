@@ -94,7 +94,7 @@ writeFileSync(
     '-- Progreso de ejemplo del grupo; no pisa el avance real de los estudiantes.',
     'INSERT INTO progress (id, student_id, ova_id, status, percent_complete, last_accessed_at) VALUES',
     progressRows.join(',\n'),
-    'ON CONFLICT (student_id, ova_id) DO NOTHING;',
+    'ON CONFLICT DO NOTHING;',
     '',
   ].join('\n'),
 )
