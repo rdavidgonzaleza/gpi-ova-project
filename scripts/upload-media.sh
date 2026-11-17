@@ -4,7 +4,10 @@
 #   public_url|descripción
 #
 # Uso:
-#   scripts/upload-media.sh <ova_id> <archivo> "<descripción>"
+#   scripts/upload-media.sh <ova_id> <archivo> "<descripción>" [--position N]
+#
+# Con --position N además agrega el bloque al OVA en esa posición (PATCH con
+# una versión nueva). Usa 0 para que el video abra el OVA.
 #
 # Variables (opcionales):
 #   API_URL         Gateway o servicio. Default: http://localhost:8080 si el
@@ -17,7 +20,8 @@ if [[ $# -lt 2 ]]; then
   echo "uso: $0 <ova_id> <archivo> [descripción]" >&2
   exit 1
 fi
-OVA_ID="$1"; FILE="$2"; DESCRIPTION="${3:-}"
+OVA_ID="$1"; FILE="$2"; DESCRIPTION="${3:-}"; POSITION=""
+if [[ "${4:-}" == "--position" ]]; then POSITION="${5:?falta el número de posición}"; fi
 [[ -f "$FILE" ]] || { echo "no existe el archivo $FILE" >&2; exit 1; }
 
 if [[ -n "${API_URL:-}" ]]; then
@@ -54,4 +58,20 @@ fi
 
 echo "Subiendo $(du -h "$FILE" | cut -f1) a B2…" >&2
 curl -fsS --progress-bar -X PUT -H "Content-Type: $TYPE" --upload-file "$FILE" "$UPLOAD_URL" -o /dev/null
-echo "$PUBLIC_URL|$DESCRIPTION"
+BLOCK="$PUBLIC_URL|$DESCRIPTION"
+if [[ -z "$POSITION" ]]; then
+  echo "$BLOCK"
+  exit 0
+fi
+
+BLOCK_TYPE=video; [[ "$TYPE" == image/* ]] && BLOCK_TYPE=imagen
+PATCH=$(curl -fsS "$CONTENT_URL/api/ovas/$OVA_ID" | python3 -c '
+import json, sys
+ova = json.load(sys.stdin)
+blocks = [{k: b[k] for k in ("type", "position", "content")} for b in ova.get("blocks", [])]
+blocks.append({"type": sys.argv[1], "position": int(sys.argv[2]), "content": sys.argv[3]})
+print(json.dumps({"blocks": blocks, "change_notes": "Se agrega " + sys.argv[1] + ": " + (sys.argv[4] or "archivo multimedia")}))
+' "$BLOCK_TYPE" "$POSITION" "$BLOCK" "$DESCRIPTION")
+curl -fsS -X PATCH -H 'Content-Type: application/json' -H "Authorization: Bearer $TOKEN" \
+  -d "$PATCH" "$CONTENT_URL/api/ovas/$OVA_ID" -o /dev/null
+echo "Bloque $BLOCK_TYPE agregado en la posición $POSITION: $BLOCK"
